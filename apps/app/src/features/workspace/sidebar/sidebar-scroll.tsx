@@ -7,12 +7,10 @@ import { SidebarShortcuts } from "./sidebar-shortcuts";
 export function SidebarScroll() {
   return (
     <SidebarScrollLayout
-      slots={{
-        "sidebar-shortcuts": SidebarShortcuts,
-        "sidebar-projects": SidebarProjects,
-        "sidebar-pinned": SidebarPinned,
-        "sidebar-recents": SidebarRecents,
-      }}
+      shortcuts={<SidebarShortcuts />}
+      pinned={<SidebarPinned />}
+      projects={<SidebarProjects />}
+      recents={<SidebarRecents />}
     />
   );
 }

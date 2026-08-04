@@ -14,9 +14,5 @@ export function ProcessingStatus({
 }: {
   label?: string;
 }) {
-  function Label() {
-    return <ProcessingLabel label={label} />;
-  }
-
-  return <ProcessingStatusLayout slots={{ "processing-label": Label }} />;
+  return <ProcessingStatusLayout label={<ProcessingLabel label={label} />} />;
 }

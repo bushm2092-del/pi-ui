@@ -1,1 +1,16 @@
-/* Workspace styles are installed by the workspace document module. */
+/* Final cascade composition: app foundation, shared UI, then feature-owned blocks. */
+@import "./styles/codex/app-globals.css";
+@import "./features/workspace/composer/utility-bar.css";
+@import "./features/workspace/main/main.css";
+@import "@pi/ui/markdown.css";
+@import "@pi/ui/prose-mirror.css";
+@import "./features/workspace/composer/composer.css";
+@import "@pi/ui/code-display.css";
+@import "./features/workspace/sidebar/sidebar.css";
+@import "@pi/ui/foundation-properties.css";
+@import "./styles/codex/codex-vscode-theme.css";
+@import "./styles/codex/ui-token-bridge.css";
+@import "@pi/ui/foundation-reset.css";
+@import "@pi/ui/foundation-components.css";
+@import "./styles/tailwind.css";
+@import "./styles/codex/runtime.css";

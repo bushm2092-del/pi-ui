@@ -1,8 +1,12 @@
-import { LayoutSlot, type LayoutProps } from "../../layout";
-
-export function MainHeaderContextLayout({ slots = {}, rootProps = {} }: LayoutProps = {}) {
+export function MainHeaderContextLayout({
+  title,
+  summaryToggle,
+}: {
+  title: string;
+  summaryToggle: React.ReactNode;
+}) {
   return (
-    <div {...({"aria-hidden":"false","data-testid":"app-shell-header-context-menu-surface","className":"pointer-events-none relative ms-2 flex h-full min-w-0 flex-1 isolate items-center gap-1.5 overflow-hidden [contain:layout_paint] pe-1.5"} as any)} {...rootProps}>
+    <div {...({"aria-hidden":"false","data-testid":"app-shell-header-context-menu-surface","className":"pointer-events-none relative ms-2 flex h-full min-w-0 flex-1 isolate items-center gap-1.5 overflow-hidden [contain:layout_paint] pe-1.5"} as any)}>
       <div {...({"className":"pointer-events-none w-full min-w-0 flex-1 [&_a]:pointer-events-auto [&_button]:pointer-events-auto [&_input]:pointer-events-auto [&_select]:pointer-events-auto [&_textarea]:pointer-events-auto"} as any)}>
         <div {...({"className":"grid w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 draggable electron:h-toolbar extension:py-row-y"} as any)}>
           <div {...({"className":"text-md flex min-w-0 items-center gap-0 truncate text-base focus-within:overflow-visible electron:font-medium"} as any)}>
@@ -14,7 +18,12 @@ export function MainHeaderContextLayout({ slots = {}, rootProps = {} }: LayoutPr
               </button>
               <div {...({"className":"max-w-[320px] min-w-0 truncate focus-within:overflow-visible"} as any)}>
                 <span {...({"className":"inline-flex max-w-[320px] min-w-[2ch] items-center overflow-hidden text-token-foreground focus-within:overflow-visible"} as any)}>
-                  <LayoutSlot name="main-header-title" slots={slots} />
+                  <button
+                    type="button"
+                    className="no-drag -ms-0.5 min-w-0 cursor-interaction truncate rounded-md px-1.5 text-left text-base leading-6 font-medium text-token-foreground hover:bg-token-list-hover-background focus-visible:bg-token-list-hover-background focus-visible:outline-none max-w-[320px]"
+                  >
+                    {title}
+                  </button>
                 </span>
               </div>
             </div>
@@ -36,7 +45,7 @@ export function MainHeaderContextLayout({ slots = {}, rootProps = {} }: LayoutPr
       <div {...({"className":"ms-auto flex shrink-0 items-center gap-1.5"} as any)}>
         <div {...({"className":"pointer-events-auto flex shrink-0 items-center no-drag"} as any)}>
           <span {...({"data-state":"closed","className":"contents"} as any)}>
-            <LayoutSlot name="summary-toggle" slots={slots} />
+            {summaryToggle}
           </span>
         </div>
       </div>

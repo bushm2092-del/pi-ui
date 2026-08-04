@@ -5,10 +5,8 @@ import { TimelineScroll } from "./timeline-scroll";
 export function ThreadFrame() {
   return (
     <ThreadFrameLayout
-      slots={{
-        "timeline-scroll": TimelineScroll,
-        "summary-panel": SummaryPanel,
-      }}
+      timeline={<TimelineScroll />}
+      summary={<SummaryPanel />}
     />
   );
 }

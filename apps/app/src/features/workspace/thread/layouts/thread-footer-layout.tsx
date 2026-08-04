@@ -1,8 +1,8 @@
-import { LayoutSlot, type LayoutProps } from "../../layout";
+import type { ReactNode } from "react";
 
-export function ThreadFooterLayout({ slots = {}, rootProps = {} }: LayoutProps = {}) {
+export function ThreadFooterLayout({ composer }: { composer: ReactNode }) {
   return (
-    <div {...({"data-thread-scroll-footer":"true","className":"sticky bottom-0 z-10 mt-auto w-full pb-4"} as any)} {...rootProps}>
+    <div {...({"data-thread-scroll-footer":"true","className":"sticky bottom-0 z-10 mt-auto w-full pb-4"} as any)}>
       <div {...({"className":"pointer-events-none absolute inset-x-0 bottom-0 z-0 flex h-full w-full justify-center pt-4"} as any)}>
         <div {...({"className":"mx-auto w-full max-w-(--thread-content-max-width) px-toolbar z-0 h-full bg-gradient-to-t from-token-main-surface-primary via-token-main-surface-primary extension:from-token-bg-primary extension:via-token-bg-primary"} as any)} />
       </div>
@@ -16,7 +16,7 @@ export function ThreadFooterLayout({ slots = {}, rootProps = {} }: LayoutProps =
             </button>
           </div>
           <div {...({"className":"flex flex-col gap-2"} as any)}>
-            <LayoutSlot name="composer" slots={slots} />
+            {composer}
           </div>
         </div>
       </div>

@@ -1,8 +1,6 @@
-import type { LayoutProps } from "../../layout";
-
-export function UserActionsLayout({ slots = {}, rootProps = {} }: LayoutProps = {}) {
+export function UserActionsLayout() {
   return (
-    <div {...({"className":"me-1 ms-1 flex items-center gap-2 opacity-0 group-focus-within:opacity-100 group-hover:opacity-100"} as any)} {...rootProps}>
+    <div {...({"className":"me-1 ms-1 flex items-center gap-2 opacity-0 group-focus-within:opacity-100 group-hover:opacity-100"} as any)}>
       <span {...({"className":"flex opacity-0 group-focus-within:opacity-100 group-hover:opacity-100"} as any)}>
         <span {...({"className":"text-xs text-token-text-tertiary"} as any)}>
           {"21:27"}

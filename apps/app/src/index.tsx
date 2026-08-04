@@ -5,6 +5,7 @@ import type { AgentBackendConnection } from "@pi/agent-client";
 import { AgentClientProvider } from "./agent/agent-client-context";
 import { installWorkspaceDocument, WorkspacePage } from "./features/workspace";
 import { PlatformProvider } from "./platform/context";
+import { QueryProvider } from "./query/query-provider";
 
 export interface MountAppOptions {
   platform: PlatformAdapter;
@@ -17,9 +18,11 @@ export function mountApp(element: HTMLElement, options: MountAppOptions) {
   root.render(
     <StrictMode>
       <PlatformProvider adapter={options.platform}>
-        <AgentClientProvider connection={options.backend}>
-          <WorkspacePage />
-        </AgentClientProvider>
+        <QueryProvider>
+          <AgentClientProvider connection={options.backend}>
+            <WorkspacePage />
+          </AgentClientProvider>
+        </QueryProvider>
       </PlatformProvider>
     </StrictMode>
   );

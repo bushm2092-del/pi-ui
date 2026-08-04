@@ -5,10 +5,8 @@ import { TimelineScrollLayout } from "./layouts";
 export function TimelineScroll() {
   return (
     <TimelineScrollLayout
-      slots={{
-        conversation: Conversation,
-        "thread-footer": ThreadFooter,
-      }}
+      conversation={<Conversation />}
+      footer={<ThreadFooter />}
     />
   );
 }

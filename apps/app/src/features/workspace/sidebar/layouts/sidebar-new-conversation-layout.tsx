@@ -1,8 +1,6 @@
-import { LayoutSlot, type LayoutProps } from "../../layout";
-
-export function SidebarNewConversationLayout({ slots = {}, rootProps = {} }: LayoutProps = {}) {
+export function SidebarNewConversationLayout({ label }: { label: string }) {
   return (
-    <div {...({"className":"flex flex-col gap-1"} as any)} {...rootProps}>
+    <div {...({"className":"flex flex-col gap-1"} as any)}>
       <div {...({"className":"flex flex-col gap-px"} as any)}>
         <button {...({"type":"button","className":"sidebar-item focus-visible:outline-token-border relative h-[var(--height-token-row)] px-[var(--padding-row-cell-x,var(--padding-row-x))] py-row-y cursor-interaction shrink-0 items-center overflow-hidden text-left text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50 gap-2 flex w-full hover:bg-token-list-hover-background"} as any)}>
           <div {...({"className":"flex min-w-0 items-center text-base gap-2 flex-1 text-token-foreground"} as any)}>
@@ -12,7 +10,7 @@ export function SidebarNewConversationLayout({ slots = {}, rootProps = {} }: Lay
                 <path {...({"fillRule":"evenodd","clipRule":"evenodd","d":"M10.8948 2.375C11.6494 1.63227 12.8628 1.63698 13.6116 2.38574C14.362 3.13643 14.3637 4.35266 13.6165 5.10644L9.36353 9.39355C9.01402 9.74579 8.56977 9.98985 8.08521 10.0967L6.17603 10.5166C5.74813 10.6107 5.36686 10.2296 5.46118 9.80176L5.88208 7.89746C5.98978 7.4105 6.23578 6.96428 6.59106 6.61426L10.8948 2.375ZM12.9749 3.02148C12.5756 2.62258 11.9289 2.62086 11.5266 3.0166L7.2229 7.25586C6.99148 7.4839 6.83116 7.77457 6.76099 8.0918L6.44165 9.53711L7.89185 9.21777C8.20744 9.14811 8.49721 8.98919 8.72485 8.75976L12.9778 4.47266C13.3759 4.07066 13.375 3.42164 12.9749 3.02148Z","fill":"currentColor"} as any)} />
               </svg>
             </span>
-            <LayoutSlot name="sidebar-new-conversation-label" slots={slots} />
+            <span className="text-fade-truncate">{label}</span>
           </div>
         </button>
       </div>

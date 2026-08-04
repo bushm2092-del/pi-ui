@@ -5,10 +5,8 @@ import { MainViewport } from "./main-viewport";
 export function MainSurface() {
   return (
     <MainSurfaceLayout
-      slots={{
-        "main-header": MainHeader,
-        "main-viewport": MainViewport,
-      }}
+      header={<MainHeader />}
+      viewport={<MainViewport />}
     />
   );
 }

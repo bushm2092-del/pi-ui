@@ -14,6 +14,7 @@
     "typecheck": "pnpm -r --if-present typecheck",
     "typecheck:backend": "pnpm --filter @pi/protocol --filter @pi/pi-adapter --filter @pi/agent-worker --filter @pi/server typecheck",
     "test": "pnpm -r --if-present test",
-    "lint": "pnpm -r --if-present lint"
+    "lint": "pnpm -r --if-present lint",
+    "audit:workspace-css": "node scripts/audit-workspace-css.mjs"
   }
 }

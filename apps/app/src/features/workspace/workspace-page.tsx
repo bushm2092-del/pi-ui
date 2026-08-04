@@ -1,21 +1,31 @@
 import { MainSurface } from "./main";
 import { Sidebar } from "./sidebar";
 import { RootLayout } from "./workspace-layout";
-import { WorkspaceStateProvider } from "./workspace-state";
 import { mockWorkspaceRepository } from "./data/mock";
 import { WorkspaceRepositoryProvider } from "./data/workspace-repository-context";
+import {
+  selectSidebarOpen,
+  useWorkspaceUi,
+  WorkspaceUiProvider,
+} from "./model";
+
+function WorkspaceShell() {
+  const sidebarOpen = useWorkspaceUi(selectSidebarOpen);
+
+  return (
+    <RootLayout
+      sidebar={sidebarOpen ? <Sidebar /> : null}
+      mainSurface={<MainSurface />}
+    />
+  );
+}
 
 export function WorkspacePage() {
   return (
     <WorkspaceRepositoryProvider value={mockWorkspaceRepository}>
-      <WorkspaceStateProvider>
-        <RootLayout
-          slots={{
-            sidebar: Sidebar,
-            "main-surface": MainSurface,
-          }}
-        />
-      </WorkspaceStateProvider>
+      <WorkspaceUiProvider>
+        <WorkspaceShell />
+      </WorkspaceUiProvider>
     </WorkspaceRepositoryProvider>
   );
 }

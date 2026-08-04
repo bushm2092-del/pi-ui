@@ -6,6 +6,12 @@
   "exports": {
     ".": "./src/index.ts",
     "./markdown": "./src/components/markdown/index.ts",
+    "./markdown.css": "./src/components/markdown/markdown.css",
+    "./foundation-properties.css": "./src/styles/foundation-properties.css",
+    "./foundation-reset.css": "./src/styles/foundation-reset.css",
+    "./foundation-components.css": "./src/styles/foundation-components.css",
+    "./prose-mirror.css": "./src/styles/vendor/prose-mirror.css",
+    "./code-display.css": "./src/styles/vendor/code-display.css",
     "./styles.css": "./src/styles.css"
   },
   "dependencies": {

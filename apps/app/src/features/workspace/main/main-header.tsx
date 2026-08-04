@@ -1,6 +1,18 @@
 import { MainHeaderContext } from "./main-header-context";
 import { MainHeaderLayout } from "./layouts";
+import {
+  selectSidebarOpen,
+  selectToggleSidebar,
+  useWorkspaceUi,
+} from "../model";
 
 export function MainHeader() {
-  return <MainHeaderLayout slots={{ "main-header-context": MainHeaderContext }} />;
+  const sidebarOpen = useWorkspaceUi(selectSidebarOpen);
+  const toggleSidebar = useWorkspaceUi(selectToggleSidebar);
+
+  return (
+    <MainHeaderLayout sidebarOpen={sidebarOpen} onToggleSidebar={toggleSidebar}>
+      <MainHeaderContext />
+    </MainHeaderLayout>
+  );
 }

@@ -1,11 +1,15 @@
-import { LayoutSlot, type LayoutProps } from "../../layout";
-
-export function MainSurfaceLayout({ slots = {}, rootProps = {} }: LayoutProps = {}) {
+export function MainSurfaceLayout({
+  header,
+  viewport,
+}: {
+  header: React.ReactNode;
+  viewport: React.ReactNode;
+}) {
   return (
-    <main {...({"className":"_MainContentSurface_1e9gb_32","data-app-shell-main-surface":"default"} as any)} {...rootProps}>
-      <LayoutSlot name="main-header" slots={slots} />
+    <main {...({"className":"pi-workspace-main-surface","data-app-shell-main-surface":"default"} as any)}>
+      {header}
       <div {...({"className":"relative isolate flex min-h-0 flex-1 overflow-hidden"} as any)}>
-        <LayoutSlot name="main-viewport" slots={slots} />
+        {viewport}
       </div>
       <div {...({"id":"DndDescribedBy-1","style":{"display":"none"}} as any)}>
         {"\n    To pick up a draggable item, press the space bar.\n    While dragging, use the arrow keys to move the item.\n    Press space again to drop the item in its new position, or press escape to cancel.\n  "}

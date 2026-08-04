@@ -1,8 +1,13 @@
-import { LayoutSlot, type LayoutProps } from "../../layout";
+import type { ReactNode } from "react";
 
-export function UserMessageLayout({ slots = {}, rootProps = {} }: LayoutProps = {}) {
+interface UserMessageLayoutProps {
+  content: ReactNode;
+  actions: ReactNode;
+}
+
+export function UserMessageLayout({ content, actions }: UserMessageLayoutProps) {
   return (
-    <div {...({"className":"scroll-mt-4","data-content-search-unit-key":"019fc7cf-25d9-7692-929f-bfb716396717:item-1","data-local-conversation-user-anchor":"true"} as any)} {...rootProps}>
+    <div {...({"className":"scroll-mt-4","data-content-search-unit-key":"019fc7cf-25d9-7692-929f-bfb716396717:item-1","data-local-conversation-user-anchor":"true"} as any)}>
       <div {...({"className":"flex flex-col items-end gap-2"} as any)}>
         <h4 {...({"className":"sr-only select-none"} as any)}>
           {"你说："}
@@ -13,14 +18,14 @@ export function UserMessageLayout({ slots = {}, rootProps = {} }: LayoutProps = 
               <div {...({"className":"relative w-full min-w-0 text-size-chat"} as any)}>
                 <div>
                   <div {...({"className":"text-size-chat whitespace-pre-wrap"} as any)}>
-                    <LayoutSlot name="user-message-content" slots={slots} />
+                    {content}
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div {...({"className":"flex flex-row-reverse items-center gap-1"} as any)}>
-            <LayoutSlot name="user-actions" slots={slots} />
+            {actions}
           </div>
         </div>
       </div>

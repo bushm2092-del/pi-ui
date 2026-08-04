@@ -14,5 +14,5 @@ function ModeLabel() {
 }
 
 export function SidebarMode() {
-  return <SidebarModeLayout slots={{ "sidebar-mode-label": ModeLabel }} />;
+  return <SidebarModeLayout label={<ModeLabel />} />;
 }

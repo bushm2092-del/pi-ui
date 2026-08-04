@@ -1,0 +1,16 @@
+.pi-composer-surface { --composer-border-radius: var(--radius-3xl); border-radius: var(--composer-border-radius); }
+.pi-composer-attachments { --composer-attachment-inset: calc(var(--spacing) * 2); --composer-attachment-border-radius: max(0px, calc(var(--composer-border-radius) - var(--composer-attachment-inset))); padding-bottom: calc(var(--spacing) * 1.5); }
+.pi-composer-attachments .composer-attachment-surface { border-radius: var(--composer-attachment-border-radius); }
+@supports (corner-shape:superellipse(1.5)) {
+  .pi-composer-surface, .pi-composer-attachments .composer-attachment-surface { corner-shape: var(--codex-corner-shape); }
+}
+.pi-composer-footer { container: composer-footer / inline-size; }
+
+.pi-composer-editor .ProseMirror ul { list-style-type: disc; }
+.pi-composer-editor .ProseMirror ul ul { list-style-type: circle; }
+.pi-composer-editor .ProseMirror ul ul ul { list-style-type: square; }
+.pi-composer-editor .ProseMirror pre[data-composer-code-block] { border-radius: var(--radius-lg); background: var(--surface-code); padding: calc(var(--spacing) * 2); font-family: var(--font-mono); font-size: var(--text-sm); line-height: calc(var(--spacing) * 5); tab-size: 4; white-space: pre; margin: 0; overflow-x: auto; }
+.pi-composer-editor .ProseMirror pre[data-composer-code-block] > code { min-width: max-content; display: block; }
+.pi-composer-editor .ProseMirror [text-link-href]::selection,
+.pi-composer-editor .ProseMirror [rich-link-display-text][rich-link-href]::selection { color: highlighttext; }
+.pi-composer-editor .ProseMirror.ProseMirror-focused [data-rich-link-selected] { --inline-mention-color: HighlightText; background-color: highlight; }

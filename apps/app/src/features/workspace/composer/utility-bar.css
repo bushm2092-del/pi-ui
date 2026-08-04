@@ -1,0 +1,12 @@
+@container composer-footer (width <= 440px) {
+  .pi-composer-label-sm { display: none; }
+}
+
+@container composer-footer (width <= 300px) {
+  .pi-composer-label-xs { display: none; }
+}
+
+@container composer-footer (width <= 475px) {
+  [data-codex-window-type="electron"] .pi-composer-label-sm,
+  [data-codex-window-type="electron"] .pi-composer-label-xs { display: none; }
+}

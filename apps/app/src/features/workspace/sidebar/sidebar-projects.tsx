@@ -5,10 +5,8 @@ import { SidebarProjectsLayout } from "./layouts";
 export function SidebarProjects() {
   return (
     <SidebarProjectsLayout
-      slots={{
-        "sidebar-projects-header": SidebarProjectsHeader,
-        "sidebar-project-list": SidebarProjectList,
-      }}
+      header={<SidebarProjectsHeader />}
+      projectList={<SidebarProjectList />}
     />
   );
 }

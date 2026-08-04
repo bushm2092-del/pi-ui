@@ -1,8 +1,6 @@
-import type { LayoutProps } from "../../layout";
-
-export function ComposerPermissionsLayout({ slots = {}, rootProps = {} }: LayoutProps = {}) {
+export function ComposerPermissionsLayout() {
   return (
-    <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full text-token-text-tertiary enabled:hover:bg-token-list-hover-background enabled:active:bg-token-foreground/15 data-[state=open]:bg-token-list-hover-background border-transparent h-token-button-composer-sm px-1.5 py-0 text-sm leading-[18px] outline-hidden cursor-interaction min-w-0","data-composer-navigation-target":"permissions","id":"radix-_r_l6_","aria-haspopup":"menu","aria-expanded":"false","data-state":"closed"} as any)} {...rootProps}>
+    <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full text-token-text-tertiary enabled:hover:bg-token-list-hover-background enabled:active:bg-token-foreground/15 data-[state=open]:bg-token-list-hover-background border-transparent h-token-button-composer-sm px-1.5 py-0 text-sm leading-[18px] outline-hidden cursor-interaction min-w-0","data-composer-navigation-target":"permissions","id":"radix-_r_l6_","aria-haspopup":"menu","aria-expanded":"false","data-state":"closed"} as any)}>
       <span {...({"className":"flex size-4 shrink-0 items-center justify-center self-center leading-none [&_svg]:block text-token-editor-warning-foreground [&_svg]:size-4 [&_svg]:text-current"} as any)}>
         <svg {...({"width":"20","height":"20","viewBox":"0 0 20 20","fill":"none","xmlns":"http://www.w3.org/2000/svg","className":"icon-xs shrink-0 text-token-editor-warning-foreground"} as any)}>
           <path {...({"fillRule":"evenodd","clipRule":"evenodd","d":"M9.06543 1.95123C9.66107 1.69076 10.3389 1.69071 10.9346 1.95123L15.9346 4.13873C16.7832 4.51008 17.3311 5.34917 17.3311 6.27545V10.5528C17.3309 14.6017 14.0489 17.8847 10 17.8848C5.95108 17.8846 2.66813 14.6017 2.66797 10.5528V6.27545C2.66797 5.34924 3.21695 4.51012 4.06543 4.13873L9.06543 1.95123ZM10.4014 3.16998C10.1456 3.05814 9.85444 3.05819 9.59863 3.16998L4.59863 5.35748C4.23427 5.51708 3.99805 5.87764 3.99805 6.27545V10.5528C3.99821 13.8671 6.68563 16.5546 10 16.5547C13.3144 16.5546 16.0008 13.8671 16.001 10.5528V6.27545C16.001 5.87756 15.7658 5.51703 15.4014 5.35748L10.4014 3.16998Z","fill":"currentColor"} as any)} />
@@ -10,9 +8,9 @@ export function ComposerPermissionsLayout({ slots = {}, rootProps = {} }: Layout
           <path {...({"d":"M10.5169 10.8949L11.1135 7.31519C11.2283 6.62672 10.6974 6 9.99941 6C9.30145 6 8.77053 6.62672 8.88528 7.31519L9.4819 10.8949C9.52406 11.1479 9.74294 11.3333 9.99941 11.3333C10.2559 11.3333 10.4748 11.1479 10.5169 10.8949Z","fill":"currentColor"} as any)} />
         </svg>
       </span>
-      <span {...({"className":"_dropdownLabelText_2l838_2 inline-flex min-w-0 items-center gap-1 text-left"} as any)}>
-        <span {...({"className":"_labelXs_2l838_2 _dropdownLabelValue_2l838_2 min-w-0 truncate font-normal whitespace-nowrap text-token-editor-warning-foreground [&_svg]:size-4 [&_svg]:text-current max-w-40"} as any)}>
-          <span {...({"className":"_dropdownLabelValueContent_2l838_2 block max-w-full min-w-0 truncate text-token-editor-warning-foreground","data-tooltip-overflow-target":"true"} as any)}>
+      <span {...({"className":"pi-composer-dropdown-label inline-flex min-w-0 items-center gap-1 text-left"} as any)}>
+        <span {...({"className":"pi-composer-label-xs pi-composer-dropdown-value min-w-0 truncate font-normal whitespace-nowrap text-token-editor-warning-foreground [&_svg]:size-4 [&_svg]:text-current max-w-40"} as any)}>
+          <span {...({"className":"pi-composer-dropdown-value-content block max-w-full min-w-0 truncate text-token-editor-warning-foreground","data-tooltip-overflow-target":"true"} as any)}>
             {"完全访问"}
           </span>
         </span>

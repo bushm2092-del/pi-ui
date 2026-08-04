@@ -1,56 +1,40 @@
-import { useState } from "react";
 import { workspaceData } from "../data/workspace-data";
-import { projectItemLayouts } from "./layout-map";
+import {
+  selectActiveThreadId,
+  selectExpandedProjectIds,
+  selectSelectThread,
+  selectToggleProject,
+  useWorkspaceUi,
+} from "../model";
 import { SidebarProjectItem } from "./sidebar-project-item";
 import { SidebarProjectListLayout } from "./layouts";
 
 export function SidebarProjectList() {
   const items = workspaceData.sidebar.items;
-  if (items.length !== projectItemLayouts.length) {
-    throw new Error("Sidebar data does not match the available project layouts");
-  }
+  const expandedProjectIds = useWorkspaceUi(selectExpandedProjectIds);
+  const activeThreadId = useWorkspaceUi(selectActiveThreadId);
+  const selectThread = useWorkspaceUi(selectSelectThread);
+  const toggleProject = useWorkspaceUi(selectToggleProject);
 
-  const [expandedById, setExpandedById] = useState<Record<string, boolean>>(
-    () =>
-      Object.fromEntries(
-        items.flatMap((item) =>
-          item.kind === "project"
-            ? [[item.id, item.initialExpanded] as const]
-            : [],
-        ),
-      ),
-  );
-  const [activeThreadId, setActiveThreadId] = useState<string | null>(
-    () =>
-      items
-        .flatMap((item) => (item.kind === "project" ? item.threads : []))
-        .find((thread) => thread.initialActive)?.id ?? null,
-  );
-
-  const slots = Object.fromEntries(
-    items.map((item, index) => [
-      `sidebar-project-item-${index}`,
-      function ProjectItemSlot() {
-        const expanded = item.kind === "project" ? expandedById[item.id] : false;
+  return (
+    <SidebarProjectListLayout>
+      {items.map((item, index) => {
+        const expanded =
+          item.kind === "project" && expandedProjectIds.includes(item.id);
         return (
           <SidebarProjectItem
-            index={index}
+            key={item.kind === "project" ? item.id : `show-more-${item.label}`}
             item={item}
-            expanded={expanded ?? false}
+            expanded={expanded}
+            hideDivider={items[index + 1]?.kind === "show-more"}
             activeThreadId={activeThreadId}
-            onSelectThread={setActiveThreadId}
+            onSelectThread={selectThread}
             onToggle={() => {
-              if (item.kind !== "project") return;
-              setExpandedById((current) => ({
-                ...current,
-                [item.id]: !current[item.id],
-              }));
+              if (item.kind === "project") toggleProject(item.id);
             }}
           />
         );
-      },
-    ]),
+      })}
+    </SidebarProjectListLayout>
   );
-
-  return <SidebarProjectListLayout slots={slots} />;
 }

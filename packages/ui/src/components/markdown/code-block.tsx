@@ -25,9 +25,9 @@ export function MarkdownCodeBlock({
   return (
     <div
       data-markdown-copy="code-block"
-      className="relative my-3 w-full min-w-0 overflow-hidden rounded-lg bg-token-text-code-block-background contain-inline-size"
+      className="pi-markdown-code-block relative w-full min-w-0 overflow-hidden rounded-lg bg-surface-code contain-inline-size"
     >
-      <div className="flex min-h-8 items-center py-1 pe-2 ps-2 font-sans text-sm text-token-description-foreground select-none">
+      <div className="flex min-h-8 items-center py-1 pe-2 ps-2 font-sans text-sm text-foreground-secondary select-none">
         <div className="min-w-0 flex-1 truncate">{language}</div>
         <div className="ms-auto flex shrink-0 items-center gap-px">
           <Tooltip content={wrap ? "关闭自动换行" : "启用自动换行"}>

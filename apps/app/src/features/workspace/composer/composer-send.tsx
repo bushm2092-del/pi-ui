@@ -6,5 +6,5 @@ interface ComposerSendProps {
 }
 
 export function ComposerSend({ disabled, onSend }: ComposerSendProps) {
-  return <ComposerSendLayout rootProps={{ disabled, onClick: onSend }} />;
+  return <ComposerSendLayout disabled={disabled} onClick={onSend} />;
 }

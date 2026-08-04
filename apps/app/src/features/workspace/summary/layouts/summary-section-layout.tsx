@@ -1,11 +1,15 @@
-import { LayoutSlot, type LayoutProps } from "../../layout";
-
-export function SummarySectionLayout({ slots = {}, rootProps = {} }: LayoutProps = {}) {
+export function SummarySectionLayout({
+  sectionLabel,
+  actionLabel,
+}: {
+  sectionLabel: string;
+  actionLabel: string;
+}) {
   return (
-    <section {...({"className":"relative z-0 flex flex-col pb-3 after:absolute after:inset-x-3.5 after:bottom-0 after:h-[0.5px] after:bg-token-border-default after:content-[''] last:after:hidden last:pb-0"} as any)} {...rootProps}>
+    <section {...({"className":"relative z-0 flex flex-col pb-3 after:absolute after:inset-x-3.5 after:bottom-0 after:h-[0.5px] after:bg-token-border-default after:content-[''] last:after:hidden last:pb-0"} as any)}>
       <header {...({"className":"sticky top-0 z-10 flex h-7 w-full min-w-0 items-center justify-start gap-2 pe-2.5 pb-0.5 text-base text-token-text-tertiary bg-token-dropdown-background ps-3.5"} as any)}>
         <button {...({"aria-expanded":"true","className":"group/section-toggle inline-flex min-w-0 shrink-0 cursor-interaction items-center gap-1.5 rounded-md py-0.5 pe-1 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-token-focus-border","type":"button"} as any)}>
-          <LayoutSlot name="summary-section-label" slots={slots} />
+          <span className="truncate">{sectionLabel}</span>
           <svg {...({"width":"20","height":"21","viewBox":"0 0 20 21","fill":"none","xmlns":"http://www.w3.org/2000/svg","aria-hidden":"true","className":"icon-2xs shrink-0 group-hover/section-toggle:opacity-100 group-focus-visible/section-toggle:opacity-100 transition-transform opacity-0 rotate-0"} as any)}>
             <path {...({"d":"M15.2793 7.71101C15.539 7.45131 15.961 7.45131 16.2207 7.71101C16.4804 7.97071 16.4804 8.39272 16.2207 8.65242L10.4707 14.4024C10.211 14.6621 9.78902 14.6621 9.52932 14.4024L3.77932 8.65242L3.69436 8.54792C3.52385 8.28979 3.55205 7.93828 3.77932 7.71101C4.00659 7.48374 4.3581 7.45554 4.61623 7.62605L4.72073 7.71101L10 12.9903L15.2793 7.71101Z","fill":"currentColor","stroke":"currentColor","strokeWidth":"0.6"} as any)} />
           </svg>
@@ -27,7 +31,12 @@ export function SummarySectionLayout({ slots = {}, rootProps = {} }: LayoutProps
       <div {...({"className":"relative z-0 overflow-hidden","style":{"height":"auto","opacity":"1","marginTop":"2px"}} as any)}>
         <div {...({"className":"flex flex-col gap-0.5 px-3.5"} as any)}>
           <button {...({"aria-expanded":"false","aria-haspopup":"menu","className":"group/summary-panel-item relative isolate flex min-h-token-button-composer w-full min-w-0 items-center gap-token-button-composer-gap rounded-sm border-0 bg-transparent px-0 py-1 text-left cursor-interaction hover:text-token-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-token-focus-border disabled:cursor-not-allowed disabled:text-token-text-tertiary text-token-conversation-summary-trailing","data-slot":"thread-summary-panel-item-button","type":"button"} as any)}>
-            <LayoutSlot name="summary-action-label" slots={slots} />
+            <span
+              className="min-w-0 flex-1 text-base text-fade-truncate"
+              data-slot="thread-summary-panel-item-label"
+            >
+              {actionLabel}
+            </span>
           </button>
         </div>
       </div>

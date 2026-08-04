@@ -20,10 +20,12 @@
   --color-surface-elevated: var(--surface-elevated);
   --color-surface-input: var(--surface-input);
   --color-surface-overlay: var(--surface-overlay);
+  --color-surface-code: var(--surface-code);
   --color-foreground-primary: var(--foreground-primary);
   --color-foreground-secondary: var(--foreground-secondary);
   --color-foreground-tertiary: var(--foreground-tertiary);
   --color-foreground-inverse: var(--foreground-inverse);
+  --color-foreground-link: var(--foreground-link);
   --color-interaction-hover: var(--interaction-hover);
   --color-interaction-active: var(--interaction-active);
   --color-interaction-selected: var(--interaction-selected);

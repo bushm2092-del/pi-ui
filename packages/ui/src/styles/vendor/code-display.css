@@ -1,0 +1,49 @@
+code, pre { font-family: var(--font-mono) !important; }
+code[class="language-plaintext"] { white-space: pre-line; }
+code[class*="language-"], pre[class*="language-"], code.hljs { text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; tab-size: 4; hyphens: none; background: 0px 0px; line-height: 1.5; }
+pre[class*="language-"] { border-radius: 0.3em; overflow: auto; }
+:not(pre) > code[class*="language-"], :not(pre) > code.hljs { white-space: normal; border-radius: 0.3em; padding: 0.1em; }
+:is(.light .dark, :is(.dark, .dark)) code[class*="language-"], :is(.light .dark, :is(.dark, .dark)) pre[class*="language-"], :is(.light .dark, :is(.dark, .dark)) code.hljs { color: rgb(255, 255, 255); }
+:is(.light .dark, :is(.dark, .dark)) .hljs-comment { color: rgba(255, 255, 255, 0.5); }
+:is(.light .dark, :is(.dark, .dark)) .hljs-meta { color: rgba(255, 255, 255, 0.6); }
+:is(.light .dark, :is(.dark, .dark)) .hljs-built_in, :is(.light .dark, :is(.dark, .dark)) .hljs-class .hljs-title { color: rgb(233, 149, 12); }
+:is(.light .dark, :is(.dark, .dark)) .hljs-doctag, :is(.light .dark, :is(.dark, .dark)) .hljs-keyword, :is(.light .dark, :is(.dark, .dark)) .hljs-formula, :is(.light .dark, :is(.dark, .dark)) .hljs-literal { color: rgb(46, 149, 211); }
+:is(.light .dark, :is(.dark, .dark)) .hljs-string, :is(.light .dark, :is(.dark, .dark)) .hljs-regexp, :is(.light .dark, :is(.dark, .dark)) .hljs-addition, :is(.light .dark, :is(.dark, .dark)) .hljs-attribute, :is(.light .dark, :is(.dark, .dark)) .hljs-meta-string { color: rgb(0, 166, 125); }
+:is(.light .dark, :is(.dark, .dark)) .hljs-attr, :is(.light .dark, :is(.dark, .dark)) .hljs-variable, :is(.light .dark, :is(.dark, .dark)) .hljs-template-variable, :is(.light .dark, :is(.dark, .dark)) .hljs-type, :is(.light .dark, :is(.dark, .dark)) .hljs-selector-class, :is(.light .dark, :is(.dark, .dark)) .hljs-selector-attr, :is(.light .dark, :is(.dark, .dark)) .hljs-selector-pseudo, :is(.light .dark, :is(.dark, .dark)) .hljs-number { color: rgb(223, 48, 121); }
+:is(.light .dark, :is(.dark, .dark)) .hljs-symbol, :is(.light .dark, :is(.dark, .dark)) .hljs-bullet, :is(.light .dark, :is(.dark, .dark)) .hljs-link, :is(.light .dark, :is(.dark, .dark)) .hljs-selector-id, :is(.light .dark, :is(.dark, .dark)) .hljs-title { color: rgb(242, 44, 61); }
+:is(.light, .light) code[class*="language-"], :is(.light, .light) pre[class*="language-"], :is(.light, .light) code.hljs { color: rgb(56, 58, 66); }
+:is(.light, .light) .hljs-comment, :is(.light, .light) .hljs-quote { color: rgb(160, 161, 167); font-style: italic; }
+:is(.light, .light) .hljs-doctag, :is(.light, .light) .hljs-keyword, :is(.light, .light) .hljs-formula { color: rgb(166, 38, 164); }
+:is(.light, .light) .hljs-section, :is(.light, .light) .hljs-name, :is(.light, .light) .hljs-selector-tag, :is(.light, .light) .hljs-deletion, :is(.light, .light) .hljs-subst { color: rgb(228, 86, 73); }
+:is(.light, .light) .hljs-literal { color: rgb(1, 132, 187); }
+:is(.light, .light) .hljs-string, :is(.light, .light) .hljs-regexp, :is(.light, .light) .hljs-addition, :is(.light, .light) .hljs-attribute, :is(.light, .light) .hljs-meta-string { color: rgb(80, 161, 79); }
+:is(.light, .light) .hljs-built_in, :is(.light, .light) .hljs-class .hljs-title { color: rgb(193, 132, 1); }
+:is(.light, .light) .hljs-attr, :is(.light, .light) .hljs-variable, :is(.light, .light) .hljs-template-variable, :is(.light, .light) .hljs-type, :is(.light, .light) .hljs-selector-class, :is(.light, .light) .hljs-selector-attr, :is(.light, .light) .hljs-selector-pseudo, :is(.light, .light) .hljs-number { color: rgb(152, 104, 1); }
+:is(.light, .light) .hljs-symbol, :is(.light, .light) .hljs-bullet, :is(.light, .light) .hljs-link, :is(.light, .light) .hljs-meta, :is(.light, .light) .hljs-selector-id, :is(.light, .light) .hljs-title { color: rgb(64, 120, 242); }
+:is(.light, .light) .hljs-emphasis { font-style: italic; }
+:is(.light, .light) .hljs-strong { font-weight: 700; }
+:is(.light, .light) .hljs-link { text-decoration: underline; }
+.ansi-black-fg { color: var(--terminal-ansi-black) !important; }
+.ansi-black-bg { background-color: var(--terminal-ansi-black) !important; }
+.ansi-red-fg { color: var(--terminal-ansi-red) !important; }
+.ansi-red-bg { background-color: var(--terminal-ansi-red) !important; }
+.ansi-green-fg { color: var(--terminal-ansi-green) !important; }
+.ansi-green-bg { background-color: var(--terminal-ansi-green) !important; }
+.ansi-yellow-fg { color: var(--terminal-ansi-yellow) !important; }
+.ansi-yellow-bg { background-color: var(--terminal-ansi-yellow) !important; }
+.ansi-blue-fg { color: var(--terminal-ansi-blue) !important; }
+.ansi-blue-bg { background-color: var(--terminal-ansi-blue) !important; }
+.ansi-magenta-fg { color: var(--terminal-ansi-magenta) !important; }
+.ansi-magenta-bg { background-color: var(--terminal-ansi-magenta) !important; }
+.ansi-cyan-fg { color: var(--terminal-ansi-cyan) !important; }
+.ansi-cyan-bg { background-color: var(--terminal-ansi-cyan) !important; }
+.ansi-white-fg { color: var(--terminal-ansi-white) !important; }
+.ansi-white-bg { background-color: var(--terminal-ansi-white) !important; }
+.ansi-bright-black-fg { color: var(--terminal-ansi-bright-black) !important; }
+.ansi-bright-red-fg { color: var(--terminal-ansi-bright-red) !important; }
+.ansi-bright-green-fg { color: var(--terminal-ansi-bright-green) !important; }
+.ansi-bright-yellow-fg { color: var(--terminal-ansi-bright-yellow) !important; }
+.ansi-bright-blue-fg { color: var(--terminal-ansi-bright-blue) !important; }
+.ansi-bright-magenta-fg { color: var(--terminal-ansi-bright-magenta) !important; }
+.ansi-bright-cyan-fg { color: var(--terminal-ansi-bright-cyan) !important; }
+.ansi-bright-white-fg { color: var(--terminal-ansi-bright-white) !important; }

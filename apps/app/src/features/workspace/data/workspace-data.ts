@@ -10,6 +10,8 @@ export interface Project {
   id: string;
   label: string;
   initialExpanded: boolean;
+  muted?: boolean;
+  canCreateThread?: boolean;
   threads: ThreadItem[];
 }
 
@@ -18,6 +20,7 @@ export interface ThreadItem {
   id: string;
   label: string;
   initialActive?: boolean;
+  indicator?: "running" | "unread";
 }
 
 export interface ShowMoreItem {
@@ -154,6 +157,7 @@ export interface PlatformAdapter {
             kind: "thread",
             id: "local:019fc7cf-3317-7581-9a84-b831acb22c44",
             label: "Launch ChatGPT with debugging",
+            indicator: "running",
           },
           {
             kind: "thread",
@@ -168,6 +172,8 @@ export interface PlatformAdapter {
         id: "65f3bd4e-46a1-4589-a068-445c4eebdce8",
         label: "pi",
         initialExpanded: true,
+        muted: true,
+        canCreateThread: false,
         threads: [],
       },
       {
@@ -197,6 +203,7 @@ export interface PlatformAdapter {
             kind: "thread",
             id: "local:019fb1b8-2419-7cd1-a415-f2ff746a8f4d",
             label: "修复定时任务模型配置报错",
+            indicator: "unread",
           },
           {
             kind: "thread",

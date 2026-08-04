@@ -1,4 +1,3 @@
-import "./workspace.css";
 import { workspaceDocumentAttributes } from "./document-attributes";
 import { workspaceData } from "./data/workspace-data";
 

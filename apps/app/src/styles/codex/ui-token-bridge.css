@@ -1,0 +1,55 @@
+/* Maps the app's Codex/VS Code theme contract onto the shared UI semantics. */
+:root,
+:host {
+  --surface-app: var(--color-token-bg-primary);
+  --surface-main: var(--color-token-main-surface-primary);
+  --surface-sidebar: var(--color-token-side-bar-background);
+  --surface-elevated: var(--color-background-elevated-primary-opaque, var(--color-token-dropdown-background));
+  --surface-input: var(--color-token-input-background);
+  --surface-overlay: var(--color-background-elevated-primary, var(--color-token-dropdown-background));
+  --surface-code: var(--color-token-text-code-block-background);
+
+  --foreground-primary: var(--color-token-foreground);
+  --foreground-secondary: var(--color-token-text-secondary);
+  --foreground-tertiary: var(--color-token-text-tertiary);
+  --foreground-inverse: var(--color-token-on-accent);
+  --foreground-link: var(--color-token-text-link-foreground);
+  --foreground-placeholder: var(--color-token-input-placeholder-foreground);
+  --selection-editor: var(--color-token-editor-selection-background, Highlight);
+  --content-font-size: var(--codex-chat-font-size);
+
+  --terminal-ansi-black: var(--color-token-terminal-ansi-black);
+  --terminal-ansi-red: var(--color-token-terminal-ansi-red);
+  --terminal-ansi-green: var(--color-token-terminal-ansi-green);
+  --terminal-ansi-yellow: var(--color-token-terminal-ansi-yellow);
+  --terminal-ansi-blue: var(--color-token-terminal-ansi-blue);
+  --terminal-ansi-magenta: var(--color-token-terminal-ansi-magenta);
+  --terminal-ansi-cyan: var(--color-token-terminal-ansi-cyan);
+  --terminal-ansi-white: var(--color-token-terminal-ansi-white);
+  --terminal-ansi-bright-black: var(--color-token-terminal-ansi-bright-black);
+  --terminal-ansi-bright-red: var(--color-token-terminal-ansi-bright-red);
+  --terminal-ansi-bright-green: var(--color-token-terminal-ansi-bright-green);
+  --terminal-ansi-bright-yellow: var(--color-token-terminal-ansi-bright-yellow);
+  --terminal-ansi-bright-blue: var(--color-token-terminal-ansi-bright-blue);
+  --terminal-ansi-bright-magenta: var(--color-token-terminal-ansi-bright-magenta);
+  --terminal-ansi-bright-cyan: var(--color-token-terminal-ansi-bright-cyan);
+  --terminal-ansi-bright-white: var(--color-token-terminal-ansi-bright-white);
+
+  --control-primary: var(--color-token-button-background);
+  --control-secondary: var(--color-background-button-secondary);
+  --interaction-hover: var(--color-token-list-hover-background);
+  --interaction-active: var(--color-background-button-secondary-active);
+  --interaction-selected: var(--color-token-list-active-selection-background);
+  --interaction-muted: var(--color-background-button-secondary);
+  --interaction-disabled: 0.4;
+
+  --border-subtle: var(--color-token-border-light);
+  --border-default: var(--color-token-border-default);
+  --border-strong: var(--color-token-border-heavy);
+  --border-focus: var(--color-token-focus-border);
+
+  --status-success: var(--color-token-charts-green);
+  --status-warning: var(--color-token-charts-orange);
+  --status-danger: var(--color-token-charts-red);
+  --status-info: var(--color-token-charts-blue);
+}

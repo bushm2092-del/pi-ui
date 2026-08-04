@@ -1,15 +1,26 @@
-import { LayoutSlot, type LayoutProps } from "../../layout";
+import type { ReactNode } from "react";
+import type { MessageStatus } from "../../domain";
 
-export function AssistantMessageLayout({ slots = {}, rootProps = {} }: LayoutProps = {}) {
+interface AssistantMessageLayoutProps {
+  status: MessageStatus;
+  markdown: ReactNode;
+  actions: ReactNode;
+}
+
+export function AssistantMessageLayout({
+  status,
+  markdown,
+  actions,
+}: AssistantMessageLayoutProps) {
   return (
-    <div {...({"className":"flex flex-col","data-local-conversation-final-assistant":"true"} as any)} {...rootProps}>
+    <div {...({"className":"flex flex-col","data-local-conversation-final-assistant":"true"} as any)} data-message-status={status}>
       <div {...({"data-content-search-unit-key":"019fc7cf-25d9-7692-929f-bfb716396717:item-5"} as any)}>
         <div {...({"data-response-annotation-conversation":"019fc7cf-24ff-77a0-a094-966a0cd02845","data-response-annotation-target":"item-5","className":"group flex min-w-0 flex-col"} as any)}>
           <h4 {...({"className":"sr-only select-none"} as any)}>
             {"ChatGPT 说："}
           </h4>
-          <LayoutSlot name="assistant-markdown" slots={slots} />
-          <LayoutSlot name="assistant-actions" slots={slots} />
+          {markdown}
+          {actions}
         </div>
       </div>
     </div>

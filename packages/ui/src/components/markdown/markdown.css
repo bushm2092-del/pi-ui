@@ -1,0 +1,58 @@
+.pi-markdown-content { --markdown-font-size: var(--content-font-size, 13px); --markdown-line-height: calc(var(--markdown-font-size) + 8px); --text-primary: var(--foreground-primary); --border-medium: var(--border-strong); --border-light: var(--border-subtle); --main-surface-secondary: var(--interaction-muted); color: var(--text-primary); font-size: var(--markdown-font-size); line-height: var(--markdown-line-height); overflow-wrap: anywhere; }
+.pi-markdown-content > :first-child { margin-top: 0px; }
+.pi-markdown-content > :last-child { margin-bottom: 0px; }
+.pi-markdown-paragraph { margin: 0px 0px 0.6875rem; }
+.pi-markdown-text { font-size: var(--markdown-font-size); line-height: var(--markdown-line-height); }
+.pi-markdown-heading { margin: 20px 0px 10px; font-weight: 600; line-height: 1.25; }
+.pi-markdown-heading-1 { font-size: 24px; }
+.pi-markdown-heading-2 { font-size: 20px; }
+.pi-markdown-heading-3, .pi-markdown-heading-4 { font-size: 17px; line-height: 22px; }
+.pi-markdown-heading-5, .pi-markdown-heading-6 { font-size: 15px; line-height: 20px; }
+.pi-markdown-list { margin: 0px; padding-inline-start: 1.3125rem; list-style-position: outside; }
+.pi-markdown-content > p:has(+ .pi-markdown-list) { margin-bottom: 0.625rem; }
+.pi-markdown-content > .pi-markdown-list:not(:last-child) { margin-bottom: 0.625rem; }
+.pi-markdown-list-unordered { list-style-type: disc; }
+.pi-markdown-list .pi-markdown-list-unordered { list-style-type: circle; }
+.pi-markdown-list .pi-markdown-list .pi-markdown-list-unordered { list-style-type: square; }
+.pi-markdown-list-ordered { list-style-type: decimal; }
+.pi-markdown-task-list { padding-inline-start: 0px; list-style-type: none; }
+.pi-markdown-list-item { padding-inline-start: 0.125rem; display: list-item; }
+.pi-markdown-list-item + .pi-markdown-list-item { margin-top: 0.5rem; }
+.pi-markdown-list-item > :first-child { margin-top: 0px; margin-bottom: 0px; }
+.pi-markdown-list-item > :last-child { margin-bottom: 0px; }
+.pi-markdown-list-item > p { margin: 0px; }
+.pi-markdown-list-item > p + p { margin-top: 0.6875rem; }
+.pi-markdown-list-item > .pi-markdown-list { margin-top: 0.5rem; margin-bottom: 0px; }
+.pi-markdown-task-list-item { padding-inline-start: 0px; list-style-type: none; }
+.pi-markdown-task-list-item:has(> p) { grid-template-columns: auto minmax(0px, 1fr); display: grid; }
+.pi-markdown-task-list-item:has(> p) > :first-child { margin-top: 0.25rem; }
+.pi-markdown-task-list-item:has(> p) > :not(:first-child) { grid-column: 2; }
+.pi-markdown-list-unordered > .pi-markdown-list-item::marker { color: var(--text-primary); }
+.pi-markdown-list-ordered > .pi-markdown-list-item::marker { color: var(--text-primary); }
+.pi-markdown-blockquote { color: var(--text-primary); background-color: rgba(0, 0, 0, 0); border: 0px; margin: 0px 0px 8px; padding-block: 8px; padding-inline-start: 24px; font-style: normal; line-height: 24px; position: relative; }
+.pi-markdown-blockquote > :first-child { margin-top: 0px; }
+.pi-markdown-blockquote > :last-child { margin-bottom: 0px; }
+.pi-markdown-blockquote > .pi-markdown-paragraph { margin: 0px; font-weight: 400; }
+.pi-markdown-blockquote > .pi-markdown-paragraph::before, .pi-markdown-blockquote > .pi-markdown-paragraph::after { content: none; }
+.pi-markdown-blockquote::after { content: ""; inset-inline-start: 0px; background-color: var(--border-medium); border-radius: 2px; width: 4px; position: absolute; top: 8px; bottom: 8px; }
+.pi-markdown-horizontal-rule { clear: both; border-right: 0px; border-bottom: 0px; border-left: 0px; border-image: none; border-top: 1px solid var(--border-medium); height: 0px; margin: 28px 0px; }
+.pi-markdown-horizontal-rule + * { margin-top: 0px; }
+.pi-markdown-table-container { width: calc(100% + (var(--thread-content-margin,24px) * 2)); margin-inline: calc(var(--thread-content-margin,24px) * -1); }
+.pi-markdown-table-scroller { scrollbar-width: thin; overflow-x: auto; }
+.pi-markdown-table-wrapper { width: fit-content; margin-inline: var(--thread-content-margin,24px); pointer-events: auto; }
+.pi-markdown-table { anchor-name: --markdown-table; width: fit-content; min-width: min(calc(100cqw - (var(--padding-toolbar) * 2)), calc(var(--thread-content-max-width,40rem) - (var(--padding-toolbar) * 2))); border-collapse: separate; border-spacing: 0px; table-layout: auto; text-align: start; margin: 0px; font-size: 14px; }
+.pi-markdown-table [data-col-size="sm"] { min-width: calc(var(--thread-content-max-width,40rem) * 4 / 24); max-width: calc(var(--thread-content-max-width,40rem) * 6 / 24); }
+.pi-markdown-table [data-col-size="md"] { min-width: calc(var(--thread-content-max-width,40rem) * 6 / 24); max-width: calc(var(--thread-content-max-width,40rem) * 8 / 24); }
+.pi-markdown-table [data-col-size="lg"] { min-width: calc(var(--thread-content-max-width,40rem) * 8 / 24); max-width: calc(var(--thread-content-max-width,40rem) * 12 / 24); }
+.pi-markdown-table [data-col-size="xl"] { min-width: calc(var(--thread-content-max-width,40rem) * 14 / 24); max-width: calc(var(--thread-content-max-width,40rem) * 18 / 24); }
+.pi-markdown-table-row:not(:last-child) .pi-markdown-table-cell { border-bottom: 1px solid var(--border-light); }
+.pi-markdown-table-header-cell, .pi-markdown-table-cell { vertical-align: top; white-space: normal; padding-inline-end: 24px; }
+.pi-markdown-table-header-cell { border-bottom: 1px solid var(--border-medium); text-align: start; color: var(--text-primary); padding-top: 8px; padding-bottom: 8px; font-weight: 600; line-height: 16px; }
+.pi-markdown-table-cell { padding-top: 10px; padding-bottom: 10px; }
+.pi-markdown-table-header-cell:last-child { padding-inline-end: 40px; }
+.pi-markdown-table-cell:last-child { padding-inline-end: 0px; }
+.pi-markdown-table-body .pi-markdown-table-row:last-child .pi-markdown-table-cell { padding-bottom: 24px; }
+.pi-markdown-code-block { margin-block: 14px; }
+.pi-markdown-content .pi-markdown-inline { -webkit-box-decoration-break: clone; box-decoration-break: clone; background: color-mix(in srgb, var(--interaction-hover) 60%, var(--foreground-primary) 6%); font-family: var(--font-mono); overflow-wrap: anywhere; word-break: break-word; border-radius: 6px; padding: 1px 6px; font-size: 0.92em; display: inline; }
+.pi-markdown-inline-isolate { unicode-bidi: isolate; }
+.pi-markdown-content th, .pi-markdown-content td { max-width: calc(var(--thread-content-max-width,40rem) * 18 / 24); overflow-wrap: break-word; word-break: normal; }

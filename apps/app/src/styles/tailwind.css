@@ -1,0 +1,86 @@
+/* App-owned Tailwind source. Generated utilities are derived from current JSX. */
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
+@source "../**/*.{ts,tsx}";
+@source "../../../../packages/ui/src/**/*.{ts,tsx}";
+
+@custom-variant browser (:where([data-codex-window-type="browser"] *));
+@custom-variant extension (:where([data-codex-window-type="extension"] *));
+@custom-variant electron (:where(:is(
+  [data-codex-window-type="browser"],
+  [data-codex-window-type="chrome-extension"],
+  [data-codex-window-type="electron"]
+) *));
+
+@theme inline {
+  --color-background: var(--surface-app);
+  --color-foreground: var(--foreground-primary);
+  --color-muted-foreground: var(--foreground-secondary);
+  --color-border: var(--border-default);
+  --color-ring: var(--border-focus);
+  --color-surface-app: var(--surface-app);
+  --color-surface-main: var(--surface-main);
+  --color-surface-sidebar: var(--surface-sidebar);
+  --color-foreground-primary: var(--foreground-primary);
+  --color-foreground-tertiary: var(--foreground-tertiary);
+  --color-foreground-link: var(--foreground-link);
+  --color-border-subtle: var(--border-subtle);
+  --color-surface-code: var(--surface-code);
+
+  --color-token-bg-primary: var(--color-token-bg-primary);
+  --color-token-border: var(--color-token-border);
+  --color-token-border-default: var(--color-token-border-default);
+  --color-token-button-background: var(--color-token-button-background);
+  --color-token-description-foreground: var(--color-token-description-foreground);
+  --color-token-dropdown-background: var(--color-token-dropdown-background);
+  --color-token-editor-warning-foreground: var(--color-token-editor-warning-foreground);
+  --color-token-focus-border: var(--color-token-focus-border);
+  --color-token-foreground: var(--color-token-foreground);
+  --color-token-input-background: var(--color-token-input-background);
+  --color-token-input-placeholder-foreground: var(--color-token-input-placeholder-foreground);
+  --color-token-list-hover-background: var(--color-token-list-hover-background);
+  --color-token-main-surface-primary: var(--color-token-main-surface-primary);
+  --color-token-text-code-block-background: var(--color-token-text-code-block-background);
+  --color-token-text-link-foreground: var(--color-token-text-link-foreground);
+  --color-token-text-primary: var(--color-token-text-primary);
+  --color-token-text-secondary: var(--color-token-text-secondary);
+  --color-token-text-tertiary: var(--color-token-text-tertiary);
+
+  --spacing-row-x: var(--padding-row-x);
+  --spacing-row-y: var(--padding-row-y);
+  --spacing-toolbar: var(--height-toolbar);
+  --spacing-token-button-composer: var(--spacing-token-button-composer);
+  --spacing-token-button-composer-sm: var(--spacing-token-button-composer-sm);
+  --spacing-token-button-composer-gap: var(--spacing-token-button-composer-gap);
+}
+
+@utility cursor-interaction {
+  cursor: var(--cursor-interaction);
+}
+
+@utility app-drag-region {
+  app-region: drag;
+}
+
+@utility no-drag {
+  app-region: no-drag;
+}
+
+@utility text-fade-truncate {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+  mask-image: linear-gradient(
+    to right,
+    #000 calc(100% - var(--text-fade-truncate-distance, 1rem)),
+    transparent
+  );
+}
+
+@utility elevation-prominent {
+  box-shadow: var(--elevation-prominent);
+}

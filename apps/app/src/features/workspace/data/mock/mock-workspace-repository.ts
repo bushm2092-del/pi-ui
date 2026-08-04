@@ -1,8 +1,16 @@
 import type { WorkspaceRepository } from "../workspace-repository";
+import { workspaceData } from "../workspace-data";
 
 const MOCK_REPLY_DELAY_MS = 450;
 
 export const mockWorkspaceRepository: WorkspaceRepository = {
+  async getConversation(conversationId) {
+    if (conversationId !== workspaceData.conversation.id) {
+      throw new Error(`Conversation not found: ${conversationId}`);
+    }
+
+    return structuredClone(workspaceData.conversation);
+  },
   async sendMessage(_conversationId, content) {
     await new Promise((resolve) => setTimeout(resolve, MOCK_REPLY_DELAY_MS));
     const escapedContent = content.replaceAll("*", "\\*");

@@ -9,17 +9,11 @@ export function AssistantMessage({ message }: { message: Message }) {
     return <ProcessingStatus label="正在生成回复..." />;
   }
 
-  function Content() {
-    return <AssistantMarkdown content={message.content} />;
-  }
-
   return (
     <AssistantMessageLayout
-      rootProps={{ "data-message-status": message.status }}
-      slots={{
-        "assistant-markdown": Content,
-        "assistant-actions": AssistantActions,
-      }}
+      status={message.status}
+      markdown={<AssistantMarkdown content={message.content} />}
+      actions={<AssistantActions />}
     />
   );
 }

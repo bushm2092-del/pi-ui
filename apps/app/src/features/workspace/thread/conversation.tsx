@@ -1,19 +1,17 @@
 import { ConversationLayout } from "./layouts";
 import { Turn } from "./turn";
-import { useWorkspaceState } from "../workspace-state";
+import { useConversation } from "../api";
 
 export function Conversation() {
-  const { messages } = useWorkspaceState();
+  const { data: conversation } = useConversation();
 
-  function MessageList() {
-    return (
+  return (
+    <ConversationLayout>
       <div className="flex flex-col gap-4" data-message-list="true">
-        {messages.map((message) => (
+        {conversation.messages.map((message) => (
           <Turn key={message.id} message={message} />
         ))}
       </div>
-    );
-  }
-
-  return <ConversationLayout slots={{ turn: MessageList }} />;
+    </ConversationLayout>
+  );
 }

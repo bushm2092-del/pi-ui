@@ -1,10 +1,15 @@
-import { LayoutSlot, type LayoutProps } from "../../layout";
+import type { ReactNode } from "react";
 
-export function ThreadFrameLayout({ slots = {}, rootProps = {} }: LayoutProps = {}) {
+interface ThreadFrameLayoutProps {
+  timeline: ReactNode;
+  summary: ReactNode;
+}
+
+export function ThreadFrameLayout({ timeline, summary }: ThreadFrameLayoutProps) {
   return (
-    <div {...({"className":"_MainContentFrame_1e9gb_96","data-app-shell-thread-edge-divider":"true"} as any)} {...rootProps}>
+    <div {...({"className":"pi-workspace-main-frame","data-app-shell-thread-edge-divider":"true"} as any)}>
       <div {...({"className":"relative flex min-h-0 flex-1"} as any)}>
-        <div {...({"aria-hidden":"true","data-app-shell-main-content-top-fade":"full-bleed","className":"_MainContentTopFade_1e9gb_126"} as any)} />
+        <div {...({"aria-hidden":"true","data-app-shell-main-content-top-fade":"full-bleed","className":"pi-workspace-main-top-fade"} as any)} />
         <div {...({"className":"h-full min-h-0 min-w-0 flex-1"} as any)}>
           <div {...({"className":"relative h-full min-h-0"} as any)}>
             <div {...({"className":"h-full min-h-0"} as any)}>
@@ -14,9 +19,9 @@ export function ThreadFrameLayout({ slots = {}, rootProps = {} }: LayoutProps = 
                   <div {...({"className":"relative mx-auto flex min-h-0 w-full flex-1 flex-col"} as any)}>
                     <div {...({"className":"min-h-0 flex-1"} as any)}>
                       <div {...({"className":"relative h-full flex-1 [content-visibility:auto]"} as any)}>
-                        <LayoutSlot name="timeline-scroll" slots={slots} />
+                        {timeline}
                       </div>
-                      <LayoutSlot name="summary-panel" slots={slots} />
+                      {summary}
                     </div>
                   </div>
                 </div>
