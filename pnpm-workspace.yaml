@@ -1,0 +1,12 @@
+packages:
+  - apps/*
+  - packages/*
+
+allowBuilds:
+  '@google/genai': false
+  esbuild: true
+  protobufjs: false
+
+onlyBuiltDependencies:
+  - electron
+  - esbuild

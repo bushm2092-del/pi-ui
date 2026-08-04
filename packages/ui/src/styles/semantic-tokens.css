@@ -1,0 +1,36 @@
+@theme inline {
+  --color-background: var(--surface-app);
+  --color-foreground: var(--foreground-primary);
+  --color-card: var(--surface-elevated);
+  --color-card-foreground: var(--foreground-primary);
+  --color-primary: var(--control-primary);
+  --color-primary-foreground: var(--foreground-inverse);
+  --color-secondary: var(--control-secondary);
+  --color-secondary-foreground: var(--foreground-primary);
+  --color-muted: var(--interaction-muted);
+  --color-muted-foreground: var(--foreground-secondary);
+  --color-accent: var(--interaction-hover);
+  --color-accent-foreground: var(--foreground-primary);
+  --color-border: var(--border-default);
+  --color-ring: var(--border-focus);
+
+  --color-surface-app: var(--surface-app);
+  --color-surface-main: var(--surface-main);
+  --color-surface-sidebar: var(--surface-sidebar);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-input: var(--surface-input);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-foreground-primary: var(--foreground-primary);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-tertiary: var(--foreground-tertiary);
+  --color-foreground-inverse: var(--foreground-inverse);
+  --color-interaction-hover: var(--interaction-hover);
+  --color-interaction-active: var(--interaction-active);
+  --color-interaction-selected: var(--interaction-selected);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-status-success: var(--status-success);
+  --color-status-warning: var(--status-warning);
+  --color-status-danger: var(--status-danger);
+  --color-status-info: var(--status-info);
+}

@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "./primitives.css";
+@import "./semantic-tokens.css";
+@import "./themes/light.css";
+@import "./themes/dark.css";
+@import "./base.css";
+@import "./utilities.css";
+
+@source "../../../../apps/**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx}";

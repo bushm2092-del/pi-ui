@@ -1,0 +1,19 @@
+{
+  "name": "pi-ui",
+  "private": true,
+  "packageManager": "pnpm@11.1.2",
+  "scripts": {
+    "dev": "pnpm --filter @pi/desktop dev",
+    "dev:web": "pnpm --filter @pi/app dev",
+    "dev:server": "pnpm --filter @pi/server dev",
+    "build": "pnpm -r --if-present build",
+    "build:web": "pnpm --filter @pi/app build",
+    "build:desktop": "pnpm --filter @pi/desktop build",
+    "build:backend": "pnpm --filter @pi/agent-worker build && pnpm --filter @pi/server build",
+    "start:server": "pnpm --filter @pi/server start",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "typecheck:backend": "pnpm --filter @pi/protocol --filter @pi/pi-adapter --filter @pi/agent-worker --filter @pi/server typecheck",
+    "test": "pnpm -r --if-present test",
+    "lint": "pnpm -r --if-present lint"
+  }
+}

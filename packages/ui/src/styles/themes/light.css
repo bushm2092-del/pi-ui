@@ -1,0 +1,30 @@
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --surface-app: #f7f7f8;
+  --surface-main: #ffffff;
+  --surface-sidebar: #f5f5f5;
+  --surface-elevated: #ffffff;
+  --surface-input: rgb(248 248 248 / 94%);
+  --surface-overlay: rgb(255 255 255 / 96%);
+  --foreground-primary: #1a1c1f;
+  --foreground-secondary: rgb(26 28 31 / 68%);
+  --foreground-tertiary: rgb(26 28 31 / 48%);
+  --foreground-inverse: #ffffff;
+  --foreground-link: #0672ce;
+  --control-primary: #1a1c1f;
+  --control-secondary: rgb(26 28 31 / 6%);
+  --interaction-hover: rgb(26 28 31 / 5%);
+  --interaction-active: rgb(26 28 31 / 10%);
+  --interaction-selected: rgb(26 28 31 / 8%);
+  --interaction-muted: rgb(26 28 31 / 4%);
+  --interaction-disabled: 0.42;
+  --border-subtle: rgb(26 28 31 / 5%);
+  --border-default: rgb(26 28 31 / 8%);
+  --border-strong: rgb(26 28 31 / 14%);
+  --border-focus: #1687e8;
+  --status-success: #07883e;
+  --status-warning: #ad5900;
+  --status-danger: #c9342f;
+  --status-info: #0672ce;
+}

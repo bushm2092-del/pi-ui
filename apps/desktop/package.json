@@ -1,0 +1,35 @@
+{
+  "name": "@pi/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "pnpm --filter @pi/agent-worker build && electron-vite dev",
+    "build": "tsc --noEmit && electron-vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "pnpm --filter @pi/agent-worker build && electron-vite preview"
+  },
+  "dependencies": {
+    "@pi/agent-client": "workspace:*",
+    "@pi/agent-worker": "workspace:*",
+    "@pi/app": "workspace:*",
+    "@pi/platform": "workspace:*",
+    "@pi/server": "workspace:*",
+    "@pi/shared": "workspace:*",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "latest",
+    "electron": "42.3.0",
+    "electron-vite": "latest",
+    "tailwindcss": "latest",
+    "typescript": "^5.9.0",
+    "vite": "latest"
+  }
+}
