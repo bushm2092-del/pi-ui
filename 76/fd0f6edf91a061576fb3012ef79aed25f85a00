@@ -1,0 +1,126 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "76fd0f6edf91a061576fb3012ef79aed25f85a00",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 415,
+    "git_diff_deleted_lines": 377,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 415,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/server/src/Mapper/runtime-mapper.ts": {
+        "BYMC": [
+          "2",
+          "5-85"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Storage/Database/Migrations/001-initial-schema.ts": {
+        "BYMC": [
+          "1-25"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Storage/Database/Migrations/002-rename-runtime-session-index.ts": {
+        "BYMC": [
+          "1-13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Storage/Database/README.md": {
+        "BYMC": [
+          "1-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Storage/Database/database.ts": {
+        "BYMC": [
+          "1-18"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Storage/Database/migration.ts": {
+        "BYMC": [
+          "1-45"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/bootstrap/pi-backend.ts": {
+        "BYMC": [
+          "4",
+          "8",
+          "28-29",
+          "56",
+          "61"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/index.ts": {
+        "BYMC": [
+          "12-13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/database-migration.test.ts": {
+        "BYMC": [
+          "1-30"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/runtime-mapper.test.ts": {
+        "BYMC": [
+          "1-38"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/backend/architecture-overview.md": {
+        "BYMC": [
+          "219",
+          "221-222"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/backend/feature-design-index.md": {
+        "BYMC": [
+          "6-7"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/backend/features/runtime-session.md": {
+        "BYMC": [
+          "12",
+          "14-15"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/backend/sql-writing-guide.md": {
+        "BYMC": [
+          "1-138"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786516864,
+  "requirement_id": ""
+}
