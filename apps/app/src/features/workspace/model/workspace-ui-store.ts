@@ -6,6 +6,7 @@ export interface WorkspaceUiState {
   draftByConversationId: Record<string, string>;
   expandedProjectIds: string[];
   sidebarOpen: boolean;
+  sidebarWidth: number;
   summaryOpen: boolean;
 }
 
@@ -13,6 +14,7 @@ export interface WorkspaceUiActions {
   selectThread(threadId: string): void;
   setDraft(conversationId: string, draft: string): void;
   toggleSidebar(): void;
+  setSidebarWidth(width: number): void;
   toggleProject(projectId: string): void;
   toggleSummary(): void;
 }
@@ -20,24 +22,18 @@ export interface WorkspaceUiActions {
 export type WorkspaceUiStoreState = WorkspaceUiState & WorkspaceUiActions;
 export type WorkspaceUiStore = ReturnType<typeof createWorkspaceUiStore>;
 
-export function getInitialWorkspaceUiState(
-  data: WorkspaceData,
-): WorkspaceUiState {
+export function getInitialWorkspaceUiState(data: WorkspaceData): WorkspaceUiState {
   const projects = data.sidebar.items.filter((item) => item.kind === "project");
-  const activeThreadId =
-    projects
-      .flatMap((project) => project.threads)
-      .find((thread) => thread.initialActive)?.id ?? data.conversation.id;
+  const activeThreadId = projects.flatMap((project) => project.threads).find((thread) => thread.initialActive)?.id ?? data.conversation.id;
 
   return {
     activeThreadId,
     draftByConversationId: {
       [data.conversation.id]: data.composer.initialDraft,
     },
-    expandedProjectIds: projects
-      .filter((project) => project.initialExpanded)
-      .map((project) => project.id),
+    expandedProjectIds: projects.filter((project) => project.initialExpanded).map((project) => project.id),
     sidebarOpen: true,
+    sidebarWidth: 240,
     summaryOpen: false,
   };
 }
@@ -54,6 +50,7 @@ export function createWorkspaceUiStore(data: WorkspaceData) {
         },
       })),
     toggleSidebar: () => set((state) => ({ sidebarOpen: !state.sidebarOpen })),
+    setSidebarWidth: (sidebarWidth) => set({ sidebarWidth }),
     toggleProject: (projectId) =>
       set((state) => ({
         expandedProjectIds: state.expandedProjectIds.includes(projectId)

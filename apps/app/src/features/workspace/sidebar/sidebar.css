@@ -1,28 +1,59 @@
+.pi-sidebar-panel,
+.pi-sidebar-header-slot {
+  transition:
+    width var(--transition-duration-relaxed) var(--ease-enter-snappy),
+    flex-basis var(--transition-duration-relaxed) var(--ease-enter-snappy);
+}
+
+.pi-sidebar-panel {
+  pointer-events: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.pi-sidebar-panel-content {
+  opacity: 1;
+  transition: opacity var(--transition-duration-basic) var(--ease-basic);
+}
+
+.pi-sidebar-panel[data-open="false"] {
+  pointer-events: none;
+}
+
+.pi-sidebar-panel[data-open="false"] .pi-sidebar-panel-content {
+  opacity: 0;
+}
+
+.pi-sidebar-panel[data-resizing="true"],
+.pi-sidebar-panel[data-resizing="true"] .pi-sidebar-panel-content,
+.pi-sidebar-panel[data-resizing="true"] ~ .pi-workspace-main-surface .pi-sidebar-header-slot {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pi-sidebar-panel,
+  .pi-sidebar-panel-content,
+  .pi-sidebar-header-slot {
+    transition: none;
+  }
+}
+
 .pi-sidebar-scroll-fade {
   --edge-fade-distance: calc(var(--spacing) * 10);
   --sidebar-scroll-footer-edge: calc(100% - var(--sidebar-footer-height));
   --sidebar-scroll-footer-fade-distance: calc(var(--spacing) * 10);
-  --sidebar-scroll-footer-fade-start: calc(
-    var(--sidebar-scroll-footer-edge) -
-      var(--sidebar-scroll-footer-fade-distance)
-  );
+  --sidebar-scroll-footer-fade-start: calc(var(--sidebar-scroll-footer-edge) - var(--sidebar-scroll-footer-fade-distance));
   --sidebar-scroll-header-mask-distance: var(
     --sidebar-scroll-header-fade-distance,
     var(--sidebar-scroll-header-spacing, calc(var(--spacing) * 2))
   );
-  --sidebar-scroll-header-mask-start: var(
-    --sidebar-scroll-header-fade-start,
-    0px
-  );
+  --sidebar-scroll-header-mask-start: var(--sidebar-scroll-header-fade-start, 0px);
   --sidebar-scroll-mask-image: linear-gradient(
     to bottom,
     transparent 0,
     transparent var(--sidebar-scroll-header-mask-start),
-    black
-      calc(
-        var(--sidebar-scroll-header-mask-start) +
-          var(--sidebar-scroll-header-mask-distance)
-      ),
+    black calc(var(--sidebar-scroll-header-mask-start) + var(--sidebar-scroll-header-mask-distance)),
     black var(--sidebar-scroll-footer-fade-start),
     #000000e0 calc(var(--sidebar-scroll-footer-edge) - var(--spacing) * 6),
     #00000085 calc(var(--sidebar-scroll-footer-edge) - var(--spacing) * 3),
@@ -44,11 +75,7 @@
 }
 @supports (color: color-mix(in lab, red, red)) {
   .pi-sidebar-navigation {
-    --color-token-foreground: color-mix(
-      in oklab,
-      var(--vscode-foreground) 85%,
-      transparent
-    );
+    --color-token-foreground: color-mix(in oklab, var(--vscode-foreground) 85%, transparent);
   }
 }
 .pi-sidebar-navigation {
@@ -80,11 +107,7 @@
 
 @supports (color: color-mix(in lab, red, red)) {
   .pi-sidebar-navigation .sidebar-hover-icon-button-tint {
-    color: color-mix(
-      in oklab,
-      var(--color-token-foreground) 50%,
-      transparent
-    ) !important;
+    color: color-mix(in oklab, var(--color-token-foreground) 50%, transparent) !important;
   }
 }
 

@@ -6,34 +6,28 @@ import { Sidebar } from "./sidebar";
 import { RootLayout } from "./workspace-layout";
 import { AgentWorkspaceRepository } from "./data/agent";
 import { WorkspaceRepositoryProvider } from "./data/workspace-repository-context";
-import {
-  selectSidebarOpen,
-  useWorkspaceUi,
-  WorkspaceUiProvider,
-} from "./model";
+import { selectSidebarOpen, useWorkspaceUi, WorkspaceUiProvider } from "./model";
 
 function WorkspaceShell() {
   const sidebarOpen = useWorkspaceUi(selectSidebarOpen);
 
-  return (
-    <RootLayout
-      sidebar={sidebarOpen ? <Sidebar /> : null}
-      mainSurface={<MainSurface />}
-    />
-  );
+  return <RootLayout sidebar={<Sidebar open={sidebarOpen} />} mainSurface={<MainSurface />} />;
 }
 
 export function WorkspacePage({ cwd }: { cwd?: string }) {
   const { client, connectionState, error } = useAgentClient();
   const queryClient = useQueryClient();
   const repository = useMemo(
-    () => client && cwd ? new AgentWorkspaceRepository(client, cwd, queryClient) : undefined,
+    () => (client && cwd ? new AgentWorkspaceRepository(client, cwd, queryClient) : undefined),
     [client, cwd, queryClient],
   );
 
-  useEffect(() => () => {
-    repository?.dispose();
-  }, [repository]);
+  useEffect(
+    () => () => {
+      repository?.dispose();
+    },
+    [repository],
+  );
 
   if (!repository) {
     const message = !client
@@ -43,11 +37,7 @@ export function WorkspacePage({ cwd }: { cwd?: string }) {
   }
 
   if (connectionState !== "connected") {
-    return (
-      <WorkspaceUnavailable
-        message={error?.message ?? "正在连接 Pi 后端..."}
-      />
-    );
+    return <WorkspaceUnavailable message={error?.message ?? "正在连接 Pi 后端..."} />;
   }
 
   return (

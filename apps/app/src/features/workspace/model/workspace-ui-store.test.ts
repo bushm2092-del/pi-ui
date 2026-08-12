@@ -1,9 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { workspaceData } from "../data/workspace-data";
-import {
-  createWorkspaceUiStore,
-  getInitialWorkspaceUiState,
-} from "./workspace-ui-store";
+import { createWorkspaceUiStore, getInitialWorkspaceUiState } from "./workspace-ui-store";
 
 describe("workspace UI store", () => {
   it("derives its initial navigation state from workspace data", () => {
@@ -12,10 +9,9 @@ describe("workspace UI store", () => {
 
     expect(state.activeThreadId).toBe("thread-a");
     expect(state.expandedProjectIds).toContain("project-a");
-    expect(state.draftByConversationId[workspaceData.conversation.id]).toBe(
-      workspaceData.composer.initialDraft,
-    );
+    expect(state.draftByConversationId[workspaceData.conversation.id]).toBe(workspaceData.composer.initialDraft);
     expect(state.sidebarOpen).toBe(true);
+    expect(state.sidebarWidth).toBe(240);
   });
 
   it("toggles projects without changing other project state", () => {
@@ -57,24 +53,34 @@ describe("workspace UI store", () => {
     store.getState().toggleSidebar();
     expect(store.getState().sidebarOpen).toBe(true);
   });
+
+  it("updates the workspace sidebar width", () => {
+    const store = createWorkspaceUiStore(workspaceData);
+    store.getState().setSidebarWidth(328);
+    expect(store.getState().sidebarWidth).toBe(328);
+  });
 });
 
 function withProject(): typeof workspaceData {
   return {
     ...workspaceData,
     sidebar: {
-      items: [{
-        kind: "project",
-        id: "project-a",
-        label: "Project A",
-        initialExpanded: true,
-        threads: [{
-          kind: "thread",
-          id: "thread-a",
-          label: "Thread A",
-          initialActive: true,
-        }],
-      }],
+      items: [
+        {
+          kind: "project",
+          id: "project-a",
+          label: "Project A",
+          initialExpanded: true,
+          threads: [
+            {
+              kind: "thread",
+              id: "thread-a",
+              label: "Thread A",
+              initialActive: true,
+            },
+          ],
+        },
+      ],
     },
   };
 }
