@@ -1,0 +1,509 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "f3abac7fe0490fa6a03fdbfdfb4d6b3e513fe3d1",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 1713,
+    "git_diff_deleted_lines": 3799,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 1706,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      ".prettierignore": {
+        "BYMC": [
+          "1-5"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      ".prettierrc.json": {
+        "BYMC": [
+          "1-8"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/package.json": {
+        "BYMC": [
+          "27"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/agent/agent-client-context.tsx": {
+        "BYMC": [
+          "4-5",
+          "28"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/agent/agent-client.ts": {
+        "BYMC": [
+          "1-220"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/desktop.d.ts": {
+        "BYMC": [
+          "1-14"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/a2ui-test/a2ui-stream-test-page.tsx": {
+        "BYMC": [
+          "1-149"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/a2ui-test/a2ui-stream-test.css": {
+        "BYMC": [
+          "1-28"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/data/agent/agent-workspace-repository.ts": {
+        "BYMC": [
+          "1-2"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/domain/message.ts": {
+        "BYMC": [
+          "1"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/index.tsx": {
+        "BYMC": [
+          "3",
+          "5",
+          "8",
+          "20-23",
+          "30"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/main.tsx": {
+        "BYMC": [
+          "1",
+          "7-13",
+          "16",
+          "18"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/styles.css": {
+        "BYMC": [
+          "9"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/vite.config.ts": {
+        "BYMC": [
+          "7"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/package.json": {
+        "BYMC": [
+          "8-10",
+          "12",
+          "25"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/scripts/dev.mjs": {
+        "BYMC": [
+          "1-52"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/src/main/index.ts": {
+        "BYMC": [
+          "11-14",
+          "22-23",
+          "77",
+          "96-97",
+          "101",
+          "103"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/src/shared/desktop-bridge.ts": {
+        "BYMC": [
+          "1"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/tsconfig.json": {
+        "BYMC": [
+          "7"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/tsup.config.ts": {
+        "BYMC": [
+          "1-21"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/package.json": {
+        "BYMC": [
+          "8",
+          "15-16",
+          "21-24",
+          "28",
+          "30"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Controller/runtime-controller.ts": {
+        "BYMC": [
+          "1-61"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Controller/socket-controller.ts": {
+        "BYMC": [
+          "1-5"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Entity/runtime-entity.ts": {
+        "BYMC": [
+          "1-12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Exception/business-exception.ts": {
+        "BYMC": [
+          "1-13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Interceptor/exception-interceptor.ts": {
+        "BYMC": [
+          "1-32"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Interceptor/token-interceptor.ts": {
+        "BYMC": [
+          "1-22"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Mapper/runtime-mapper.ts": {
+        "BYMC": [
+          "1-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Mapper/sqlite-runtime-mapper.ts": {
+        "BYMC": [
+          "1-97"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Pi/a2ui-tool.test.ts": {
+        "BYMC": [
+          "1-38"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Pi/a2ui-tool.ts": {
+        "BYMC": [
+          "1-47"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Pi/json-value.ts": {
+        "BYMC": [
+          "1-31"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Pi/runtime.ts": {
+        "BYMC": [
+          "1-86"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Server/socket-server.ts": {
+        "BYMC": [
+          "1-61"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Service/runtime-service.ts": {
+        "BYMC": [
+          "1-138"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Storage/pi-ui-home.ts": {
+        "BYMC": [
+          "1-62"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/bootstrap/pi-backend.ts": {
+        "BYMC": [
+          "2-7",
+          "10",
+          "17-18",
+          "20",
+          "24",
+          "26-30",
+          "32-34",
+          "38",
+          "41",
+          "46",
+          "48",
+          "52-55",
+          "58-59"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/core/operation-journal.ts": {
+        "BYMC": [
+          "3",
+          "24",
+          "31",
+          "33",
+          "43",
+          "52-54",
+          "78-80"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/core/storage-lease-manager.ts": {
+        "BYMC": [
+          "12",
+          "26",
+          "51"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/index.ts": {
+        "BYMC": [
+          "1-14"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/main.ts": {
+        "BYMC": [
+          "1",
+          "9",
+          "15-21",
+          "34-39"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/agent-client.integration.test.ts": {
+        "BYMC": [
+          "1-66"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/pi-gateway.test.ts": {
+        "BYMC": [
+          "4",
+          "6",
+          "9",
+          "12",
+          "15-22",
+          "24-29",
+          "32-38",
+          "40",
+          "42",
+          "44-46",
+          "48",
+          "50-55",
+          "58-64",
+          "66-75",
+          "77",
+          "80-81",
+          "86-98",
+          "101-102",
+          "105-109",
+          "113-119",
+          "122-123"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/pi-ui-home.test.ts": {
+        "BYMC": [
+          "1-39"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/sqlite-runtime-mapper.test.ts": {
+        "BYMC": [
+          "1-36"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/tsup.config.ts": {
+        "BYMC": [
+          "12-13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/backend/architecture-overview.md": {
+        "BYMC": [
+          "3-6",
+          "81-82",
+          "156-157",
+          "273",
+          "285",
+          "287",
+          "289",
+          "291-293",
+          "296",
+          "298-299",
+          "302",
+          "305",
+          "308",
+          "386"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/backend/features/desktop-backend-lifecycle.md": {
+        "BYMC": [
+          "16"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/backend/features/realtime-protocol.md": {
+        "BYMC": [
+          "1-3",
+          "15",
+          "19-20",
+          "99-100"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/backend/features/runtime-session.md": {
+        "BYMC": [
+          "11-13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/frontend-architecture-optimization-plan.md": {
+        "BYMC": [
+          "204"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/pi-backend-architecture.md": {
+        "BYMC": [
+          "33",
+          "397"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "package.json": {
+        "BYMC": [
+          "12",
+          "15",
+          "18-20",
+          "22-24"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/shared/src/a2ui.ts": {
+        "BYMC": [
+          "1-16"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/shared/src/index.ts": {
+        "BYMC": [
+          "10-14"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/shared/src/json.ts": {
+        "BYMC": [
+          "1-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/shared/src/result.ts": {
+        "BYMC": [
+          "1-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/shared/src/runtime.ts": {
+        "BYMC": [
+          "1-53"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786515762,
+  "requirement_id": ""
+}
