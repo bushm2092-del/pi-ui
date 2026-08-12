@@ -216,22 +216,10 @@ modules/
 └── audit/                 安全和变更审计
 ```
 
-### 5.1 核心协调模块
+### 5.1 当前协调方式
 
-以下模块决定系统正确性，应先于具体功能实现：
-
-| 模块 | 宏观职责 |
-| --- | --- |
-| `SessionRuntimeRegistry` | Session 到可写 Runtime 的唯一映射 |
-| `StorageLeaseManager` | JSONL 单写者租约与 fencing epoch |
-| `RuntimeRouter` | `runtimeSlotId`、Session、Worker 的路由 |
-| `OperationJournal` | accepted/running/completed/failed/uncertain |
-| `ConnectionRegistry` | 客户端连接、订阅和 controller lease |
-| `EventStreamRegistry` | stream cursor、补发和 snapshot 回退 |
-| `WorkerSupervisor` | Worker 启停、heartbeat、崩溃和回收 |
-
-Controller lease 只表示哪个客户端可以控制 Session；Storage lease 表示哪个 Worker 可以写
-JSONL。两者不能合并。
+`RuntimeService` 进程内维护 `runtimeSlotId` 到 Pi Runtime 的映射；SQLite Mapper 持久化 Session 元数据。
+当前没有 Worker、租约、操作日志或事件补发层。
 
 ### 5.2 业务模块内部结构
 

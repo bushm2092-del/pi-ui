@@ -3,6 +3,8 @@
 宏观架构见 [Pi UI 后端宏观架构](architecture-overview.md)。每个功能独立设计和评审，避免把
 所有细节继续堆入总览文档。
 
+数据库表、Migration 和 Mapper SQL 必须遵守 [SQL 书写指南](sql-writing-guide.md)。
+
 | 功能 | 文档 | 状态 |
 | --- | --- | --- |
 | Runtime 与 Session 生命周期 | [features/runtime-session.md](features/runtime-session.md) | 第一阶段已实现 |

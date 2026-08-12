@@ -2,18 +2,20 @@ import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
-import { SqliteRuntimeMapper } from "../src/Mapper/sqlite-runtime-mapper.js";
+import { RuntimeMapper } from "../src/Mapper/runtime-mapper.js";
+import { PiUiDatabase } from "../src/Storage/Database/database.js";
 
 const directories: string[] = [];
 afterEach(async () => {
   await Promise.all(directories.splice(0).map((path) => rm(path, { recursive: true, force: true })));
 });
 
-describe("SqliteRuntimeMapper", () => {
+describe("RuntimeMapper", () => {
   it("persists, updates and deletes runtime metadata", async () => {
     const directory = await mkdtemp(join(tmpdir(), "pi-ui-sqlite-"));
     directories.push(directory);
-    const mapper = new SqliteRuntimeMapper(join(directory, "test.sqlite"));
+    const database = new PiUiDatabase(join(directory, "test.sqlite"));
+    const mapper = new RuntimeMapper(database.connection);
     const runtime = {
       runtimeSlotId: "slot-1",
       state: "ready" as const,
@@ -31,6 +33,6 @@ describe("SqliteRuntimeMapper", () => {
     expect(mapper.findById("slot-1")?.sessionName).toBe("Renamed");
     expect(mapper.delete("slot-1")).toBe(true);
     expect(mapper.findById("slot-1")).toBeUndefined();
-    mapper.close();
+    database.close();
   });
 });

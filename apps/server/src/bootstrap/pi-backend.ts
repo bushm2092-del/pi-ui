@@ -1,10 +1,11 @@
 import { randomBytes } from "node:crypto";
 import { RuntimeController } from "../Controller/runtime-controller.js";
 import { ExceptionInterceptor } from "../Interceptor/exception-interceptor.js";
-import { SqliteRuntimeMapper } from "../Mapper/sqlite-runtime-mapper.js";
+import { RuntimeMapper } from "../Mapper/runtime-mapper.js";
 import { RuntimeService } from "../Service/runtime-service.js";
 import { SocketServer, type SocketServerAddress } from "../Server/socket-server.js";
 import { initializePiUiHome, type PiUiHome } from "../Storage/pi-ui-home.js";
+import { PiUiDatabase } from "../Storage/Database/database.js";
 
 export interface StartPiBackendOptions {
   dataDir?: string;
@@ -24,7 +25,8 @@ export interface PiBackendHandle {
 export async function startPiBackend(options: StartPiBackendOptions = {}): Promise<PiBackendHandle> {
   const token = options.token ?? randomBytes(32).toString("base64url");
   const home = await initializePiUiHome(options.dataDir);
-  const runtimeMapper = new SqliteRuntimeMapper(home.databaseFile);
+  const database = new PiUiDatabase(home.databaseFile);
+  const runtimeMapper = new RuntimeMapper(database.connection);
   let socketServer: SocketServer | undefined;
   const runtimeService = new RuntimeService(runtimeMapper, (event) => {
     socketServer?.emitToRoom(`runtime:${event.runtimeSlotId}`, "runtime:event", event);
@@ -51,12 +53,12 @@ export async function startPiBackend(options: StartPiBackendOptions = {}): Promi
         stopped = true;
         await socketServer.stop();
         await runtimeService.stopAll();
-        runtimeMapper.close();
+        database.close();
       },
     };
   } catch (error) {
     await runtimeService.stopAll();
-    runtimeMapper.close();
+    database.close();
     throw error;
   }
 }
