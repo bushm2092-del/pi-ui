@@ -18,5 +18,6 @@ export const selectToggleProject = (state: WorkspaceUiStoreState) =>
 export const selectToggleSummary = (state: WorkspaceUiStoreState) =>
   state.toggleSummary;
 
-export const selectDraft = (conversationId: string) =>
-  (state: WorkspaceUiStoreState) => state.draftByConversationId[conversationId] ?? "";
+export const selectDraft =
+  (conversationId: string) => (state: WorkspaceUiStoreState) =>
+    state.draftByConversationId[conversationId] ?? "";

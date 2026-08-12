@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "namespace": "smk-markdown",
+  "modules": [
+    { "file": "src/styles/contract.css", "owner": "theme contract", "origin": "independently-authored" },
+    { "file": "src/styles/content.css", "owner": "base renderers", "origin": "independently-authored" },
+    { "file": "src/styles/code.css", "owner": "code feature", "origin": "independently-authored" },
+    { "file": "src/styles/table.css", "owner": "table feature", "origin": "independently-authored" },
+    { "file": "src/styles/math.css", "owner": "math feature", "origin": "independently-authored" },
+    { "file": "src/styles/mermaid.css", "owner": "mermaid feature", "origin": "independently-authored" },
+    { "file": "src/styles/streaming.css", "owner": "streaming runtime", "origin": "independently-authored" },
+    { "file": "src/styles/extensions.css", "owner": "host extension renderers", "origin": "independently-authored" },
+    { "file": "src/styles/index.css", "owner": "style entrypoint", "origin": "independently-authored" },
+    { "file": "src/styles/generated/product-parity.css", "owner": "static parity compiler", "origin": "generated-from-supplied-static-stylesheet" }
+  ]
+}

@@ -29,6 +29,10 @@ function registerIpc(): void {
     if (!backendConnection) throw new Error("Pi backend is not ready");
     return backendConnection;
   });
+  ipcMain.handle(IPC_CHANNELS.workspaceCwd, (event) => {
+    assertTrustedSender(event);
+    return process.cwd();
+  });
   ipcMain.handle(IPC_CHANNELS.openFile, async (event) => {
     assertTrustedSender(event);
     const result = await dialog.showOpenDialog({

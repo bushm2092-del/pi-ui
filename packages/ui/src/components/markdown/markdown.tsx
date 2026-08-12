@@ -1,4 +1,4 @@
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { cn } from "../../lib";
 import { MarkdownCodeBlock } from "./code-block";
@@ -6,9 +6,10 @@ import { MarkdownCodeBlock } from "./code-block";
 interface MarkdownProps {
   children: string;
   className?: string;
+  components?: Components;
 }
 
-export function Markdown({ children, className }: MarkdownProps) {
+export function Markdown({ children, className, components }: MarkdownProps) {
   return (
     <div className={cn("pi-markdown-content", className)} dir="auto">
       <ReactMarkdown
@@ -88,6 +89,7 @@ export function Markdown({ children, className }: MarkdownProps) {
           tr: ({ children }) => <tr className="pi-markdown-table-row">{children}</tr>,
           th: ({ children }) => <th className="pi-markdown-table-header-cell">{children}</th>,
           td: ({ children }) => <td className="pi-markdown-table-cell">{children}</td>,
+          ...components,
         }}
       >
         {children}

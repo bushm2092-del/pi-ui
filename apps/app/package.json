@@ -17,9 +17,11 @@
   "dependencies": {
     "@pi/agent-client": "workspace:*",
     "@pi/platform": "workspace:*",
+    "@pi/protocol": "workspace:*",
     "@pi/shared": "workspace:*",
     "@pi/ui": "workspace:*",
     "@tanstack/react-query": "^5.101.4",
+    "echarts": "^6.1.0",
     "lucide-react": "latest",
     "react": "latest",
     "react-dom": "latest",

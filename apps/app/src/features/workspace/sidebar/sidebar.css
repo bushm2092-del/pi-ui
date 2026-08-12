@@ -1,9 +1,59 @@
-.pi-sidebar-scroll-fade { --edge-fade-distance: calc(var(--spacing) * 10); --sidebar-scroll-footer-edge: calc(100% - var(--sidebar-footer-height)); --sidebar-scroll-footer-fade-distance: calc(var(--spacing) * 10); --sidebar-scroll-footer-fade-start: calc(var(--sidebar-scroll-footer-edge) - var(--sidebar-scroll-footer-fade-distance)); --sidebar-scroll-header-mask-distance: var(--sidebar-scroll-header-fade-distance,var(--sidebar-scroll-header-spacing,calc(var(--spacing) * 2))); --sidebar-scroll-header-mask-start: var(--sidebar-scroll-header-fade-start,0px); --sidebar-scroll-mask-image: linear-gradient(to bottom, transparent 0, transparent var(--sidebar-scroll-header-mask-start), black calc(var(--sidebar-scroll-header-mask-start) + var(--sidebar-scroll-header-mask-distance)), black var(--sidebar-scroll-footer-fade-start), #000000e0 calc(var(--sidebar-scroll-footer-edge) - var(--spacing) * 6), #00000085 calc(var(--sidebar-scroll-footer-edge) - var(--spacing) * 3), #0000002e calc(var(--sidebar-scroll-footer-edge) - var(--spacing)), transparent var(--sidebar-scroll-footer-edge), transparent 100%); mask-image: var(--sidebar-scroll-mask-image); mask-size: 100% 100%; mask-repeat: no-repeat; }
-@supports (animation-timeline:--scroll-fade) {
-  .pi-sidebar-scroll-fade { --sidebar-scroll-footer-fade-distance: var(--bottom-fade); }
+.pi-sidebar-scroll-fade {
+  --edge-fade-distance: calc(var(--spacing) * 10);
+  --sidebar-scroll-footer-edge: calc(100% - var(--sidebar-footer-height));
+  --sidebar-scroll-footer-fade-distance: calc(var(--spacing) * 10);
+  --sidebar-scroll-footer-fade-start: calc(
+    var(--sidebar-scroll-footer-edge) -
+      var(--sidebar-scroll-footer-fade-distance)
+  );
+  --sidebar-scroll-header-mask-distance: var(
+    --sidebar-scroll-header-fade-distance,
+    var(--sidebar-scroll-header-spacing, calc(var(--spacing) * 2))
+  );
+  --sidebar-scroll-header-mask-start: var(
+    --sidebar-scroll-header-fade-start,
+    0px
+  );
+  --sidebar-scroll-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent var(--sidebar-scroll-header-mask-start),
+    black
+      calc(
+        var(--sidebar-scroll-header-mask-start) +
+          var(--sidebar-scroll-header-mask-distance)
+      ),
+    black var(--sidebar-scroll-footer-fade-start),
+    #000000e0 calc(var(--sidebar-scroll-footer-edge) - var(--spacing) * 6),
+    #00000085 calc(var(--sidebar-scroll-footer-edge) - var(--spacing) * 3),
+    #0000002e calc(var(--sidebar-scroll-footer-edge) - var(--spacing)),
+    transparent var(--sidebar-scroll-footer-edge),
+    transparent 100%
+  );
+  mask-image: var(--sidebar-scroll-mask-image);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
 }
-.pi-sidebar-navigation { --color-token-foreground: var(--vscode-foreground); }
-@supports (color:color-mix(in lab, red, red)) {
-  .pi-sidebar-navigation { --color-token-foreground: color-mix(in oklab, var(--vscode-foreground) 85%, transparent); }
+@supports (animation-timeline: --scroll-fade) {
+  .pi-sidebar-scroll-fade {
+    --sidebar-scroll-footer-fade-distance: var(--bottom-fade);
+  }
 }
-.pi-sidebar-navigation { flex-direction: column; flex: 1 1 0%; min-height: 0px; display: flex; }
+.pi-sidebar-navigation {
+  --color-token-foreground: var(--vscode-foreground);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .pi-sidebar-navigation {
+    --color-token-foreground: color-mix(
+      in oklab,
+      var(--vscode-foreground) 85%,
+      transparent
+    );
+  }
+}
+.pi-sidebar-navigation {
+  flex-direction: column;
+  flex: 1 1 0%;
+  min-height: 0px;
+  display: flex;
+}

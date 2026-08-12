@@ -5,6 +5,7 @@
 @import "@pi/ui/markdown.css";
 @import "@pi/ui/prose-mirror.css";
 @import "./features/workspace/composer/composer.css";
+@import "./features/a2ui/a2ui.css";
 @import "@pi/ui/code-display.css";
 @import "./features/workspace/sidebar/sidebar.css";
 @import "@pi/ui/foundation-properties.css";

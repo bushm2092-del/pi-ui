@@ -12,6 +12,7 @@ import {
 } from "@earendil-works/pi-coding-agent";
 import type { JsonValue, RuntimeSlotState, RuntimeSnapshotDto } from "@pi/protocol";
 import { toJsonValue } from "./json-value.js";
+import { renderA2uiTool } from "./a2ui-tool.js";
 
 export interface CreatePiRuntimeOptions {
   cwd: string;
@@ -43,7 +44,8 @@ export async function createPiRuntime(options: CreatePiRuntimeOptions): Promise<
       ...(await createAgentSessionFromServices({
         services,
         sessionManager: effectiveSessionManager,
-        sessionStartEvent
+        sessionStartEvent,
+        customTools: [renderA2uiTool]
       })),
       services,
       diagnostics: services.diagnostics

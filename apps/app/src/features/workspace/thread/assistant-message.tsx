@@ -5,7 +5,7 @@ import { ProcessingStatus } from "./processing-status";
 import type { Message } from "../domain";
 
 export function AssistantMessage({ message }: { message: Message }) {
-  if (message.status === "pending") {
+  if (message.status === "pending" && !message.content) {
     return <ProcessingStatus label="正在生成回复..." />;
   }
 
@@ -13,7 +13,9 @@ export function AssistantMessage({ message }: { message: Message }) {
     <AssistantMessageLayout
       status={message.status}
       markdown={<AssistantMarkdown content={message.content} />}
-      actions={<AssistantActions />}
+      actions={message.status === "pending"
+        ? <ProcessingStatus label="正在生成回复..." />
+        : <AssistantActions />}
     />
   );
 }

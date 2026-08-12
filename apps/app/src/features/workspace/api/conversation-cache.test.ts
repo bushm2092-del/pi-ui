@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { Conversation } from "../domain";
 import {
+  appendPendingAssistantText,
   appendPendingTurn,
   failPendingTurn,
   resolvePendingTurn,
@@ -38,6 +39,17 @@ describe("conversation cache updates", () => {
     expect(resolved.messages.at(-1)).toMatchObject({
       content: "World",
       status: "complete",
+    });
+  });
+
+  it("appends streaming text to the pending assistant message", () => {
+    const pending = appendPendingTurn(conversation, "Hello");
+    const first = appendPendingAssistantText(pending.conversation, "Hel");
+    const second = appendPendingAssistantText(first, "lo");
+
+    expect(second.messages.at(-1)).toMatchObject({
+      content: "Hello",
+      status: "pending",
     });
   });
 

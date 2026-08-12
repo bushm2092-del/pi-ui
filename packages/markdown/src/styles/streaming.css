@@ -1,0 +1,23 @@
+.smk-markdown [data-sd-animate] {
+  animation-name: var(--sd-animation, smk-fade-in);
+  animation-duration: var(--sd-duration);
+  animation-delay: var(--sd-delay, 0ms);
+  animation-timing-function: var(--sd-easing);
+  animation-fill-mode: both;
+}
+
+@keyframes sd-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes smk-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smk-markdown [data-sd-animate] {
+    animation: none !important;
+  }
+}

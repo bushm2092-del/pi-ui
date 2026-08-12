@@ -12,7 +12,8 @@ const desktopPlatform: PlatformAdapter = {
 
 const bridge: DesktopBridge = {
   platform: desktopPlatform,
-  getBackendConnection: () => ipcRenderer.invoke(IPC_CHANNELS.backendConnection)
+  getBackendConnection: () => ipcRenderer.invoke(IPC_CHANNELS.backendConnection),
+  getWorkspaceCwd: () => ipcRenderer.invoke(IPC_CHANNELS.workspaceCwd)
 };
 
 contextBridge.exposeInMainWorld("pi", bridge);

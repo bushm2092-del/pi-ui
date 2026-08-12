@@ -1,4 +1,6 @@
-export type MessageRole = "user" | "assistant";
+import type { A2uiToolDetails } from "@pi/protocol";
+
+export type MessageRole = "user" | "assistant" | "a2ui";
 export type MessageStatus = "pending" | "complete" | "failed";
 
 export interface Message {
@@ -7,6 +9,7 @@ export interface Message {
   content: string;
   status: MessageStatus;
   createdAt: string;
+  a2ui?: A2uiToolDetails;
 }
 
 export function createMessage(

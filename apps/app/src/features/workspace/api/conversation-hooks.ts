@@ -3,6 +3,7 @@ import type { Conversation } from "../domain";
 import { workspaceData } from "../data/workspace-data";
 import { useWorkspaceRepository } from "../data/workspace-repository-context";
 import {
+  appendPendingAssistantText,
   appendPendingTurn,
   failPendingTurn,
   resolvePendingTurn,
@@ -35,8 +36,13 @@ export function useSendMessage(conversationId = workspaceData.conversation.id) {
   const queryKey = workspaceQueryKeys.conversation(conversationId);
 
   return useMutation<string, Error, string, SendContext>({
-    mutationFn: (content) =>
-      repository.sendMessage(conversationId, content.trim()),
+    mutationFn: (content) => repository.sendMessage(
+      conversationId,
+      content.trim(),
+      (delta) => queryClient.setQueryData<Conversation>(queryKey, (current) =>
+        current ? appendPendingAssistantText(current, delta) : current,
+      ),
+    ),
     onMutate: async (rawContent) => {
       const content = rawContent.trim();
       await queryClient.cancelQueries({ queryKey });

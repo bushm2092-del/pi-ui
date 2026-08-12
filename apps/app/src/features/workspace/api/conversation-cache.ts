@@ -29,6 +29,29 @@ export function resolvePendingTurn(
   return updateAssistantMessage(conversation, assistantMessageId, content, "complete");
 }
 
+export function appendPendingAssistantText(
+  conversation: Conversation,
+  delta: string,
+): Conversation {
+  let index = -1;
+  for (let candidate = conversation.messages.length - 1; candidate >= 0; candidate -= 1) {
+    const message = conversation.messages[candidate];
+    if (message?.role === "assistant" && message.status === "pending") {
+      index = candidate;
+      break;
+    }
+  }
+  if (index < 0) return conversation;
+  return {
+    ...conversation,
+    messages: conversation.messages.map((message, messageIndex) =>
+      messageIndex === index
+        ? { ...message, content: message.content + delta }
+        : message,
+    ),
+  };
+}
+
 export function failPendingTurn(
   conversation: Conversation,
   assistantMessageId: string,

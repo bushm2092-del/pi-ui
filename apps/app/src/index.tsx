@@ -10,6 +10,7 @@ import { QueryProvider } from "./query/query-provider";
 export interface MountAppOptions {
   platform: PlatformAdapter;
   backend?: AgentBackendConnection;
+  cwd?: string;
 }
 
 export function mountApp(element: HTMLElement, options: MountAppOptions) {
@@ -20,7 +21,7 @@ export function mountApp(element: HTMLElement, options: MountAppOptions) {
       <PlatformProvider adapter={options.platform}>
         <QueryProvider>
           <AgentClientProvider connection={options.backend}>
-            <WorkspacePage />
+            <WorkspacePage cwd={options.cwd} />
           </AgentClientProvider>
         </QueryProvider>
       </PlatformProvider>

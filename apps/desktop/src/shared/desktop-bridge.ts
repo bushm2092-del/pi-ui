@@ -4,6 +4,7 @@ import type { PlatformAdapter } from "@pi/platform";
 export const IPC_CHANNELS = {
   appInfo: "app:get-info",
   backendConnection: "backend:get-connection",
+  workspaceCwd: "workspace:get-cwd",
   openFile: "file:open",
   saveFile: "file:save",
   openExternal: "shell:open-external"
@@ -12,4 +13,5 @@ export const IPC_CHANNELS = {
 export interface DesktopBridge {
   platform: PlatformAdapter;
   getBackendConnection(): Promise<AgentBackendConnection>;
+  getWorkspaceCwd(): Promise<string>;
 }

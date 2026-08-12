@@ -1,0 +1,5 @@
+.pi-a2ui-document { margin-block: 14px; }
+.pi-a2ui-surface { min-width: 0; border: 1px solid var(--border-subtle); border-radius: 8px; background: var(--surface-primary); overflow: hidden; }
+.pi-a2ui-chart { width: 100%; min-width: 0; }
+.pi-a2ui-status { min-height: 5rem; display: grid; place-items: center; color: var(--foreground-secondary); font-size: 13px; border: 1px solid var(--border-subtle); border-radius: 8px; }
+.pi-a2ui-error { margin: 6px 0 0; color: var(--foreground-danger, #c23b3b); font-size: 12px; }
