@@ -7,6 +7,7 @@ export default defineConfig([
     platform: "node",
     target: "node22",
     outDir: "out/main",
+    noExternal: ["@pi/shared"],
     external: ["electron", "@pi/server/runtime"]
   },
   {

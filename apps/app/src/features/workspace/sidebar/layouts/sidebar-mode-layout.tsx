@@ -1,3 +1,5 @@
+import SearchIcon from "../../../../assets/svg/search.svg?react";
+
 export function SidebarModeLayout({ label }: { label: React.ReactNode }) {
   return (
     <div {...({"className":"ms-2 flex items-center pe-1"} as any)}>
@@ -10,9 +12,7 @@ export function SidebarModeLayout({ label }: { label: React.ReactNode }) {
       <div {...({"className":"ms-auto flex items-center gap-1"} as any)}>
         <span {...({"data-state":"closed","className":"contents"} as any)}>
           <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md text-token-text-tertiary enabled:hover:bg-token-list-hover-background enabled:active:bg-token-foreground/15 data-[state=open]:bg-token-list-hover-background border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 ms-auto translate-x-0.5","aria-label":"搜索"} as any)}>
-            <svg {...({"width":"16","height":"16","viewBox":"0 0 16 16","fill":"none","xmlns":"http://www.w3.org/2000/svg","className":"icon-xs"} as any)}>
-              <path {...({"fillRule":"evenodd","clipRule":"evenodd","d":"M7.33057 1.98535C10.2484 1.98535 12.6136 4.3508 12.6138 7.26855C12.6138 8.58031 12.1346 9.77942 11.3433 10.7031L13.9897 13.3496C14.1655 13.5253 14.1655 13.8106 13.9897 13.9863C13.814 14.1621 13.5288 14.1621 13.353 13.9863L10.7017 11.335C9.78678 12.0942 8.61243 12.5518 7.33057 12.5518C4.41281 12.5516 2.04736 10.1864 2.04736 7.26855C2.04754 4.35091 4.41292 1.98553 7.33057 1.98535ZM7.33057 2.88574C4.90998 2.88592 2.94793 4.84796 2.94775 7.26855C2.94775 9.68929 4.90987 11.6522 7.33057 11.6523C9.75141 11.6523 11.7144 9.6894 11.7144 7.26855C11.7142 4.84786 9.75131 2.88574 7.33057 2.88574Z","fill":"currentColor"} as any)} />
-            </svg>
+            <SearchIcon className="icon-xs" aria-hidden="true" />
           </button>
         </span>
         <div>

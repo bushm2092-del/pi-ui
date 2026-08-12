@@ -8,13 +8,16 @@
     "./styles.css": "./src/styles.css"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/dev.mjs",
+    "dev:vite": "vite",
     "build": "tsc -b && vite build",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "test": "vitest --run"
   },
   "dependencies": {
+    "@a2ui/react": "^0.10.2",
+    "@a2ui/web_core": "^0.10.6",
     "@pi/platform": "workspace:*",
     "@pi/shared": "workspace:*",
     "@pi/ui": "workspace:*",
@@ -25,6 +28,7 @@
     "react-dom": "latest",
     "react-router": "latest",
     "socket.io-client": "^4.8.3",
+    "zod": "^3.25.76",
     "zustand": "latest"
   },
   "devDependencies": {
@@ -36,6 +40,7 @@
     "tailwindcss": "latest",
     "typescript": "^5.9.0",
     "vite": "latest",
+    "vite-plugin-svgr": "^5.2.0",
     "vitest": "^4.1.10"
   }
 }

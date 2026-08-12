@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, Pause, Play, RotateCcw, StepForward } from "lucide-react";
 import { Link } from "react-router";
-import { A2uiRenderer } from "../a2ui";
+import type { A2uiMessage } from "@a2ui/web_core/v0_9";
+import { A2uiOfficialRenderer, createA2uiTestProcessor, ECHART_CATALOG_ID } from "./a2ui-official-renderer";
 
 const OPERATIONS = [
   {
     version: "v0.9",
-    createSurface: { surfaceId: "mock-sales", catalogId: "pi://catalog/echarts/v1" },
+    createSurface: { surfaceId: "mock-sales", catalogId: ECHART_CATALOG_ID },
   },
   {
     version: "v0.9",
@@ -60,6 +61,7 @@ export function A2uiStreamTestPage() {
   const [error, setError] = useState<string>();
   const cursorRef = useRef(0);
   const decoderBuffer = useRef("");
+  const [processor, setProcessor] = useState(() => createA2uiTestProcessor());
 
   const pushChunk = useCallback(() => {
     const current = cursorRef.current;
@@ -74,7 +76,10 @@ export function A2uiStreamTestPage() {
     decoderBuffer.current = lines.pop() ?? "";
     try {
       const completed = lines.filter(Boolean).map((line) => JSON.parse(line));
-      if (completed.length) setMessages((value) => [...value, ...completed]);
+      if (completed.length) {
+        processor.processMessages(completed as A2uiMessage[]);
+        setMessages((value) => [...value, ...completed]);
+      }
       setBuffer(decoderBuffer.current);
       setCursor(next);
       if (next >= JSONL.length) setRunning(false);
@@ -82,7 +87,7 @@ export function A2uiStreamTestPage() {
       setRunning(false);
       setError(cause instanceof Error ? cause.message : "JSONL 解析失败");
     }
-  }, []);
+  }, [processor]);
 
   useEffect(() => {
     if (!running) return;
@@ -98,6 +103,7 @@ export function A2uiStreamTestPage() {
     setError(undefined);
     cursorRef.current = 0;
     decoderBuffer.current = "";
+    setProcessor(createA2uiTestProcessor());
   }, []);
 
   const progress = useMemo(() => Math.round((cursor / JSONL.length) * 100), [cursor]);
@@ -141,7 +147,7 @@ export function A2uiStreamTestPage() {
 
         <div className="a2ui-test-pane a2ui-test-preview">
           <div className="a2ui-test-pane-title"><h2>Surface 预览</h2><span>{messages.length ? "实时更新" : "等待数据"}</span></div>
-          <A2uiRenderer messages={messages} />
+          <A2uiOfficialRenderer processor={processor} />
         </div>
       </section>
     </main>

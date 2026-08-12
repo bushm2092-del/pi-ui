@@ -10,6 +10,7 @@ interface SidebarProjectItemProps {
   activeThreadId: string | null;
   onSelectThread: (threadId: string) => void;
   onToggle: () => void;
+  onShowMore: () => void;
 }
 
 export function SidebarProjectItem({
@@ -19,9 +20,10 @@ export function SidebarProjectItem({
   activeThreadId,
   onSelectThread,
   onToggle,
+  onShowMore,
 }: SidebarProjectItemProps) {
   if (item.kind === "show-more") {
-    return <ShowMoreItemLayout label={item.label} />;
+    return <ShowMoreItemLayout label={item.label} onClick={onShowMore} />;
   }
 
   return (

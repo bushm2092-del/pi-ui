@@ -5,6 +5,12 @@ import type {
   PromptRuntimeRequestDto,
   ResultVO,
   RuntimeSnapshotDto,
+  SidebarDto,
+  SidebarConversationDto,
+  SidebarProjectDto,
+  ProjectConversationsDto,
+  SyncConversationDto,
+  UpsertProjectDto,
 } from "@pi/shared";
 
 export interface AgentBackendConnection {
@@ -40,6 +46,8 @@ export class AgentSocketError extends Error {
 export class AgentClient {
   readonly runtimes: RuntimeCommands;
   readonly realtime: RuntimeRealtime;
+  readonly projects: ProjectCommands;
+  readonly conversations: ConversationCommands;
   readonly #socket: Socket;
 
   constructor(options: AgentClientOptions) {
@@ -51,11 +59,29 @@ export class AgentClient {
     });
     this.runtimes = new RuntimeCommands(this.#socket);
     this.realtime = new RuntimeRealtime(this.#socket);
+    this.projects = new ProjectCommands(this.#socket);
+    this.conversations = new ConversationCommands(this.#socket);
   }
 
   close(): void {
     this.#socket.disconnect();
   }
+}
+
+export class ProjectCommands {
+  constructor(private readonly socket: Socket) {}
+  list(): Promise<SidebarProjectDto[]> { return request(this.socket, "project:list", null); }
+  upsert(input: UpsertProjectDto): Promise<SidebarProjectDto> { return request(this.socket, "project:upsert", input); }
+}
+
+export class ConversationCommands {
+  constructor(private readonly socket: Socket) {}
+  list(): Promise<Pick<SidebarDto, "pinned" | "recent">> { return request(this.socket, "conversation:list", null); }
+  sync(input: SyncConversationDto): Promise<SidebarConversationDto> { return request(this.socket, "conversation:sync", input); }
+  listByProject(input: ProjectConversationsDto): Promise<SidebarConversationDto[]> { return request(this.socket, "conversation:listByProject", input); }
+  pin(conversationId: string, pinned: boolean): Promise<void> { return request(this.socket, "conversation:pin", { conversationId, pinned }); }
+  archive(conversationId: string): Promise<void> { return request(this.socket, "conversation:archive", { conversationId }); }
+  markRead(conversationId: string): Promise<void> { return request(this.socket, "conversation:read", { conversationId }); }
 }
 
 export class RuntimeCommands {

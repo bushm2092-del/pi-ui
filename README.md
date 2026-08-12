@@ -23,7 +23,18 @@
 ```bash
 pnpm install
 pnpm dev       # Electron 桌面端
-pnpm dev:web   # Web 端，默认 http://localhost:5173
+pnpm dev:web   # Web 端，同时启动 Pi 后端，默认 http://localhost:5173
+```
+
+Electron 和 Web 开发命令都会自动启动并连接 Pi 后端。在 `apps/app` 目录执行 `npm run dev` 也具有相同行为。
+
+如需让 Web 端连接到已单独启动的后端，可直接运行 Vite 并提供连接参数：
+
+```bash
+VITE_PI_SOCKET_URL=ws://127.0.0.1:<port> \
+VITE_PI_TOKEN=<token> \
+VITE_PI_CWD=/absolute/path/to/workspace \
+pnpm --filter @pi/app dev:vite
 ```
 
 ## 验证与构建

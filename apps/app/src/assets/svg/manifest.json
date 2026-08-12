@@ -1,0 +1,1264 @@
+{
+  "source": "chatgpt-static-export/index.html",
+  "instanceCount": 477,
+  "uniqueCount": 48,
+  "icons": [
+    {
+      "file": "chevron-down.svg",
+      "hash": "6e6237121f92",
+      "count": 9,
+      "viewBox": "0 0 20 21",
+      "width": "20",
+      "height": "21",
+      "contexts": [
+        "切换模式，当前模式：Codex",
+        "项目",
+        "最近",
+        "次要操作",
+        "打开方式",
+        "环境信息",
+        "本地",
+        "main",
+        "侧边聊天"
+      ],
+      "sourceOffsets": [
+        15047,
+        30829,
+        937923,
+        1046127,
+        1599591,
+        1617953,
+        1626329,
+        1628842,
+        1632186
+      ]
+    },
+    {
+      "file": "search.svg",
+      "hash": "4bd8e6dbd69d",
+      "count": 1,
+      "viewBox": "0 0 16 16",
+      "width": "16",
+      "height": "16",
+      "contexts": [
+        "搜索"
+      ],
+      "sourceOffsets": [
+        16214
+      ]
+    },
+    {
+      "file": "notification.svg",
+      "hash": "54512714c9d9",
+      "count": 1,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "优先级，需要关注"
+      ],
+      "sourceOffsets": [
+        17545
+      ]
+    },
+    {
+      "file": "new-conversation.svg",
+      "hash": "f579771399fa",
+      "count": 49,
+      "viewBox": "0 0 16 16",
+      "width": "16",
+      "height": "16",
+      "contexts": [
+        "新对话",
+        "在 1oneCore 中开始新聊天",
+        "在 desktop 中开始新聊天",
+        "在 pandora-core 中开始新聊天",
+        "在 pi-ui 中开始新聊天",
+        "在 pi 中开始新聊天",
+        "在 codex 中开始新聊天",
+        "在 casdoor 中开始新聊天",
+        "在 pandora 中开始新聊天",
+        "在 pandora-quan 中开始新聊天",
+        "在 rust-learning 中开始新聊天",
+        "在 github-ssh 中开始新聊天",
+        "在 react-shadcn 中开始新聊天",
+        "在 agent-runtimedsfasdfasdfasdfasdfasdfadsfa dasd发送到发送到发送到发送到发送到发的撒发时代发送发疯 中开始新聊天",
+        "在 clive 中开始新聊天",
+        "在 codeg 中开始新聊天",
+        "在 codex-desktop 中开始新聊天",
+        "在 codex-custom 中开始新聊天",
+        "在 codex-eletor 中开始新聊天",
+        "在 opencode 中开始新聊天",
+        "在 Kun 中开始新聊天",
+        "在 test 中开始新聊天",
+        "在 openvpn相关文件 4 中开始新聊天",
+        "在 skillhub 中开始新聊天",
+        "在 acp-opencode-eletor 中开始新聊天",
+        "在 vite-react 中开始新聊天",
+        "在 FreeUltraCode 中开始新聊天",
+        "在 codex-sdk 中开始新聊天",
+        "在 electron 中开始新聊天",
+        "在 tianfuju 中开始新聊天",
+        "在 fan_ying_li 中开始新聊天",
+        "在 指导 中开始新聊天",
+        "在 论文最终 中开始新聊天",
+        "在 openvpn相关文件 2 中开始新聊天",
+        "在 openvpn相关文件 中开始新聊天",
+        "在 gif 中开始新聊天",
+        "在 OpenMAIC 中开始新聊天",
+        "在 video_txt 中开始新聊天",
+        "在 sanwei_daotu 中开始新聊天",
+        "在 true-learning 中开始新聊天",
+        "在 论文代码 中开始新聊天"
+      ],
+      "sourceOffsets": [
+        20614,
+        40585,
+        48272,
+        92306,
+        146936,
+        195272,
+        218212,
+        233147,
+        240832,
+        262964,
+        270649,
+        285571,
+        321953,
+        373609,
+        381312,
+        403317,
+        435494,
+        482332,
+        529030,
+        568023,
+        583047,
+        590877,
+        598713,
+        653604,
+        695423,
+        703118,
+        736400,
+        744071,
+        751907,
+        759602,
+        767363,
+        796546,
+        811452,
+        819153,
+        826941,
+        834636,
+        849510,
+        857223,
+        864993,
+        872775,
+        880500,
+        888213,
+        895989,
+        903795,
+        911607,
+        919437,
+        927273,
+        935069,
+        941058
+      ]
+    },
+    {
+      "file": "pull-request.svg",
+      "hash": "32921cee63d5",
+      "count": 1,
+      "viewBox": "0 0 21 21",
+      "width": "21",
+      "height": "21",
+      "contexts": [
+        "拉取请求"
+      ],
+      "sourceOffsets": [
+        23303
+      ]
+    },
+    {
+      "file": "scheduled.svg",
+      "hash": "24564f983cb9",
+      "count": 4,
+      "viewBox": "0 0 16 16",
+      "width": "16",
+      "height": "16",
+      "contexts": [
+        "已安排",
+        "UI设计器项目每日更新"
+      ],
+      "sourceOffsets": [
+        25853,
+        344950,
+        353654,
+        365274
+      ]
+    },
+    {
+      "file": "plugins.svg",
+      "hash": "0689170067aa",
+      "count": 1,
+      "viewBox": "0 0 16 16",
+      "width": "16",
+      "height": "16",
+      "contexts": [
+        "插件"
+      ],
+      "sourceOffsets": [
+        27626
+      ]
+    },
+    {
+      "file": "more-horizontal.svg",
+      "hash": "529a4cce1d75",
+      "count": 50,
+      "viewBox": "0 0 21 21",
+      "width": "21",
+      "height": "21",
+      "contexts": [
+        "项目侧边栏选项",
+        "1oneCore 的项目操作",
+        "desktop 的项目操作",
+        "pandora-core 的项目操作",
+        "pi-ui 的项目操作",
+        "pi 的项目操作",
+        "codex 的项目操作",
+        "casdoor 的项目操作",
+        "pandora 的项目操作",
+        "pandora-quan 的项目操作",
+        "rust-learning 的项目操作",
+        "github-ssh 的项目操作",
+        "react-shadcn 的项目操作",
+        "agent-runtimedsfasdfasdfasdfasdfasdfadsfa dasd发送到发送到发送到发送到发送到发的撒发时代发送发疯 的项目操作",
+        "clive 的项目操作",
+        "codeg 的项目操作",
+        "codex-desktop 的项目操作",
+        "codex-custom 的项目操作",
+        "codex-eletor 的项目操作",
+        "opencode 的项目操作",
+        "Kun 的项目操作",
+        "test 的项目操作",
+        "openvpn相关文件 4 的项目操作",
+        "skillhub 的项目操作",
+        "acp-opencode-eletor 的项目操作",
+        "vite-react 的项目操作",
+        "FreeUltraCode 的项目操作",
+        "codex-sdk 的项目操作",
+        "electron 的项目操作",
+        "tianfuju 的项目操作",
+        "fan_ying_li 的项目操作",
+        "指导 的项目操作",
+        "论文最终 的项目操作",
+        "openvpn相关文件 2 的项目操作",
+        "openvpn相关文件 的项目操作",
+        "gif 的项目操作",
+        "OpenMAIC 的项目操作",
+        "video_txt 的项目操作",
+        "sanwei_daotu 的项目操作",
+        "true-learning 的项目操作",
+        "论文代码 的项目操作",
+        "聊天侧边栏选项",
+        "聊天操作"
+      ],
+      "sourceOffsets": [
+        32581,
+        39007,
+        46695,
+        90724,
+        145361,
+        193700,
+        216637,
+        231565,
+        239255,
+        261355,
+        269072,
+        283989,
+        320376,
+        372026,
+        379732,
+        401735,
+        433853,
+        480757,
+        527455,
+        566416,
+        581432,
+        589263,
+        597098,
+        651997,
+        693841,
+        701540,
+        734827,
+        742497,
+        750292,
+        758024,
+        765774,
+        794966,
+        809869,
+        817574,
+        825334,
+        833058,
+        847932,
+        855642,
+        863389,
+        871169,
+        878917,
+        886632,
+        894384,
+        902185,
+        909996,
+        917823,
+        925658,
+        933463,
+        939675,
+        1043727
+      ]
+    },
+    {
+      "file": "plus.svg",
+      "hash": "c5ceb7caab93",
+      "count": 6,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "添加新项目",
+        "添加文件等内容",
+        "设置本地环境"
+      ],
+      "sourceOffsets": [
+        33994,
+        1610102,
+        1619614,
+        1642052,
+        1657638,
+        1672719
+      ]
+    },
+    {
+      "file": "project-folder.svg",
+      "hash": "e77b77f8fa33",
+      "count": 47,
+      "viewBox": "0 0 16 16",
+      "width": "16",
+      "height": "16",
+      "contexts": [
+        "1oneCore",
+        "desktop",
+        "pandora-core",
+        "pi-ui",
+        "pi",
+        "codex",
+        "casdoor",
+        "pandora",
+        "pandora-quan",
+        "rust-learning",
+        "github-ssh",
+        "react-shadcn",
+        "agent-runtimedsfasdfasdfasdfasdfasdfadsfa dasd发送到发送到发送到发送到发送到发的撒发时代发送发疯",
+        "clive",
+        "codeg",
+        "codex-desktop",
+        "codex-custom",
+        "codex-eletor",
+        "opencode",
+        "Kun",
+        "test",
+        "openvpn相关文件 4",
+        "skillhub",
+        "acp-opencode-eletor",
+        "vite-react",
+        "FreeUltraCode",
+        "codex-sdk",
+        "electron",
+        "tianfuju",
+        "fan_ying_li",
+        "指导",
+        "论文最终",
+        "openvpn相关文件 2",
+        "openvpn相关文件",
+        "gif",
+        "OpenMAIC",
+        "video_txt",
+        "sanwei_daotu",
+        "true-learning",
+        "论文代码"
+      ],
+      "sourceOffsets": [
+        36205,
+        43895,
+        87914,
+        142565,
+        190910,
+        213841,
+        228755,
+        236455,
+        258521,
+        266272,
+        281179,
+        317576,
+        369214,
+        376926,
+        398925,
+        430925,
+        477961,
+        524659,
+        563586,
+        578586,
+        586419,
+        594252,
+        649167,
+        691031,
+        698738,
+        732035,
+        739703,
+        747446,
+        755222,
+        762950,
+        792160,
+        807057,
+        814770,
+        822504,
+        830256,
+        845130,
+        852834,
+        860565,
+        868341,
+        876105,
+        883824,
+        891558,
+        899349,
+        907158,
+        914979,
+        922812,
+        930635
+      ]
+    },
+    {
+      "file": "pin.svg",
+      "hash": "8eec3dd4372e",
+      "count": 77,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "置顶聊天"
+      ],
+      "sourceOffsets": [
+        52256,
+        59389,
+        66524,
+        73659,
+        80805,
+        96391,
+        106229,
+        115994,
+        125754,
+        135487,
+        150992,
+        158166,
+        165353,
+        175103,
+        182279,
+        199269,
+        206433,
+        222216,
+        244808,
+        251956,
+        274643,
+        289578,
+        296738,
+        303884,
+        311048,
+        325933,
+        333072,
+        340209,
+        348913,
+        360533,
+        385277,
+        392398,
+        407314,
+        414457,
+        421627,
+        439552,
+        446686,
+        453819,
+        460960,
+        468209,
+        486294,
+        493423,
+        500553,
+        507670,
+        514909,
+        533014,
+        540132,
+        547287,
+        557027,
+        572007,
+        602729,
+        612554,
+        622378,
+        632201,
+        642026,
+        657682,
+        667461,
+        674684,
+        684495,
+        707087,
+        715602,
+        724131,
+        771355,
+        778486,
+        785631,
+        800527,
+        838615,
+        944677,
+        951648,
+        958621,
+        965615,
+        975181,
+        982252,
+        991898,
+        998973,
+        1008587,
+        1015535
+      ]
+    },
+    {
+      "file": "archive.svg",
+      "hash": "5c6ed97f7d77",
+      "count": 77,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "归档聊天"
+      ],
+      "sourceOffsets": [
+        54190,
+        61323,
+        68458,
+        75593,
+        82739,
+        98325,
+        108163,
+        117928,
+        127688,
+        137421,
+        152926,
+        160100,
+        167287,
+        177037,
+        184213,
+        201203,
+        208367,
+        224150,
+        246742,
+        253890,
+        276577,
+        291512,
+        298672,
+        305818,
+        312982,
+        327867,
+        335006,
+        342143,
+        350847,
+        362467,
+        387211,
+        394332,
+        409248,
+        416391,
+        423561,
+        441486,
+        448620,
+        455753,
+        462894,
+        470143,
+        488228,
+        495357,
+        502487,
+        509604,
+        516843,
+        534948,
+        542066,
+        549221,
+        558961,
+        573941,
+        604663,
+        614488,
+        624312,
+        634135,
+        643960,
+        659616,
+        669395,
+        676618,
+        686429,
+        709021,
+        717536,
+        726065,
+        773289,
+        780420,
+        787565,
+        802461,
+        840549,
+        946611,
+        953582,
+        960555,
+        967549,
+        977115,
+        984186,
+        993832,
+        1000907,
+        1010521,
+        1017469
+      ]
+    },
+    {
+      "file": "scheduled-folder.svg",
+      "hash": "998c8d8f8d74",
+      "count": 2,
+      "viewBox": "0 0 24 24",
+      "width": "24",
+      "height": "24",
+      "contexts": [
+        "pi-ui中的已安排任务",
+        "已安排任务文件夹"
+      ],
+      "sourceOffsets": [
+        187236,
+        1020780
+      ]
+    },
+    {
+      "file": "continue-in-new-conversation.svg",
+      "hash": "6daea87a326e",
+      "count": 5,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "阿斯顿发",
+        "从此处在新聊天中继续"
+      ],
+      "sourceOffsets": [
+        711850,
+        720365,
+        728894,
+        1080135,
+        1605436
+      ]
+    },
+    {
+      "file": "settings.svg",
+      "hash": "d944043cf838",
+      "count": 1,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "打开个人资料菜单"
+      ],
+      "sourceOffsets": [
+        1023028
+      ]
+    },
+    {
+      "file": "help-circle.svg",
+      "hash": "f1e5e38dd84a",
+      "count": 1,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "打开帮助菜单"
+      ],
+      "sourceOffsets": [
+        1026474
+      ]
+    },
+    {
+      "file": "sidebar-toggle.svg",
+      "hash": "988300f53f5b",
+      "count": 4,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "隐藏边栏",
+        "显示/隐藏侧边栏"
+      ],
+      "sourceOffsets": [
+        1029628,
+        1035534,
+        1050413,
+        1055109
+      ]
+    },
+    {
+      "file": "arrow-horizontal.svg",
+      "hash": "4718cff9f561",
+      "count": 4,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "返回",
+        "前进"
+      ],
+      "sourceOffsets": [
+        1032632,
+        1033825,
+        1038538,
+        1039731
+      ]
+    },
+    {
+      "file": "folder-tab.svg",
+      "hash": "5b4f126fa2a4",
+      "count": 1,
+      "viewBox": "0 0 16 16",
+      "width": "16",
+      "height": "16",
+      "contexts": [],
+      "sourceOffsets": [
+        1041379
+      ]
+    },
+    {
+      "file": "summary-toggle.svg",
+      "hash": "aaba162b83d8",
+      "count": 1,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "切换摘要"
+      ],
+      "sourceOffsets": [
+        1047436
+      ]
+    },
+    {
+      "file": "bottom-panel-toggle.svg",
+      "hash": "5094ee2678d1",
+      "count": 2,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "切换底部面板显示"
+      ],
+      "sourceOffsets": [
+        1049099,
+        1053795
+      ]
+    },
+    {
+      "file": "copy.svg",
+      "hash": "0d3cfd2c5e2e",
+      "count": 48,
+      "viewBox": "0 0 21 21",
+      "width": "21",
+      "height": "21",
+      "contexts": [
+        "复制消息",
+        "复制",
+        "复制表格"
+      ],
+      "sourceOffsets": [
+        1062216,
+        1069933,
+        1075637,
+        1083486,
+        1137098,
+        1150085,
+        1155403,
+        1161808,
+        1213989,
+        1219401,
+        1225169,
+        1231313,
+        1238381,
+        1244999,
+        1251289,
+        1258057,
+        1264300,
+        1271121,
+        1277359,
+        1285576,
+        1293291,
+        1302683,
+        1310171,
+        1318371,
+        1351095,
+        1357138,
+        1363758,
+        1371306,
+        1383249,
+        1408640,
+        1445541,
+        1474230,
+        1482371,
+        1487413,
+        1499299,
+        1513520,
+        1519201,
+        1525289,
+        1531181,
+        1537464,
+        1548346,
+        1553684,
+        1559031,
+        1564343,
+        1569692,
+        1575009,
+        1587036,
+        1600938
+      ]
+    },
+    {
+      "file": "word-wrap.svg",
+      "hash": "8a85627bc83a",
+      "count": 5,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "启用自动换行"
+      ],
+      "sourceOffsets": [
+        1068878,
+        1160753,
+        1212934,
+        1473175,
+        1512465
+      ]
+    },
+    {
+      "file": "edit.svg",
+      "hash": "513bc03ed091",
+      "count": 1,
+      "viewBox": "0 0 21 21",
+      "width": "21",
+      "height": "21",
+      "contexts": [
+        "编辑消息"
+      ],
+      "sourceOffsets": [
+        1088065
+      ]
+    },
+    {
+      "file": "link.svg",
+      "hash": "94459e13d11d",
+      "count": 22,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "Markdown 全量测试文档",
+        "标题测试",
+        "段落与换行",
+        "强调语法",
+        "引用块",
+        "列表",
+        "任务列表",
+        "链接",
+        "图片",
+        "代码",
+        "表格",
+        "分割线",
+        "转义字符",
+        "脚注",
+        "数学公式",
+        "HTML 混排",
+        "折叠块",
+        "复杂嵌套",
+        "跳转到标题测试",
+        "跳转到代码",
+        "^note1",
+        "^long-note"
+      ],
+      "sourceOffsets": [
+        1091903,
+        1094209,
+        1096422,
+        1098635,
+        1100846,
+        1103055,
+        1105265,
+        1107475,
+        1109683,
+        1111891,
+        1114099,
+        1116308,
+        1118519,
+        1120729,
+        1122939,
+        1125154,
+        1127368,
+        1129579,
+        1195357,
+        1197580,
+        1325918,
+        1328185
+      ]
+    },
+    {
+      "file": "check.svg",
+      "hash": "581cddf1f3a0",
+      "count": 11,
+      "viewBox": "0 0 17 17",
+      "width": "17",
+      "height": "17",
+      "contexts": [],
+      "sourceOffsets": [
+        1167378,
+        1170169,
+        1174124,
+        1177949,
+        1376742,
+        1378508,
+        1504720,
+        1508634,
+        1580531,
+        1582299,
+        1584067
+      ]
+    },
+    {
+      "file": "github.svg",
+      "hash": "c8d6869d1aed",
+      "count": 3,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "GitHub",
+        "https://github.com",
+        "GitHub 链接"
+      ],
+      "sourceOffsets": [
+        1181405,
+        1186700,
+        1193165
+      ]
+    },
+    {
+      "file": "mail.svg",
+      "hash": "d9167fa9bbe2",
+      "count": 1,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "example@example.com"
+      ],
+      "sourceOffsets": [
+        1188921
+      ]
+    },
+    {
+      "file": "image.svg",
+      "hash": "0a59de2e2e51",
+      "count": 3,
+      "viewBox": "0 0 20 21",
+      "width": "20",
+      "height": "21",
+      "contexts": [
+        "示例图片",
+        "带标题的示例图片",
+        "点击图片跳转"
+      ],
+      "sourceOffsets": [
+        1199930,
+        1203540,
+        1207972
+      ]
+    },
+    {
+      "file": "expand.svg",
+      "hash": "c46c7f1387cc",
+      "count": 13,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "展开表格",
+        "展开 Mermaid 图表",
+        "展开面板"
+      ],
+      "sourceOffsets": [
+        1284387,
+        1292102,
+        1301494,
+        1308982,
+        1317182,
+        1370117,
+        1382066,
+        1407457,
+        1444358,
+        1481182,
+        1498110,
+        1547157,
+        1643621
+      ]
+    },
+    {
+      "file": "math-radical.svg",
+      "hash": "8b732b6d84d1",
+      "count": 1,
+      "viewBox": "0 0 400000 1080",
+      "width": "400em",
+      "height": "1.08em",
+      "contexts": [],
+      "sourceOffsets": [
+        1338178
+      ]
+    },
+    {
+      "file": "math-bracket-left.svg",
+      "hash": "1218c310e0cc",
+      "count": 1,
+      "viewBox": "0 0 667 3600",
+      "width": "0.667em",
+      "height": "3.6em",
+      "contexts": [],
+      "sourceOffsets": [
+        1345238
+      ]
+    },
+    {
+      "file": "math-bracket-right.svg",
+      "hash": "b213667c2937",
+      "count": 1,
+      "viewBox": "0 0 667 3600",
+      "width": "0.667em",
+      "height": "3.6em",
+      "contexts": [],
+      "sourceOffsets": [
+        1348190
+      ]
+    },
+    {
+      "file": "mermaid-flowchart.svg",
+      "hash": "815791c5bce3",
+      "count": 1,
+      "viewBox": "0 0 314 481",
+      "width": "100%",
+      "height": null,
+      "contexts": [
+        "Mermaid 流程图"
+      ],
+      "sourceOffsets": [
+        1387479
+      ]
+    },
+    {
+      "file": "mermaid-sequence-diagram.svg",
+      "hash": "4f3a3e15b0ee",
+      "count": 1,
+      "viewBox": "-50 -10 850 467",
+      "width": "100%",
+      "height": null,
+      "contexts": [
+        "Mermaid 流程图"
+      ],
+      "sourceOffsets": [
+        1412902
+      ]
+    },
+    {
+      "file": "mermaid-gantt-chart.svg",
+      "hash": "b985d07e7dd1",
+      "count": 1,
+      "viewBox": "0 0 1203 220",
+      "width": "100%",
+      "height": null,
+      "contexts": [
+        "Mermaid 流程图"
+      ],
+      "sourceOffsets": [
+        1449771
+      ]
+    },
+    {
+      "file": "globe.svg",
+      "hash": "96c1a8e8e9a9",
+      "count": 1,
+      "viewBox": "0 0 24 24",
+      "width": "24",
+      "height": "24",
+      "contexts": [],
+      "sourceOffsets": [
+        1597786
+      ]
+    },
+    {
+      "file": "arrow-up.svg",
+      "hash": "dc46b1bcd7da",
+      "count": 4,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "滚动到底部",
+        "发送"
+      ],
+      "sourceOffsets": [
+        1607516,
+        1615707,
+        1648837,
+        1663232
+      ]
+    },
+    {
+      "file": "permissions-shield.svg",
+      "hash": "dd4b04daa805",
+      "count": 2,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "完全访问"
+      ],
+      "sourceOffsets": [
+        1611437,
+        1658973
+      ]
+    },
+    {
+      "file": "changes.svg",
+      "hash": "10b44db41705",
+      "count": 1,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "变更"
+      ],
+      "sourceOffsets": [
+        1621221
+      ]
+    },
+    {
+      "file": "local-workspace.svg",
+      "hash": "16301c8d3b9c",
+      "count": 1,
+      "viewBox": "0 0 21 21",
+      "width": "21",
+      "height": "21",
+      "contexts": [
+        "本地"
+      ],
+      "sourceOffsets": [
+        1624035
+      ]
+    },
+    {
+      "file": "git-branch.svg",
+      "hash": "fa1c30f2a25a",
+      "count": 1,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "main"
+      ],
+      "sourceOffsets": [
+        1627859
+      ]
+    },
+    {
+      "file": "commit-and-push.svg",
+      "hash": "f2726f6f28ab",
+      "count": 1,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "提交或推送"
+      ],
+      "sourceOffsets": [
+        1630338
+      ]
+    },
+    {
+      "file": "side-conversation-small.svg",
+      "hash": "56a3790ea764",
+      "count": 1,
+      "viewBox": "0 0 16 16",
+      "width": "16",
+      "height": "16",
+      "contexts": [
+        "侧边聊天"
+      ],
+      "sourceOffsets": [
+        1633990
+      ]
+    },
+    {
+      "file": "side-conversation.svg",
+      "hash": "d97e25bc63a8",
+      "count": 2,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "侧边聊天"
+      ],
+      "sourceOffsets": [
+        1638623,
+        1646207
+      ]
+    },
+    {
+      "file": "close.svg",
+      "hash": "463a20507e5a",
+      "count": 4,
+      "viewBox": "0 0 21 21",
+      "width": "21",
+      "height": "21",
+      "contexts": [
+        "关闭侧边聊天标签页",
+        "移除所选文本附件",
+        "关闭pi-ui标签页"
+      ],
+      "sourceOffsets": [
+        1640222,
+        1655965,
+        1670889,
+        1674217
+      ]
+    },
+    {
+      "file": "selected-text.svg",
+      "hash": "48f9bf681325",
+      "count": 1,
+      "viewBox": "0 0 21 21",
+      "width": "21",
+      "height": "21",
+      "contexts": [
+        "1 个已选文本片段"
+      ],
+      "sourceOffsets": [
+        1651274
+      ]
+    },
+    {
+      "file": "workspace-folder.svg",
+      "hash": "eaac04f88c5a",
+      "count": 1,
+      "viewBox": "0 0 20 20",
+      "width": "20",
+      "height": "20",
+      "contexts": [
+        "pi-ui"
+      ],
+      "sourceOffsets": [
+        1667330
+      ]
+    }
+  ]
+}

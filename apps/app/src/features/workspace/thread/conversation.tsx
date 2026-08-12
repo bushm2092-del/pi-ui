@@ -3,7 +3,11 @@ import { Turn } from "./turn";
 import { useConversation } from "../api";
 
 export function Conversation() {
-  const { data: conversation } = useConversation();
+  const { data: conversation, error, isPending } = useConversation();
+
+  if (isPending) return <ConversationStatus>正在加载真实会话...</ConversationStatus>;
+  if (error) return <ConversationStatus>{error.message}</ConversationStatus>;
+  if (!conversation) return null;
 
   return (
     <ConversationLayout>
@@ -12,6 +16,14 @@ export function Conversation() {
           <Turn key={message.id} message={message} />
         ))}
       </div>
+    </ConversationLayout>
+  );
+}
+
+function ConversationStatus({ children }: { children: React.ReactNode }) {
+  return (
+    <ConversationLayout>
+      <p className="py-8 text-center text-sm text-token-description-foreground">{children}</p>
     </ConversationLayout>
   );
 }

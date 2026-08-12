@@ -21,8 +21,6 @@ export function useConversation(conversationId = workspaceData.conversation.id) 
   return useQuery({
     queryKey: workspaceQueryKeys.conversation(conversationId),
     queryFn: ({ signal }) => repository.getConversation(conversationId, signal),
-    initialData: workspaceData.conversation,
-    initialDataUpdatedAt: 0,
   });
 }
 

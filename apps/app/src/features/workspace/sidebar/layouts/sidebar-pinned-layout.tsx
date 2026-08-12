@@ -1,4 +1,4 @@
-export function SidebarPinnedLayout({ label }: { label: string }) {
+export function SidebarPinnedLayout({ label, children }: { label: string; children?: React.ReactNode }) {
   return (
     <section {...({"className":"relative px-row-x","data-app-action-sidebar-section":"","data-app-action-sidebar-section-collapsed":"true","data-app-action-sidebar-section-heading":"Pinned"} as any)}>
       <div {...({"className":"flex flex-col"} as any)}>
@@ -17,6 +17,7 @@ export function SidebarPinnedLayout({ label }: { label: string }) {
           </div>
         </div>
       </div>
+      {children ? <div className="flex flex-col pt-1">{children}</div> : null}
     </section>
   );
 }

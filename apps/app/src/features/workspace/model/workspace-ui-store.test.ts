@@ -7,14 +7,11 @@ import {
 
 describe("workspace UI store", () => {
   it("derives its initial navigation state from workspace data", () => {
-    const state = getInitialWorkspaceUiState(workspaceData);
+    const data = withProject();
+    const state = getInitialWorkspaceUiState(data);
 
-    expect(state.activeThreadId).toBe(
-      "local:019fc7cf-24ff-77a0-a094-966a0cd02845",
-    );
-    expect(state.expandedProjectIds).toContain(
-      "939fa940-5326-4daf-9e1f-503d1b499533",
-    );
+    expect(state.activeThreadId).toBe("thread-a");
+    expect(state.expandedProjectIds).toContain("project-a");
     expect(state.draftByConversationId[workspaceData.conversation.id]).toBe(
       workspaceData.composer.initialDraft,
     );
@@ -22,8 +19,8 @@ describe("workspace UI store", () => {
   });
 
   it("toggles projects without changing other project state", () => {
-    const store = createWorkspaceUiStore(workspaceData);
-    const projectId = "939fa940-5326-4daf-9e1f-503d1b499533";
+    const store = createWorkspaceUiStore(withProject());
+    const projectId = "project-a";
 
     store.getState().toggleProject(projectId);
     expect(store.getState().expandedProjectIds).not.toContain(projectId);
@@ -61,3 +58,23 @@ describe("workspace UI store", () => {
     expect(store.getState().sidebarOpen).toBe(true);
   });
 });
+
+function withProject(): typeof workspaceData {
+  return {
+    ...workspaceData,
+    sidebar: {
+      items: [{
+        kind: "project",
+        id: "project-a",
+        label: "Project A",
+        initialExpanded: true,
+        threads: [{
+          kind: "thread",
+          id: "thread-a",
+          label: "Thread A",
+          initialActive: true,
+        }],
+      }],
+    },
+  };
+}

@@ -1,3 +1,4 @@
+import { createServer, type Server as HttpServer } from "node:http";
 import { Server } from "socket.io";
 import type { SocketController } from "../Controller/socket-controller.js";
 import { TokenInterceptor } from "../Interceptor/token-interceptor.js";
@@ -17,13 +18,15 @@ export interface SocketServerAddress {
 
 export class SocketServer {
   #io?: Server;
+  #httpServer?: HttpServer;
 
   constructor(private readonly options: SocketServerOptions) {}
 
   async start(): Promise<SocketServerAddress> {
     if (this.#io) throw new Error("Socket server is already started");
 
-    const io = new Server({
+    const httpServer = createServer();
+    const io = new Server(httpServer, {
       transports: ["websocket"],
       serveClient: false,
     });
@@ -34,15 +37,14 @@ export class SocketServer {
     });
 
     this.#io = io;
-    io.listen(this.options.port ?? 0);
+    this.#httpServer = httpServer;
     await new Promise<void>((resolve, reject) => {
-      const server = io.httpServer;
-      if (server.listening) return resolve();
-      server.once("listening", resolve);
-      server.once("error", reject);
+      httpServer.once("listening", resolve);
+      httpServer.once("error", reject);
+      httpServer.listen(this.options.port ?? 0, this.options.host);
     });
 
-    const address = io.httpServer.address();
+    const address = httpServer.address();
     if (!address || typeof address === "string") throw new Error("Socket server did not expose a TCP address");
     const host = address.address;
     const displayHost = address.family === "IPv6" ? `[${host}]` : host;
@@ -56,6 +58,7 @@ export class SocketServer {
   async stop(): Promise<void> {
     const io = this.#io;
     this.#io = undefined;
+    this.#httpServer = undefined;
     if (io) await new Promise<void>((resolve) => io.close(() => resolve()));
   }
 }

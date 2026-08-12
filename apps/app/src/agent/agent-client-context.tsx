@@ -38,9 +38,11 @@ export function AgentClientProvider({
       return;
     }
     setConnectionState(client.realtime.state);
+    setError(undefined);
     const unsubscribe = client.realtime.onStateChange(setConnectionState);
     void client.realtime.connect().catch((reason) => {
       setError(reason instanceof Error ? reason : new Error(String(reason)));
+      setConnectionState("closed");
     });
     return () => {
       unsubscribe();

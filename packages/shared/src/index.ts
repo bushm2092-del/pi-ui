@@ -12,3 +12,4 @@ export * from "./a2ui.js";
 export * from "./json.js";
 export * from "./runtime.js";
 export * from "./result.js";
+export * from "./sidebar.js";

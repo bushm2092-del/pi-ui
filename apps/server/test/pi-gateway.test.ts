@@ -75,6 +75,37 @@ describe("RuntimeController Socket.IO", () => {
       },
     });
   });
+
+  it("serves persistent sidebar projects and conversation actions", async () => {
+    const { backend, directory, workspace } = await startFixture();
+    const socket = connect(backend.address.socketUrl, backend.token);
+    cleanups.push(async () => {
+      socket.disconnect();
+      await backend.stop();
+      await rm(directory, { recursive: true, force: true });
+    });
+    await onceConnected(socket);
+
+    const project = await emit<{ id: string }>(socket, "project:upsert", { name: "workspace", cwd: workspace });
+    await emit(socket, "conversation:sync", {
+      id: "conversation-1",
+      projectId: project.id,
+      piSessionId: "pi-session-1",
+      title: "真实会话",
+      status: "idle",
+    });
+
+    expect(await emit(socket, "project:list", null)).toMatchObject([
+      { id: project.id, conversations: [{ id: "conversation-1", title: "真实会话" }] },
+    ]);
+    expect(await emit(socket, "conversation:list", null)).toMatchObject({ recent: [{ id: "conversation-1" }] });
+
+    await emit(socket, "conversation:pin", { conversationId: "conversation-1", pinned: true });
+    expect(await emit(socket, "conversation:list", null)).toMatchObject({ pinned: [{ id: "conversation-1", isPinned: true }] });
+
+    await emit(socket, "conversation:archive", { conversationId: "conversation-1" });
+    expect(await emit(socket, "conversation:list", null)).toMatchObject({ pinned: [], recent: [] });
+  });
 });
 
 async function startFixture() {

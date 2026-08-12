@@ -3,6 +3,8 @@ import type { AgentClient } from "../../../../agent/agent-client";
 import type { Conversation, Message } from "../../domain";
 import { workspaceData } from "../workspace-data";
 import type { WorkspaceRepository } from "../workspace-repository";
+import type { QueryClient } from "@tanstack/react-query";
+import { sidebarQueryKey } from "../../api/sidebar-hooks";
 
 export class AgentWorkspaceRepository implements WorkspaceRepository {
   private runtime?: Promise<RuntimeSnapshotDto>;
@@ -13,6 +15,7 @@ export class AgentWorkspaceRepository implements WorkspaceRepository {
   constructor(
     private readonly client: AgentClient,
     private readonly cwd: string,
+    private readonly queryClient: QueryClient,
   ) {}
 
   async getConversation(conversationId: string, signal?: AbortSignal): Promise<Conversation> {
@@ -50,7 +53,12 @@ export class AgentWorkspaceRepository implements WorkspaceRepository {
   private async ensureRuntime(signal?: AbortSignal): Promise<RuntimeSnapshotDto> {
     if (!this.runtime) {
       this.runtime = this.client.runtimes.create({ cwd: this.cwd }, signal)
-        .then((snapshot) => {
+        .then(async (snapshot) => {
+          const project = await this.client.projects.upsert({ name: projectName(this.cwd), cwd: this.cwd });
+          await this.client.conversations.sync({ id: workspaceData.conversation.id, projectId: project.id,
+            piSessionId: snapshot.sessionId, sessionFile: snapshot.sessionFile, title: snapshot.sessionName ?? workspaceData.conversation.title,
+            status: snapshot.isStreaming ? "running" : "idle" });
+          await this.queryClient.invalidateQueries({ queryKey: sidebarQueryKey });
           this.latestSnapshot = snapshot;
           const subscription = this.client.realtime.subscribe(snapshot.runtimeSlotId, {
             onSnapshot: (nextSnapshot) => { this.latestSnapshot = nextSnapshot; },
@@ -141,4 +149,8 @@ function readTextContent(value: unknown): string {
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function projectName(path: string): string {
+  return path.replace(/[\\/]+$/, "").split(/[\\/]/).pop() || path;
 }

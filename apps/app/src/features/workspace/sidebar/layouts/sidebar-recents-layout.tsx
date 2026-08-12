@@ -1,4 +1,4 @@
-export function SidebarRecentsLayout({ label }: { label: string }) {
+export function SidebarRecentsLayout({ label, children }: { label: string; children?: React.ReactNode }) {
   return (
     <section {...({"className":"relative px-row-x","data-app-action-sidebar-section":"","data-app-action-sidebar-section-collapsed":"true","data-app-action-sidebar-section-heading":"Recents"} as any)}>
       <div {...({"className":"flex flex-col"} as any)}>
@@ -40,6 +40,7 @@ export function SidebarRecentsLayout({ label }: { label: string }) {
           </div>
         </div>
       </div>
+      {children ? <div className="flex flex-col pt-1">{children}</div> : null}
     </section>
   );
 }

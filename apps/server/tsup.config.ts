@@ -10,5 +10,6 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   noExternal: ["@pi/shared"],
-  external: ["socket.io"],
+  external: ["node:sqlite", "socket.io"],
+  removeNodeProtocol: false,
 });

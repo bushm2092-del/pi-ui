@@ -57,3 +57,57 @@
   min-height: 0px;
   display: flex;
 }
+
+/* Keep section actions visually balanced with the sidebar's 18px headings. */
+.pi-sidebar-navigation .sidebar-icon-button {
+  width: 30px;
+  height: 30px;
+  padding: 5px !important;
+  border-radius: var(--radius-md);
+}
+
+.pi-sidebar-navigation .sidebar-icon-button > svg {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  flex: 0 0 20px;
+}
+
+.pi-sidebar-navigation .sidebar-hover-icon-button-tint {
+  color: var(--color-token-foreground) !important;
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+  .pi-sidebar-navigation .sidebar-hover-icon-button-tint {
+    color: color-mix(
+      in oklab,
+      var(--color-token-foreground) 72%,
+      transparent
+    ) !important;
+  }
+}
+
+.pi-sidebar-navigation .sidebar-hover-icon-button-tint:hover,
+.pi-sidebar-navigation .sidebar-hover-icon-button-tint:focus-visible {
+  color: var(--color-token-foreground) !important;
+}
+
+.pi-sidebar-navigation [aria-label="搜索"],
+.pi-sidebar-navigation [aria-label^="优先级"] {
+  width: 26px;
+  height: 26px;
+  padding: 4px;
+  border-radius: var(--radius-md);
+  color: color-mix(in srgb, var(--vscode-foreground) 49.5%, transparent);
+}
+
+.pi-sidebar-navigation [aria-label="搜索"] > svg,
+.pi-sidebar-navigation [aria-label^="优先级"] > svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pi-sidebar-navigation ~ div [aria-label="打开帮助菜单"] {
+  padding: 4px 0;
+  color: color-mix(in srgb, var(--vscode-foreground) 49.5%, transparent);
+}
