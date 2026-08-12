@@ -1,27 +1,135 @@
-.pi-workspace-header { --header-tint: var(--codex-titlebar-tint,transparent); pointer-events: none; z-index: 30; height: var(--height-toolbar); background-color: var(--header-tint); app-region: drag; user-select: none; align-items: center; min-width: 0px; display: flex; position: fixed; }
-.pi-workspace-header[data-app-shell-header-edge-scroll="true"] { --header-tint: transparent; }
-.pi-workspace-header[data-app-shell-application-menu-bar="true"] { right: 0px; top: var(--height-toolbar-sm); }
-.pi-workspace-header[data-app-shell-application-menu-bar="false"] { inset-inline: 0px; top: 0px; }
-.pi-workspace-header button { app-region: no-drag; }
-.pi-workspace-main-surface { isolation: isolate; flex-direction: column; flex: 1 1 0%; min-height: 0px; display: flex; position: relative; }
-:root:is([data-codex-window-type="browser"], [data-codex-window-type="chrome-extension"], [data-codex-window-type="electron"]) .pi-workspace-main-surface[data-app-shell-main-surface="default"] { background-color: var(--color-token-main-surface-primary); box-shadow: var(--elevation-prominent); overflow: hidden; }
+.pi-workspace-header {
+  --header-tint: var(--codex-titlebar-tint, transparent);
+  pointer-events: none;
+  z-index: 30;
+  height: var(--height-toolbar);
+  background-color: var(--header-tint);
+  app-region: drag;
+  user-select: none;
+  align-items: center;
+  min-width: 0px;
+  display: flex;
+  position: fixed;
+}
+.pi-workspace-header[data-app-shell-header-edge-scroll="true"] {
+  --header-tint: transparent;
+}
+.pi-workspace-header[data-app-shell-application-menu-bar="true"] {
+  right: 0px;
+  top: var(--height-toolbar-sm);
+}
+.pi-workspace-header[data-app-shell-application-menu-bar="false"] {
+  inset-inline: 0px;
+  top: 0px;
+}
+.pi-workspace-header button {
+  app-region: no-drag;
+}
+.pi-workspace-main-surface {
+  isolation: isolate;
+  flex-direction: column;
+  flex: 1 1 0%;
+  min-height: 0px;
+  display: flex;
+  position: relative;
+}
+:root:is([data-codex-window-type="browser"], [data-codex-window-type="chrome-extension"], [data-codex-window-type="electron"])
+  .pi-workspace-main-surface[data-app-shell-main-surface="default"] {
+  background-color: var(--color-token-main-surface-primary);
+  box-shadow: var(--elevation-prominent);
+  overflow: hidden;
+}
 @media (forced-colors: active) {
-  :root:is([data-codex-window-type="browser"], [data-codex-window-type="chrome-extension"], [data-codex-window-type="electron"]) .pi-workspace-main-surface[data-app-shell-main-surface="default"] { box-shadow: none; outline: canvastext solid 1px; }
+  :root:is([data-codex-window-type="browser"], [data-codex-window-type="chrome-extension"], [data-codex-window-type="electron"])
+    .pi-workspace-main-surface[data-app-shell-main-surface="default"] {
+    box-shadow: none;
+    outline: canvastext solid 1px;
+  }
 }
-:root[data-codex-os="win32"] .pi-workspace-main-surface[data-app-shell-main-surface="default"] { border-top-left-radius: var(--radius-lg); }
-.pi-workspace-main-surface[data-app-shell-main-surface="browser"] { background-color: var(--color-token-main-surface-primary); box-shadow: 0 0 0 .5px var(--color-token-border-heavy), var(--shadow-md); overflow: hidden; }
-.pi-workspace-main-viewport { --app-shell-main-content-frame-top-offset: var(--height-toolbar); --thread-content-top-inset: calc(var(--spacing) * 8); --thread-floating-content-top-inset: calc(var(--spacing) * 3); --thread-floating-content-bottom-inset: calc(var(--spacing) * 3); flex-direction: column; min-width: 0px; min-height: 0px; display: flex; position: relative; container: app-shell-main-content / inline-size; }
-.pi-workspace-main-viewport[data-app-shell-right-panel-full-width="true"] { flex: 0 0 auto; width: 0px; overflow: hidden; }
-.pi-workspace-main-viewport[data-app-shell-right-panel-full-width="false"] { flex: 1 1 0%; }
-.pi-workspace-main-frame { margin-top: var(--app-shell-main-content-frame-top-offset); flex-direction: column; flex: 1 1 0%; min-height: 0px; display: flex; position: relative; }
-.pi-workspace-main-frame[data-app-shell-thread-edge-divider="true"] { border-top: .5px solid var(--color-token-border-heavy); }
-[data-app-shell-main-content-layout="full-bleed"] .pi-workspace-main-frame { --app-shell-main-content-frame-top-offset: 0px; }
-@container app-shell-main-content (width >= 96rem) {
-  [data-app-shell-main-content-layout="thread-edge-scroll"] .pi-workspace-main-frame { --app-shell-main-content-frame-top-offset: 0px; --thread-content-top-inset: calc(var(--height-toolbar) + var(--spacing) * 8); --thread-floating-content-top-inset: calc(var(--height-toolbar) + var(--spacing) * 3); }
+:root[data-codex-os="win32"] .pi-workspace-main-surface[data-app-shell-main-surface="default"] {
+  border-top-left-radius: var(--radius-lg);
 }
-.pi-workspace-main-top-fade { pointer-events: none; inset-inline: 0px; z-index: 20; height: calc(var(--spacing) * 4); background-image: linear-gradient(to bottom, var(--color-token-main-surface-primary), transparent); opacity: 0; transition: opacity var(--transition-duration-basic); position: absolute; top: 0px; }
-.pi-workspace-main-top-fade[data-app-shell-main-content-top-fade="visible"] { opacity: 1; }
-:root[data-codex-window-type="browser"] .pi-workspace-main-top-fade { display: none; }
+.pi-workspace-main-surface[data-app-shell-main-surface="browser"] {
+  background-color: var(--color-token-main-surface-primary);
+  box-shadow:
+    0 0 0 0.5px var(--color-token-border-heavy),
+    var(--shadow-md);
+  overflow: hidden;
+}
+.pi-workspace-main-viewport {
+  --app-shell-main-content-frame-top-offset: var(--height-toolbar);
+  --thread-content-top-inset: calc(var(--spacing) * 8);
+  --thread-floating-content-top-inset: calc(var(--spacing) * 3);
+  --thread-floating-content-bottom-inset: calc(var(--spacing) * 3);
+  flex-direction: column;
+  min-width: 0px;
+  min-height: 0px;
+  display: flex;
+  position: relative;
+  container: app-shell-main-content / inline-size;
+}
+.pi-workspace-main-viewport[data-app-shell-right-panel-full-width="true"] {
+  flex: 0 0 auto;
+  width: 0px;
+  overflow: hidden;
+}
+.pi-workspace-main-viewport[data-app-shell-right-panel-full-width="false"] {
+  flex: 1 1 0%;
+}
+.pi-workspace-main-frame {
+  margin-top: var(--app-shell-main-content-frame-top-offset);
+  flex-direction: column;
+  flex: 1 1 0%;
+  min-height: 0px;
+  display: flex;
+  position: relative;
+}
+.pi-workspace-main-frame[data-app-shell-thread-edge-divider="true"] {
+  border-top: 0.5px solid var(--color-token-border-heavy);
+}
+
+.pi-workspace-main-viewport .thread-message-action-button {
+  width: 26px;
+  height: 26px;
+  padding: 4px !important;
+}
+
+.pi-workspace-main-viewport .thread-message-action-button > svg {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  padding: 0 !important;
+  flex: 0 0 16px;
+}
+[data-app-shell-main-content-layout="full-bleed"] .pi-workspace-main-frame {
+  --app-shell-main-content-frame-top-offset: 0px;
+}
 @container app-shell-main-content (width >= 96rem) {
-  [data-app-shell-main-content-layout="thread-edge-scroll"] .pi-workspace-main-top-fade[data-app-shell-main-content-top-fade="full-bleed"] { opacity: 1; }
+  [data-app-shell-main-content-layout="thread-edge-scroll"] .pi-workspace-main-frame {
+    --app-shell-main-content-frame-top-offset: 0px;
+    --thread-content-top-inset: calc(var(--height-toolbar) + var(--spacing) * 8);
+    --thread-floating-content-top-inset: calc(var(--height-toolbar) + var(--spacing) * 3);
+  }
+}
+.pi-workspace-main-top-fade {
+  pointer-events: none;
+  inset-inline: 0px;
+  z-index: 20;
+  height: calc(var(--spacing) * 4);
+  background-image: linear-gradient(to bottom, var(--color-token-main-surface-primary), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-duration-basic);
+  position: absolute;
+  top: 0px;
+}
+.pi-workspace-main-top-fade[data-app-shell-main-content-top-fade="visible"] {
+  opacity: 1;
+}
+:root[data-codex-window-type="browser"] .pi-workspace-main-top-fade {
+  display: none;
+}
+@container app-shell-main-content (width >= 96rem) {
+  [data-app-shell-main-content-layout="thread-edge-scroll"] .pi-workspace-main-top-fade[data-app-shell-main-content-top-fade="full-bleed"] {
+    opacity: 1;
+  }
 }

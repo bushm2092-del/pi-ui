@@ -58,19 +58,20 @@
   display: flex;
 }
 
-/* Keep section actions visually balanced with the sidebar's 18px headings. */
+/* Match the native sidebar action geometry while keeping SVG padding isolated. */
 .pi-sidebar-navigation .sidebar-icon-button {
-  width: 30px;
-  height: 30px;
-  padding: 5px !important;
+  width: 24px;
+  height: 24px;
+  padding: 4px !important;
   border-radius: var(--radius-md);
 }
 
 .pi-sidebar-navigation .sidebar-icon-button > svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  flex: 0 0 20px;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  padding: 0 !important;
+  flex: 0 0 16px;
 }
 
 .pi-sidebar-navigation .sidebar-hover-icon-button-tint {
@@ -81,7 +82,7 @@
   .pi-sidebar-navigation .sidebar-hover-icon-button-tint {
     color: color-mix(
       in oklab,
-      var(--color-token-foreground) 72%,
+      var(--color-token-foreground) 50%,
       transparent
     ) !important;
   }
@@ -92,22 +93,39 @@
   color: var(--color-token-foreground) !important;
 }
 
-.pi-sidebar-navigation [aria-label="搜索"],
-.pi-sidebar-navigation [aria-label^="优先级"] {
+.pi-sidebar-navigation .sidebar-top-action-button {
   width: 26px;
   height: 26px;
-  padding: 4px;
+  padding: 4px !important;
   border-radius: var(--radius-md);
   color: color-mix(in srgb, var(--vscode-foreground) 49.5%, transparent);
 }
 
-.pi-sidebar-navigation [aria-label="搜索"] > svg,
-.pi-sidebar-navigation [aria-label^="优先级"] > svg {
+.pi-sidebar-navigation .sidebar-top-action-button > svg {
   width: 16px;
   height: 16px;
+  min-width: 16px;
+  padding: 0 !important;
+  flex: 0 0 16px;
+}
+
+.pi-sidebar-navigation .sidebar-thread-action-button > svg {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  padding: 0 !important;
+  flex: 0 0 16px;
 }
 
 .pi-sidebar-navigation ~ div [aria-label="打开帮助菜单"] {
   padding: 4px 0;
   color: color-mix(in srgb, var(--vscode-foreground) 49.5%, transparent);
+}
+
+.pi-sidebar-navigation ~ div [aria-label="打开帮助菜单"] > svg {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  padding: 0 !important;
+  flex: 0 0 18px;
 }
