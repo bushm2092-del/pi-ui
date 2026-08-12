@@ -1,4 +1,4 @@
-import type { A2uiToolDetails } from "@pi/protocol";
+import type { A2uiToolDetails } from "@pi/shared";
 
 export type MessageRole = "user" | "assistant" | "a2ui";
 export type MessageStatus = "pending" | "complete" | "failed";

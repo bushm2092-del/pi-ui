@@ -4,5 +4,5 @@
     "types": ["node"],
     "baseUrl": "."
   },
-  "include": ["src", "electron.vite.config.ts"]
+  "include": ["src", "tsup.config.ts"]
 }

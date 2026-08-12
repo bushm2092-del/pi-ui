@@ -8,9 +8,10 @@ import {
   type IpcMainInvokeEvent
 } from "electron";
 import { readFile, writeFile } from "node:fs/promises";
-import { join } from "node:path";
-import type { AgentBackendConnection } from "@pi/agent-client";
-import { startPiBackend, type PiBackendHandle } from "@pi/server";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
+import type { AgentBackendConnection } from "@pi/shared";
+import { startPiBackend, type PiBackendHandle } from "@pi/server/runtime";
 import { APP_NAME } from "@pi/shared";
 import { IPC_CHANNELS } from "../shared/desktop-bridge";
 
@@ -18,6 +19,8 @@ let backend: PiBackendHandle | undefined;
 let backendConnection: AgentBackendConnection | undefined;
 let mainWindow: BrowserWindow | undefined;
 let shutdownStarted = false;
+const currentDir = dirname(fileURLToPath(import.meta.url));
+const rendererUrl = process.env.PI_APP_URL;
 
 function registerIpc(): void {
   ipcMain.handle(IPC_CHANNELS.appInfo, (event) => {
@@ -71,7 +74,7 @@ function createWindow(): void {
     titleBarStyle: process.platform === "darwin" ? "hiddenInset" : "default",
     backgroundColor: "#f8f9fa",
     webPreferences: {
-      preload: join(__dirname, "../preload/index.js"),
+      preload: join(currentDir, "../preload/index.cjs"),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: true
@@ -90,24 +93,14 @@ function createWindow(): void {
     void openExternal(url);
   });
 
-  if (process.env.ELECTRON_RENDERER_URL) void window.loadURL(process.env.ELECTRON_RENDERER_URL);
-  else void window.loadFile(join(__dirname, "../renderer/index.html"));
+  if (rendererUrl) void window.loadURL(rendererUrl);
+  else void window.loadFile(join(currentDir, "../../../app/dist/index.html"));
 }
 
 async function bootstrap(): Promise<void> {
-  const rendererOrigin = process.env.ELECTRON_RENDERER_URL
-    ? new URL(process.env.ELECTRON_RENDERER_URL).origin
-    : "null";
-  backend = await startPiBackend({
-    dataDir: join(app.getPath("userData"), "backend"),
-    allowedOrigins: [rendererOrigin],
-    onWorkerStderr(runtimeSlotId, text) {
-      process.stderr.write(`[agent-worker:${runtimeSlotId}] ${text}`);
-    }
-  });
+  backend = await startPiBackend();
   backendConnection = {
-    httpUrl: backend.address.httpUrl,
-    webSocketUrl: backend.address.webSocketUrl,
+    url: backend.address.socketUrl,
     token: backend.token
   };
   registerIpc();

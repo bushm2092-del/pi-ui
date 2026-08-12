@@ -15,9 +15,7 @@
     "test": "vitest --run"
   },
   "dependencies": {
-    "@pi/agent-client": "workspace:*",
     "@pi/platform": "workspace:*",
-    "@pi/protocol": "workspace:*",
     "@pi/shared": "workspace:*",
     "@pi/ui": "workspace:*",
     "@tanstack/react-query": "^5.101.4",
@@ -26,6 +24,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-router": "latest",
+    "socket.io-client": "^4.8.3",
     "zustand": "latest"
   },
   "devDependencies": {

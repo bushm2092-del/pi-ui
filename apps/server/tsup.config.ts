@@ -9,6 +9,6 @@ export default defineConfig({
   clean: true,
   dts: true,
   sourcemap: true,
-  noExternal: ["@pi/protocol"],
-  external: ["@pi/agent-worker", "ws"]
+  noExternal: ["@pi/shared"],
+  external: ["socket.io"],
 });

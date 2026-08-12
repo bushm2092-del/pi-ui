@@ -1,16 +1,19 @@
-import { webPlatform } from "@pi/platform";
+import { webPlatform, type PlatformAdapter } from "@pi/platform";
 import { mountApp } from ".";
 import "./styles.css";
 
 const root = document.getElementById("root");
 if (!root) throw new Error("Root element was not found");
-document.documentElement.dataset.platform = "web";
-const backend = readWebBackend();
-mountApp(root, { platform: webPlatform, backend, cwd: import.meta.env.VITE_PI_CWD });
+const desktop = window.pi;
+const platform: PlatformAdapter = desktop?.platform ?? webPlatform;
+const backend = desktop ? await desktop.getBackendConnection() : readWebBackend();
+const cwd = desktop ? await desktop.getWorkspaceCwd() : import.meta.env.VITE_PI_CWD;
+
+document.documentElement.dataset.platform = platform.platform;
+mountApp(root, { platform, backend, cwd });
 
 function readWebBackend() {
-  const httpUrl = import.meta.env.VITE_PI_HTTP_URL;
-  const webSocketUrl = import.meta.env.VITE_PI_WEBSOCKET_URL;
+  const url = import.meta.env.VITE_PI_SOCKET_URL;
   const token = import.meta.env.VITE_PI_TOKEN;
-  return httpUrl && webSocketUrl && token ? { httpUrl, webSocketUrl, token } : undefined;
+  return url && token ? { url, token } : undefined;
 }

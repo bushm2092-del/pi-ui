@@ -1,4 +1,4 @@
-import type { AgentBackendConnection } from "@pi/agent-client";
+import type { AgentBackendConnection } from "@pi/shared";
 import type { PlatformAdapter } from "@pi/platform";
 
 export const IPC_CHANNELS = {

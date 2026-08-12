@@ -1,5 +1,5 @@
-import type { AgentClient } from "@pi/agent-client";
-import { isA2uiToolDetails, type RuntimeSnapshotDto } from "@pi/protocol";
+import { isA2uiToolDetails, type RuntimeSnapshotDto } from "@pi/shared";
+import type { AgentClient } from "../../../../agent/agent-client";
 import type { Conversation, Message } from "../../domain";
 import { workspaceData } from "../workspace-data";
 import type { WorkspaceRepository } from "../workspace-repository";

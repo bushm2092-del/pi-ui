@@ -201,7 +201,7 @@ interface WorkspaceRepository {
 
 - `MockWorkspaceRepository`：开发早期的内存/定时流实现。
 - `HttpWorkspaceRepository`：Web API + SSE/WebSocket。
-- `AgentWorkspaceRepository`：通过现有 `@pi/agent-client` 通信。
+- `AgentWorkspaceRepository`：通过 `apps/app/src/agent/agent-client.ts` 中的 Socket.IO 客户端通信。
 
 组件不 import Mock fixtures。应用 Provider 根据启动配置注入 repository；MSW 用于验证真实网络调用形状，而内存 repository 用于单元测试。
 

@@ -13,7 +13,7 @@ Electron app.whenReady
 ```
 
 窗口只在 Backend ready 后创建，因此 Renderer 不需要轮询后台启动状态。Backend 数据位于
-`app.getPath("userData")/backend`，不会写进项目目录。
+`~/.pi-ui`（Windows 为 `%USERPROFILE%\\.pi-ui`），不会写进项目目录。
 
 ## 2. Renderer 边界
 

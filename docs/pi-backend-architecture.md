@@ -30,7 +30,7 @@
 | `pi-server/legacy` | 不采用 |
 
 不能把 SDK 对象、JSONL entry 或 Electron IPC 结构直接作为公共 API。所有外部数据必须经过
-`packages/protocol` 中的稳定 DTO，以隔离 Pi 升级造成的类型和行为变化。
+`packages/shared` 中的稳定 DTO，以隔离 Pi 升级造成的类型和行为变化。
 
 ## 3. 部署拓扑
 
@@ -394,7 +394,7 @@ type ServerEvent = {
 };
 ```
 
-所有 schema 在 `packages/protocol` 中定义并在客户端和服务端运行时校验。`id` 用于幂等与
+所有共享 DTO 在 `packages/shared` 中定义，并由客户端和服务端共同使用。`id` 用于幂等与
 命令相关性，`seq` 用于断线补发。协议必须设置 frame、队列和附件大小上限。
 
 ### 9.2 Client commands

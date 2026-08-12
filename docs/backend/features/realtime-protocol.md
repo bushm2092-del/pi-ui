@@ -1,4 +1,6 @@
-# HTTP 与 WebSocket 接入协议
+# Socket.IO 接入协议
+
+当前实现使用单一 Socket.IO 连接，且客户端强制 `websocket` transport。Runtime 命令通过 acknowledgement 返回结果，Pi 流式事件通过同一连接的 `runtime:event` 推送；不再提供 HTTP 业务 API、自定义 WebSocket 消息协议、cursor replay 或 EventStreamRegistry。
 
 ## 1. 目标
 
@@ -10,12 +12,12 @@ WebSocket 负责 Runtime 实时事件、订阅和断线续传。Gateway 不直�
 
 ```text
 Client
-  |-- HTTP command/snapshot --> PiGateway --> RuntimeService --> AgentWorkerSupervisor
-  `-- WebSocket events <------ PiGateway <-- EventStreamRegistry <-- Agent Worker IPC
+  `-- Socket.IO command/event --> RuntimeController --> RuntimeService --> Pi SDK
 ```
 
 - `http-app`：Express 5 路由、JSON body、认证、Origin 和统一错误处理中间件。
-- `PiGateway`：Node HTTP Server、WebSocket upgrade、连接、订阅和心跳。
+- `RuntimeController`：Socket.IO 连接、认证、参数接收、响应和事件订阅。
+- `RuntimeService`：Runtime 生命周期和 Pi SDK 业务调用。
 - `RuntimeService`：Runtime 用例入口，隔离 Gateway 与 Supervisor。
 - `EventStreamRegistry`：按 `streamId` 保存有界事件窗口并提供 cursor replay。
 - `startPiBackend`：初始化 Journal、Supervisor、事件缓存和 Gateway，统一执行关闭。
@@ -85,7 +87,6 @@ Pi JSONL 为准。
 
 - 默认监听随机 `127.0.0.1` 端口。
 - 非 loopback 地址启动时必须显式配置 `PI_UI_TOKEN`。
-- 浏览器 Origin 必须出现在 `PI_UI_ALLOWED_ORIGINS`。
 - HTTP 请求体限制为 1 MiB。
 - Token 使用常量时间比较。
 - Agent Worker 和 Pi SDK 不向浏览器开放端口。
@@ -95,5 +96,5 @@ Pi JSONL 为准。
 - Prompt HTTP 请求目前保持到 Agent 完成，流式内容同时从 WebSocket 到达。
 - 事件窗口当前在内存中，Server 重启后客户端使用 Snapshot 回退。
 - 尚未实现 `ConnectionRegistry`、多客户端 controller lease 和 durable event log。
-- `packages/agent-client` 已实现 HTTP 命令、自动重连、cursor 恢复、事件去重和 Snapshot 校准；
-  React Provider 尚未接入。
+- `apps/app/src/agent` 已实现 Socket.IO 命令、自动重连、事件订阅和 Snapshot 校准，
+  并已由 React Provider 接入。

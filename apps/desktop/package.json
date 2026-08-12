@@ -5,14 +5,13 @@
   "type": "module",
   "main": "out/main/index.js",
   "scripts": {
-    "dev": "pnpm --filter @pi/agent-worker build && electron-vite dev",
-    "build": "tsc --noEmit && electron-vite build",
+    "dev": "node scripts/dev.mjs",
+    "build": "pnpm --filter @pi/app build && pnpm --filter @pi/server build && pnpm run build:main",
+    "build:main": "tsup",
     "typecheck": "tsc --noEmit",
-    "preview": "pnpm --filter @pi/agent-worker build && electron-vite preview"
+    "preview": "pnpm run build && electron ."
   },
   "dependencies": {
-    "@pi/agent-client": "workspace:*",
-    "@pi/agent-worker": "workspace:*",
     "@pi/app": "workspace:*",
     "@pi/platform": "workspace:*",
     "@pi/server": "workspace:*",
@@ -21,14 +20,9 @@
     "react-dom": "latest"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "latest",
     "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "@vitejs/plugin-react": "latest",
     "electron": "42.3.0",
-    "electron-vite": "latest",
-    "tailwindcss": "latest",
+    "tsup": "^8.5.0",
     "typescript": "^5.9.0",
     "vite": "latest"
   }

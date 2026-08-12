@@ -1,8 +1,8 @@
 import {
   AgentClient,
-  type AgentBackendConnection,
   type RealtimeConnectionState
-} from "@pi/agent-client";
+} from "./agent-client";
+import type { AgentBackendConnection } from "@pi/shared";
 import {
   createContext,
   useContext,
@@ -25,8 +25,7 @@ export function AgentClientProvider({
   children
 }: PropsWithChildren<{ connection?: AgentBackendConnection }>) {
   const client = useMemo(() => connection ? new AgentClient(connection) : undefined, [
-    connection?.httpUrl,
-    connection?.webSocketUrl,
+    connection?.url,
     connection?.token
   ]);
   const [connectionState, setConnectionState] = useState<RealtimeConnectionState>(client ? "connecting" : "idle");

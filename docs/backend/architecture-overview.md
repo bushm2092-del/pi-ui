@@ -1,5 +1,9 @@
 # Pi UI 后端宏观架构
 
+> 当前实现已简化为 Server 进程内直接调用 Pi SDK，不再使用 Agent Worker、Supervisor、IPC 或存储租约。本文后续涉及 Worker 隔离的章节属于早期设计记录，以当前代码为准。
+
+> 客户端接入也已简化为单一 Socket.IO WebSocket 连接；命令、ack 和流式事件共用该连接，不再提供 REST API 或原生 `ws` Gateway。
+
 ## 1. 架构目标
 
 Pi UI 后端为 Web、Electron Desktop 和未来其他客户端提供统一的 Agent 工作台能力。
@@ -74,8 +78,8 @@ flowchart TB
 
 ### 2.2 客户端接入层
 
-`packages/agent-client` 封装 HTTP、WebSocket、重连、事件订阅和 DTO。`packages/platform`
-封装文件选择器、系统通知、外部链接等平台差异。React 业务模块不直接依赖 Electron。
+`apps/app/src/agent` 封装 Socket.IO 连接、命令、重连和事件订阅。共享 DTO 位于
+`packages/shared`。`packages/platform` 封装文件选择器、系统通知、外部链接等平台差异。
 
 ### 2.3 控制面
 
@@ -149,7 +153,8 @@ pi-ui/
 │   ├── server/                      Backend Control Plane
 │   │   └── src/
 │   │       ├── bootstrap/            配置、依赖组装、生命周期
-│   │       ├── gateway/              HTTP、WebSocket、认证入口
+│   │       ├── controller/           Socket.IO 接口、认证与响应
+│   │       ├── service/              Runtime 业务逻辑
 │   │       ├── core/                 错误、事件、锁、租约、操作日志
 │   │       ├── modules/              业务模块
 │   │       ├── supervisors/          Agent/PTY Worker 监管
@@ -265,7 +270,7 @@ agent-worker/src/
 └── main.ts
 ```
 
-`packages/pi-adapter` 是唯一 Pi SDK 适配层，因此 Worker 内不再设置重复的 `sdk-adapter/`。
+`apps/server/src/pi` 直接封装 Pi SDK Runtime、事件转换和 A2UI Tool。
 
 Worker 宏观职责：
 
@@ -277,34 +282,30 @@ Worker 宏观职责：
 - reload 后重新建立订阅和 Extension binding。
 - 关闭时 abort、dispose 并执行扩展 shutdown。
 
-## 7. Shared Packages 设计
+## 7. Shared 与应用内实现
 
-### 7.1 `packages/protocol`
+### 7.1 `packages/shared`
 
-唯一的跨进程和跨端契约来源：
+跨端共享类型的唯一来源：
 
-- HTTP request/response schema。
-- WebSocket command/event schema。
-- Control Plane 与 Worker 的 IPC schema。
-- 协议版本、错误码和 capability 描述。
+- Runtime request、snapshot、event 和错误 DTO。
+- A2UI Tool details DTO。
+- Socket.IO 后端连接描述。
 - 只包含可序列化 DTO，不依赖 Pi SDK、React 或 Electron。
 
-### 7.2 `packages/agent-client`
+### 7.2 `apps/app/src/agent`
 
-- HTTP Client。
-- WebSocket connection、重连和 heartbeat。
-- Session attach/detach 和事件订阅。
-- cursor resume、snapshot 校准和 command result。
+- Socket.IO connection、重连和事件订阅。
+- Runtime command result 和 snapshot 同步。
 - 不保存业务真值，仅维护连接状态和客户端缓存。
-- 第一阶段实现见 [`packages/agent-client/README.md`](../../packages/agent-client/README.md)。
 
-### 7.3 `packages/pi-adapter`
+### 7.3 `apps/server/src/pi`
 
 - 创建 Pi Services 和 Runtime。
-- Pi event 到 protocol event 的映射。
+- Pi event 到共享 DTO 的映射。
 - Pi message、tree、model、diagnostic DTO 转换。
 - Pi 版本兼容处理。
-- 不包含 HTTP、WebSocket、SQLite 或 React 代码。
+- 不包含前端或传输层代码。
 
 ### 7.4 `packages/platform`
 
@@ -382,7 +383,7 @@ pi-adapter
 - `apps/app` 导入 Node、Electron、Pi SDK。
 - `apps/server` 直接导入 React UI。
 - 业务模块跨过 service interface 读取其他模块的数据表。
-- `packages/protocol` 依赖 Pi SDK 类型。
+- `packages/shared` 依赖 Pi SDK 类型。
 - Agent Worker 绕过 Control Plane 直接向浏览器通信。
 - Control Plane 直接修改活动 Session JSONL。
 

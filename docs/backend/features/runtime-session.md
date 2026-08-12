@@ -8,9 +8,9 @@ replacement API。
 
 ## 2. 已实现
 
-- `packages/protocol`：类型化 Worker IPC、运行时校验、Runtime Snapshot 和结构化错误。
-- `packages/pi-adapter`：Pi Runtime 创建、事件 JSON 化和 Snapshot 映射。
-- `apps/agent-worker`：RuntimeSlot、Pi event stream、prompt、abort、Session 命名、heartbeat 和 shutdown。
+- `packages/shared`：前后端共享的 Runtime Snapshot、A2UI 和结构化错误类型。
+- `apps/server/src/pi`：Pi Runtime 创建、事件 JSON 化、A2UI Tool 和 Snapshot 映射。
+- `apps/server` 的 `RuntimeService`：进程内管理 Pi Runtime、event stream、prompt、abort、Session 命名和 shutdown。
 - `apps/server`：Worker Process、Supervisor、SessionRuntimeRegistry、StorageLeaseManager 和 OperationJournal。
 - Worker 崩溃时运行中 Prompt 进入 `uncertain`，不会自动重放。
 - Pi Session 可以由一个 Worker 关闭，再由另一个 Worker 从相同 JSONL 恢复。

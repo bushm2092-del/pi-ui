@@ -9,12 +9,18 @@
     "build": "pnpm -r --if-present build",
     "build:web": "pnpm --filter @pi/app build",
     "build:desktop": "pnpm --filter @pi/desktop build",
-    "build:backend": "pnpm --filter @pi/agent-worker build && pnpm --filter @pi/server build",
+    "build:backend": "pnpm --filter @pi/server build",
     "start:server": "pnpm --filter @pi/server start",
     "typecheck": "pnpm -r --if-present typecheck",
-    "typecheck:backend": "pnpm --filter @pi/protocol --filter @pi/pi-adapter --filter @pi/agent-worker --filter @pi/server typecheck",
+    "typecheck:backend": "pnpm --filter @pi/shared --filter @pi/server typecheck",
     "test": "pnpm -r --if-present test",
     "lint": "pnpm -r --if-present lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:server": "prettier --write \"apps/server/**/*.{ts,json}\"",
     "audit:workspace-css": "node scripts/audit-workspace-css.mjs"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
   }
 }

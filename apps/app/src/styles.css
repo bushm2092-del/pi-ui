@@ -6,6 +6,7 @@
 @import "@pi/ui/prose-mirror.css";
 @import "./features/workspace/composer/composer.css";
 @import "./features/a2ui/a2ui.css";
+@import "./features/a2ui-test/a2ui-stream-test.css";
 @import "@pi/ui/code-display.css";
 @import "./features/workspace/sidebar/sidebar.css";
 @import "@pi/ui/foundation-properties.css";

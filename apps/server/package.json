@@ -5,27 +5,29 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./runtime": "./dist/index.js",
     "./entry": "./dist/main.js"
   },
   "scripts": {
     "build": "tsup",
     "dev": "tsx src/main.ts",
     "start": "node dist/main.js",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"*.{json,ts}\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"test/**/*.ts\" \"*.{json,ts}\"",
     "typecheck": "tsc --noEmit",
     "test": "vitest --run"
   },
   "dependencies": {
-    "@pi/agent-worker": "workspace:*",
-    "@pi/protocol": "workspace:*",
-    "express": "^5.2.1",
-    "ws": "^8.21.1"
+    "@earendil-works/pi-coding-agent": "0.83.0",
+    "@pi/shared": "workspace:*",
+    "socket.io": "^4.8.3",
+    "typebox": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
-    "@types/express": "^5.0.6",
-    "@types/ws": "^8.18.1",
-    "tsx": "^4.20.0",
+    "socket.io-client": "^4.8.3",
     "tsup": "^8.5.0",
+    "tsx": "^4.20.0",
     "typescript": "^5.9.0",
     "vitest": "^4.1.0"
   }
