@@ -1,0 +1,1090 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "10c8d29ff2f7579474ba9f7126a03c61aafaff5f",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 10756,
+    "git_diff_deleted_lines": 988,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 10732,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      ".gitignore": {
+        "BYMC": [
+          "8-9"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      ".vscode/settings.json": {
+        "BYMC": [
+          "1-2"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/package.json": {
+        "BYMC": [
+          "20",
+          "24"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/a2ui/a2ui-protocol.test.ts": {
+        "BYMC": [
+          "1-47"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/a2ui/a2ui-protocol.ts": {
+        "BYMC": [
+          "1-149"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/a2ui/a2ui-renderer.tsx": {
+        "BYMC": [
+          "1-39"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/a2ui/a2ui.css": {
+        "BYMC": [
+          "1-5"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/a2ui/echart.tsx": {
+        "BYMC": [
+          "1-32"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/a2ui/index.ts": {
+        "BYMC": [
+          "1-2"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/api/conversation-cache.test.ts": {
+        "BYMC": [
+          "4",
+          "45-52"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/api/conversation-cache.ts": {
+        "BYMC": [
+          "32-54"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/api/conversation-hooks.ts": {
+        "BYMC": [
+          "6",
+          "39-45"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/data/agent/agent-workspace-repository.test.ts": {
+        "BYMC": [
+          "1-67"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/data/agent/agent-workspace-repository.ts": {
+        "BYMC": [
+          "1-144"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/data/agent/index.ts": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/data/workspace-repository.ts": {
+        "BYMC": [
+          "5-9"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/domain/message.ts": {
+        "BYMC": [
+          "1-3",
+          "12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/model/selectors.ts": {
+        "BYMC": [
+          "21-23"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/sidebar/sidebar.css": {
+        "BYMC": [
+          "1-35",
+          "37-40",
+          "42-58"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/thread/assistant-markdown.tsx": {
+        "BYMC": [
+          "10-12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/thread/assistant-message.tsx": {
+        "BYMC": [
+          "8",
+          "16-18"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/thread/turn.tsx": {
+        "BYMC": [
+          "4",
+          "7-9"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/features/workspace/workspace-page.tsx": {
+        "BYMC": [
+          "1-2",
+          "7",
+          "26-36",
+          "38"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/index.tsx": {
+        "BYMC": [
+          "13",
+          "24"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/main.tsx": {
+        "BYMC": [
+          "9"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/styles.css": {
+        "BYMC": [
+          "8"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/styles/codex/app-globals.css": {
+        "BYMC": [
+          "2-15"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/styles/codex/codex-vscode-theme.css": {
+        "BYMC": [
+          "2-873"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/app/src/styles/codex/runtime.css": {
+        "BYMC": [
+          "1-11",
+          "13-1148",
+          "1150-1156",
+          "1158-1164",
+          "1166-1170",
+          "1172-1200",
+          "1202-1469",
+          "1472-1495",
+          "1497-1500",
+          "1502-1505",
+          "1507-1847",
+          "1850-1853",
+          "1855-1966",
+          "1969-1976"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/src/main/index.ts": {
+        "BYMC": [
+          "32-35"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/src/preload/index.ts": {
+        "BYMC": [
+          "15-16"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/src/renderer/main.tsx": {
+        "BYMC": [
+          "8-9"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/src/shared/desktop-bridge.ts": {
+        "BYMC": [
+          "7",
+          "16"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "chatgpt-static-export/index.html": {
+        "BYMC": [
+          "2",
+          "141",
+          "145-430",
+          "437"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "chatgpt-static-export/styles.css": {
+        "BYMC": [
+          "35-51",
+          "53-107",
+          "109-128",
+          "130-134",
+          "136-251",
+          "302",
+          "305",
+          "308",
+          "312-395",
+          "397-398",
+          "491",
+          "495-519",
+          "823-858",
+          "1019",
+          "1204",
+          "1206",
+          "1212",
+          "1231",
+          "1259-1260",
+          "1353",
+          "1481",
+          "1639",
+          "1699-1700",
+          "1767-1768",
+          "1830-1832",
+          "1901-1903",
+          "2013",
+          "2067",
+          "2114",
+          "2120",
+          "2144",
+          "2243",
+          "2337",
+          "2366",
+          "2416-2419",
+          "2536",
+          "2588",
+          "2623",
+          "2658",
+          "2663",
+          "2667",
+          "2735",
+          "2770",
+          "2785",
+          "2862-2869",
+          "3002",
+          "3108",
+          "3162-3169",
+          "3209",
+          "3218",
+          "3344-3346",
+          "3351-3358",
+          "3550",
+          "3589",
+          "3735",
+          "3757",
+          "3870",
+          "3905",
+          "3938",
+          "4009",
+          "4012",
+          "4231-4242",
+          "4255",
+          "4271",
+          "4705",
+          "4830",
+          "4833",
+          "4874",
+          "5038",
+          "5083",
+          "5092",
+          "5174",
+          "5202",
+          "5205-5206",
+          "5211",
+          "5351",
+          "5366",
+          "5376-5383",
+          "5406-5413",
+          "5430",
+          "5453",
+          "5471",
+          "5632",
+          "5707-5708",
+          "5764",
+          "5838",
+          "5847",
+          "5948",
+          "5982",
+          "6019-6021",
+          "6038",
+          "6045-6046",
+          "6100",
+          "6125-6126",
+          "6273-6274",
+          "6280-6281",
+          "6338-6342",
+          "6349-6351",
+          "6360-6363",
+          "6368",
+          "6700",
+          "6840-6841",
+          "6885",
+          "7064",
+          "7138",
+          "7550",
+          "7562",
+          "7572-7574",
+          "7595-8755"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/markdown-package-architecture.md": {
+        "BYMC": [
+          "1-790"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/LICENSE": {
+        "BYMC": [
+          "1-21"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/README.md": {
+        "BYMC": [
+          "1-87"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/THIRD_PARTY_NOTICES.md": {
+        "BYMC": [
+          "1-17"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/package.json": {
+        "BYMC": [
+          "1-92"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/provenance/css-modules.json": {
+        "BYMC": [
+          "1-16"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/provenance/third-party-components.json": {
+        "BYMC": [
+          "1-13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/provenance/visual-contract.md": {
+        "BYMC": [
+          "1-59"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/scripts/audit-css-contract.mjs": {
+        "BYMC": [
+          "1-47"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/scripts/audit-licenses.mjs": {
+        "BYMC": [
+          "1-27"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/scripts/audit-package-files.mjs": {
+        "BYMC": [
+          "1-19"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/scripts/audit-public-source.mjs": {
+        "BYMC": [
+          "1-46"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/scripts/copy-styles.mjs": {
+        "BYMC": [
+          "1-20"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/scripts/extract-observed-css.mjs": {
+        "BYMC": [
+          "1-234"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/scripts/verify-clean-consumer.mjs": {
+        "BYMC": [
+          "1-34"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/code/code-block.tsx": {
+        "BYMC": [
+          "1-105"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/code/code-placeholder.tsx": {
+        "BYMC": [
+          "1-21"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/code/code-plugin.ts": {
+        "BYMC": [
+          "1-35"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/code/code-toolbar.tsx": {
+        "BYMC": [
+          "1-59"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/code/index.ts": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/code/language-label.ts": {
+        "BYMC": [
+          "1-32"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/extensions/citation.tsx": {
+        "BYMC": [
+          "1-11"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/extensions/create-extension-config.tsx": {
+        "BYMC": [
+          "1-32"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/extensions/file-reference.tsx": {
+        "BYMC": [
+          "1-21"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/extensions/index.ts": {
+        "BYMC": [
+          "1-5"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/extensions/media-grid.tsx": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/extensions/visualization.tsx": {
+        "BYMC": [
+          "1-11"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/index.ts": {
+        "BYMC": [
+          "1-18"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/math/index.ts": {
+        "BYMC": [
+          "1-4"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/math/math-plugin.ts": {
+        "BYMC": [
+          "1-12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/math/math-renderer.tsx": {
+        "BYMC": [
+          "1-29"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/mermaid/index.ts": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/mermaid/mermaid-block.tsx": {
+        "BYMC": [
+          "1-90"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/mermaid/mermaid-dialog.tsx": {
+        "BYMC": [
+          "1-26"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/mermaid/mermaid-plugin.ts": {
+        "BYMC": [
+          "1-35"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/mermaid/mermaid-theme.ts": {
+        "BYMC": [
+          "1-31"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/plugins/index.ts": {
+        "BYMC": [
+          "1-12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/blockquote.tsx": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/create-renderers.tsx": {
+        "BYMC": [
+          "1-41"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/heading.tsx": {
+        "BYMC": [
+          "1-17"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/horizontal-rule.tsx": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/image.tsx": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/index.ts": {
+        "BYMC": [
+          "1-9"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/inline-code.tsx": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/list.tsx": {
+        "BYMC": [
+          "1-30"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/paragraph.tsx": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/rich-link.tsx": {
+        "BYMC": [
+          "1-46"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/renderers/shared.ts": {
+        "BYMC": [
+          "1-3"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/runtime/copy-serializer.ts": {
+        "BYMC": [
+          "1-13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/runtime/markdown-runtime-context.tsx": {
+        "BYMC": [
+          "1-16"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/runtime/merge-streamdown-props.ts": {
+        "BYMC": [
+          "1-64"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/runtime/preset.ts": {
+        "BYMC": [
+          "1-43"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/runtime/url-policy.ts": {
+        "BYMC": [
+          "1-29"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/static-markdown.tsx": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/streaming-markdown.tsx": {
+        "BYMC": [
+          "1-38"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/styles/code.css": {
+        "BYMC": [
+          "1-134"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/styles/content.css": {
+        "BYMC": [
+          "1-282"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/styles/contract.css": {
+        "BYMC": [
+          "1-26"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/styles/extensions.css": {
+        "BYMC": [
+          "1-61"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/styles/generated/product-parity.css": {
+        "BYMC": [
+          "1-165"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/styles/index.css": {
+        "BYMC": [
+          "1-11"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/styles/math.css": {
+        "BYMC": [
+          "1-24"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/styles/mermaid.css": {
+        "BYMC": [
+          "1-141"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/styles/streaming.css": {
+        "BYMC": [
+          "1-23"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/styles/table.css": {
+        "BYMC": [
+          "1-181"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/table/column-analysis.ts": {
+        "BYMC": [
+          "1-47"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/table/index.ts": {
+        "BYMC": [
+          "1-5"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/table/markdown-table.tsx": {
+        "BYMC": [
+          "1-76"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/table/table-actions.tsx": {
+        "BYMC": [
+          "1-43"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/table/table-copy.ts": {
+        "BYMC": [
+          "1-35"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/table/table-dialog.tsx": {
+        "BYMC": [
+          "1-36"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/src/types.ts": {
+        "BYMC": [
+          "1-16"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tests/api-compatibility.ts": {
+        "BYMC": [
+          "1-52"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tests/css/visual-contract.test.ts": {
+        "BYMC": [
+          "1-42"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tests/renderer/base-renderers.test.tsx": {
+        "BYMC": [
+          "1-56"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tests/renderer/code-block.test.tsx": {
+        "BYMC": [
+          "1-45"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tests/renderer/extensions.test.tsx": {
+        "BYMC": [
+          "1-37"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tests/renderer/math.test.tsx": {
+        "BYMC": [
+          "1-23"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tests/renderer/mermaid-client.test.tsx": {
+        "BYMC": [
+          "1-50"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tests/renderer/mermaid.test.tsx": {
+        "BYMC": [
+          "1-43"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tests/renderer/table.test.tsx": {
+        "BYMC": [
+          "1-47"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tests/security/url-policy.test.ts": {
+        "BYMC": [
+          "1-23"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tsconfig.json": {
+        "BYMC": [
+          "1-4"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/markdown/tsup.config.ts": {
+        "BYMC": [
+          "1-21"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/pi-adapter/package.json": {
+        "BYMC": [
+          "12-13",
+          "17-18"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/pi-adapter/src/a2ui-tool.test.ts": {
+        "BYMC": [
+          "1-28"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/pi-adapter/src/a2ui-tool.ts": {
+        "BYMC": [
+          "1-55"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/pi-adapter/src/index.ts": {
+        "BYMC": [
+          "4"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/pi-adapter/src/runtime.ts": {
+        "BYMC": [
+          "15",
+          "47-48"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/protocol/src/a2ui.ts": {
+        "BYMC": [
+          "1-16"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/protocol/src/index.ts": {
+        "BYMC": [
+          "5"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/ui/src/components/markdown/markdown.css": {
+        "BYMC": [
+          "1-269"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/ui/src/components/markdown/markdown.tsx": {
+        "BYMC": [
+          "1",
+          "9",
+          "12",
+          "92"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/ui/src/styles/foundation-components.css": {
+        "BYMC": [
+          "2-29",
+          "31-43",
+          "45-256",
+          "258-267"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/ui/src/styles/foundation-properties.css": {
+        "BYMC": [
+          "2-92"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/ui/src/styles/foundation-reset.css": {
+        "BYMC": [
+          "2-256"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "pnpm-workspace.yaml": {
+        "BYMC": [
+          "3"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786507057,
+  "requirement_id": ""
+}
