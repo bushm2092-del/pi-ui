@@ -1,11 +1,11 @@
-import { Button } from "../../../../components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from "../../../../components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import { Moon, MoreHorizontal, Sun } from "lucide-react";
 import { useAppStore, type ThemePreference } from "../../../../stores/app-store";
 
@@ -36,7 +36,12 @@ export function SidebarFooterLayout({ accountLabel }: { accountLabel: string }) 
                 <MoreHorizontal className="size-4" aria-hidden="true" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" side="top" aria-label="主题">
+            <DropdownMenuContent
+              align="end"
+              side="top"
+              style={{ backgroundColor: "var(--popover)", color: "var(--popover-foreground)" }}
+              aria-label="主题"
+            >
               <DropdownMenuRadioGroup value={theme} onValueChange={(value) => setTheme(value as ThemePreference)}>
                 <DropdownMenuRadioItem value="light"><Sun className="size-4" />亮色</DropdownMenuRadioItem>
                 <DropdownMenuRadioItem value="dark"><Moon className="size-4" />暗色</DropdownMenuRadioItem>

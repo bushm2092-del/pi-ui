@@ -53,3 +53,60 @@
   --status-danger: var(--color-token-charts-red);
   --status-info: var(--color-token-charts-blue);
 }
+
+/* The static workspace export installs light Codex tokens inline on <html>. */
+:root[data-theme="dark"] {
+  --codex-base-ink: #f2f2f2 !important;
+  --codex-base-surface: #181818 !important;
+  --color-background-accent: #26394a !important;
+  --color-background-accent-active: #2c4357 !important;
+  --color-background-accent-hover: #293e51 !important;
+  --color-background-application-menu: #212121 !important;
+  --color-background-button-primary: #f2f2f2 !important;
+  --color-background-button-primary-active: rgb(255 255 255 / 15%) !important;
+  --color-background-button-primary-hover: rgb(255 255 255 / 10%) !important;
+  --color-background-button-primary-inactive: rgb(255 255 255 / 24%) !important;
+  --color-background-button-secondary: rgb(255 255 255 / 8%) !important;
+  --color-background-button-secondary-active: rgb(255 255 255 / 12%) !important;
+  --color-background-button-secondary-hover: rgb(255 255 255 / 10%) !important;
+  --color-background-button-secondary-inactive: rgb(255 255 255 / 4%) !important;
+  --color-background-button-tertiary: transparent !important;
+  --color-background-button-tertiary-active: rgb(255 255 255 / 15%) !important;
+  --color-background-button-tertiary-hover: rgb(255 255 255 / 8%) !important;
+  --color-background-control: rgb(42 42 42 / 96%) !important;
+  --color-background-control-opaque: #2a2a2a !important;
+  --color-background-editor-opaque: #212121 !important;
+  --color-background-elevated-primary: rgb(42 42 42 / 96%) !important;
+  --color-background-elevated-primary-opaque: #2a2a2a !important;
+  --color-background-elevated-secondary: rgb(42 42 42 / 96%) !important;
+  --color-background-elevated-secondary-opaque: #2a2a2a !important;
+  --color-background-panel: #212121 !important;
+  --color-background-surface: #212121 !important;
+  --color-background-surface-under: #181818 !important;
+  --color-border: rgb(255 255 255 / 10%) !important;
+  --color-border-application-menu-separator: rgb(255 255 255 / 14%) !important;
+  --color-border-focus: #66b5ff !important;
+  --color-border-heavy: rgb(255 255 255 / 17%) !important;
+  --color-border-light: rgb(255 255 255 / 6%) !important;
+  --color-icon-primary: #f2f2f2 !important;
+  --color-icon-secondary: rgb(242 242 242 / 68%) !important;
+  --color-icon-tertiary: rgb(242 242 242 / 48%) !important;
+  --color-text-button-primary: #181818 !important;
+  --color-text-button-secondary: #f2f2f2 !important;
+  --color-text-button-tertiary: rgb(242 242 242 / 48%) !important;
+  --color-foreground-application-menu: #f2f2f2 !important;
+  --color-text-foreground: #f2f2f2 !important;
+  --color-text-foreground-secondary: rgb(242 242 242 / 68%) !important;
+  --color-text-foreground-tertiary: rgb(242 242 242 / 48%) !important;
+  --color-text-on-accent: #181818 !important;
+}
+
+body[data-theme="dark"] [data-slot="dropdown-menu-content"] {
+  background-color: #2a2a2a !important;
+  color: #f2f2f2 !important;
+}
+
+body[data-theme="light"] [data-slot="dropdown-menu-content"] {
+  background-color: #ffffff !important;
+  color: #1a1c1f !important;
+}

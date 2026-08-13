@@ -1,7 +1,4 @@
 /* App-owned Tailwind source. Generated utilities are derived from current JSX. */
-@import "tailwindcss/theme" layer(theme);
-@import "tailwindcss/utilities" layer(utilities);
-
 @source "../**/*.{ts,tsx}";
 @source "../../../../packages/ui/src/**/*.{ts,tsx}";
 
