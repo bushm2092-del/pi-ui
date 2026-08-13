@@ -5,6 +5,7 @@ import { ProjectItemLayout } from "./project-item-layout";
 import { ProjectRowLayout } from "./project-row-layout";
 import { ProjectThreadsLayout } from "./project-threads-layout";
 import { ThreadItemLayout } from "./thread-item-layout";
+import { i18n } from "../../../../i18n";
 
 function makeProject(threads: ThreadItem[] = []): Project {
   return {
@@ -68,5 +69,15 @@ describe("data-driven sidebar layouts", () => {
     expect(emptyMarkup).toContain("没有聊天");
     expect(showMoreMarkup).toContain("展开显示");
     expect(showMoreMarkup).not.toContain("data-app-action-sidebar-thread-row");
+  });
+
+  it("renders sidebar labels in the selected language", async () => {
+    await i18n.changeLanguage("en-US");
+    const markup = renderToStaticMarkup(
+      <ProjectThreadsLayout project={makeProject()}>{null}</ProjectThreadsLayout>,
+    );
+
+    expect(markup).toContain("No chats");
+    await i18n.changeLanguage("zh-CN");
   });
 });

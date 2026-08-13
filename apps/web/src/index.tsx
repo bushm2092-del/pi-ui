@@ -12,6 +12,8 @@ import { ThemeSync } from "./components/theme/theme-sync";
 import { DebugLayout } from "./components/debug-layout";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { ComponentTestPage } from "./features/component-test/component-test-page";
+import { LanguageSync } from "./i18n/language-sync";
+import "./i18n";
 
 export interface MountAppOptions {
   platform: PlatformAdapter;
@@ -37,6 +39,7 @@ export function mountApp(element: HTMLElement, options: MountAppOptions) {
       <PlatformProvider adapter={options.platform}>
         <QueryProvider>
           <ThemeSync />
+          <LanguageSync />
           <TooltipProvider>
             <AgentClientProvider connection={options.backend}>
               <RouterProvider router={router} />

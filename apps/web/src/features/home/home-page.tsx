@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FileInput, Save, ExternalLink } from "lucide-react";
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@pi/ui";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AppInfo } from "@pi/shared";
 import { usePlatform } from "../../platform/context";
 import { useAppStore } from "../../stores/app-store";

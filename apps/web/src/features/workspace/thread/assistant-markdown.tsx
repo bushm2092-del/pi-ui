@@ -1,17 +1,10 @@
-import { lazy, Suspense } from "react";
-
-const Markdown = lazy(() =>
-  import("@pi/ui/markdown").then((module) => ({ default: module.Markdown })),
-);
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export function AssistantMarkdown({ content }: { content: string }) {
   return (
-    <Suspense fallback={<div className="text-token-text-secondary">正在渲染...</div>}>
-      <Markdown
-        className="[&amp;>*:first-child]:mt-0 [&amp;>*:last-child]:mb-0 [&amp;>ol:first-child]:mt-0 [&amp;>ul:first-child]:mt-0"
-      >
-        {content}
-      </Markdown>
-    </Suspense>
+    <div className="[&amp;>*:first-child]:mt-0 [&amp;>*:last-child]:mb-0 [&amp;>ol:first-child]:mt-0 [&amp;>ul:first-child]:mt-0">
+      <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
+    </div>
   );
 }

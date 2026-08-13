@@ -1,4 +1,5 @@
 import { useEffect, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { useTranslation } from "react-i18next";
 
 interface SidebarLayoutProps {
   open: boolean;
@@ -19,6 +20,7 @@ function clampSidebarWidth(width: number) {
 
 export function SidebarLayout({ open, width, onWidthChange, header, scroll, footer }: SidebarLayoutProps) {
   const [resizing, setResizing] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!resizing) return;
@@ -82,12 +84,12 @@ export function SidebarLayout({ open, width, onWidthChange, header, scroll, foot
               },
             } as any)}
           >
-            <nav {...({ className: "pi-sidebar-navigation", role: "navigation", "aria-label": "已安排任务文件夹" } as any)}>
+            <nav {...({ className: "pi-sidebar-navigation", role: "navigation", "aria-label": t("sidebar.navigation") } as any)}>
               {header}
               {scroll}
               <div {...({ id: "DndDescribedBy-3", style: { display: "none" } } as any)}>
                 {
-                  "\n    To pick up a draggable item, press the space bar.\n    While dragging, use the arrow keys to move the item.\n    Press space again to drop the item in its new position, or press escape to cancel.\n  "
+                  t("sidebar.dragInstructions")
                 }
               </div>
               <div
@@ -119,7 +121,7 @@ export function SidebarLayout({ open, width, onWidthChange, header, scroll, foot
       </div>
       <div
         role="separator"
-        aria-label="调整边栏宽度"
+        aria-label={t("sidebar.resize")}
         aria-orientation="vertical"
         aria-valuemin={SIDEBAR_MIN_WIDTH}
         aria-valuemax={SIDEBAR_MAX_WIDTH}

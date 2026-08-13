@@ -1,6 +1,11 @@
-import { workspaceData } from "../data/workspace-data";
+import { useTranslation } from "react-i18next";
 import { SidebarShortcutsLayout } from "./layouts";
 
 export function SidebarShortcuts() {
-  return <SidebarShortcutsLayout labels={workspaceData.chrome.shortcuts} />;
+  const { t } = useTranslation();
+  return <SidebarShortcutsLayout labels={[
+    t("sidebar.shortcuts.pullRequests"),
+    t("sidebar.shortcuts.scheduled"),
+    t("sidebar.shortcuts.plugins"),
+  ]} />;
 }

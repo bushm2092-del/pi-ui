@@ -2,6 +2,7 @@ import type { KeyboardEventHandler, MouseEvent } from "react";
 import MoreHorizontalIcon from "../../../../assets/svg/more-horizontal.svg?react";
 import NewConversationIcon from "../../../../assets/svg/new-conversation.svg?react";
 import type { Project } from "../../data/workspace-data";
+import { useTranslation } from "react-i18next";
 
 interface ProjectRowLayoutProps {
   project: Project;
@@ -19,6 +20,7 @@ export function ProjectRowLayout({
   onKeyDown,
 }: ProjectRowLayoutProps) {
   const muted = project.muted === true;
+  const { t } = useTranslation();
   const stopPropagation = (event: MouseEvent) => event.stopPropagation();
 
   return (
@@ -50,14 +52,14 @@ export function ProjectRowLayout({
       <div className="flex max-w-[50%] min-w-0 gap-1">
         <div className="w-0 overflow-hidden opacity-0 group-hover/folder-row:w-auto group-hover/folder-row:overflow-visible group-hover/folder-row:opacity-100 focus-within:w-auto focus-within:overflow-visible focus-within:opacity-100">
           <div className="outline-hidden cursor-interaction pe-0.5" data-state="closed">
-            <button type="button" className={iconButtonClass} aria-label={`${project.label} 的项目操作`} aria-haspopup="menu" aria-expanded="false" onClick={stopPropagation}>
+            <button type="button" className={iconButtonClass} aria-label={t("sidebar.actions.projectMenu", { project: project.label })} aria-haspopup="menu" aria-expanded="false" onClick={stopPropagation}>
               <MoreHorizontalIcon className="icon-xs" aria-hidden="true" />
             </button>
           </div>
         </div>
         <div className="me-0.5 grid h-6 max-w-48 min-w-6 shrink grid-cols-1 items-center group-hover/folder-row:w-6">
           <span className="col-start-1 row-start-1 inline-flex justify-self-end opacity-0 group-hover/folder-row:opacity-100">
-            <button type="button" className={iconButtonClass} disabled={project.canCreateThread === false} aria-label={`在 ${project.label} 中开始新聊天`} onClick={stopPropagation}>
+            <button type="button" className={iconButtonClass} disabled={project.canCreateThread === false} aria-label={t("sidebar.actions.startConversationInProject", { project: project.label })} onClick={stopPropagation}>
               <NewConversationIcon className="icon-xs" aria-hidden="true" />
             </button>
           </span>

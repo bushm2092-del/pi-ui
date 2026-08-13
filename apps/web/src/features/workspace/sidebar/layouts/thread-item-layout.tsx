@@ -2,6 +2,7 @@ import type { MouseEvent } from "react";
 import ArchiveIcon from "../../../../assets/svg/archive.svg?react";
 import PinIcon from "../../../../assets/svg/pin.svg?react";
 import type { ThreadItem } from "../../data/workspace-data";
+import { useTranslation } from "react-i18next";
 
 const actionButtonClass = "no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md enabled:hover:bg-transparent enabled:active:text-token-foreground/70 data-[state=open]:bg-transparent hover:text-token-foreground border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 !h-5 !w-5 !p-0 [&>svg]:!h-4 [&>svg]:!w-4 sidebar-hover-icon-button-tint sidebar-thread-action-button";
 
@@ -20,6 +21,7 @@ export function ThreadItemLayout({
   onPin?: () => void;
   onArchive?: () => void;
 }) {
+  const { t } = useTranslation();
   if (thread.kind === "show-more") {
     return (
       <div className="flex gap-1 py-1 px-8 after:block after:h-px after:content-[''] last:after:hidden" role="listitem">
@@ -61,12 +63,12 @@ export function ThreadItemLayout({
             <div className="contents" data-hover-card-open-immediately="true">
               <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 [&:has(:focus-visible)]:opacity-100 absolute end-0 top-0 z-10 h-full justify-end pe-0.5 me-0.5 w-[52px]">
                 <span data-state="closed" className="contents">
-                  <button type="button" className={actionButtonClass} aria-label={pinned ? "取消置顶聊天" : "置顶聊天"} onClick={(event) => { stopPropagation(event); onPin(); }}>
+                  <button type="button" className={actionButtonClass} aria-label={pinned ? t("sidebar.actions.unpinConversation") : t("sidebar.actions.pinConversation")} onClick={(event) => { stopPropagation(event); onPin(); }}>
                     <PinIcon className="translate-x-px" aria-hidden="true" />
                   </button>
                 </span>
                 <span data-state="closed" className="contents">
-                  <button type="button" className={actionButtonClass} aria-label="归档聊天" onClick={(event) => { stopPropagation(event); onArchive(); }}>
+                  <button type="button" className={actionButtonClass} aria-label={t("sidebar.actions.archiveConversation")} onClick={(event) => { stopPropagation(event); onArchive(); }}>
                     <ArchiveIcon aria-hidden="true" />
                   </button>
                 </span>

@@ -1,6 +1,7 @@
-import { workspaceData } from "../data/workspace-data";
+import { useTranslation } from "react-i18next";
 import { SidebarProjectsHeaderLayout } from "./layouts";
 
 export function SidebarProjectsHeader() {
-  return <SidebarProjectsHeaderLayout label={workspaceData.chrome.projects} />;
+  const { t } = useTranslation();
+  return <SidebarProjectsHeaderLayout label={t("sidebar.sections.projects")} />;
 }

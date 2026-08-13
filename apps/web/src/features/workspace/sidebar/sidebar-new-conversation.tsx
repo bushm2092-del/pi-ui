@@ -1,10 +1,11 @@
-import { workspaceData } from "../data/workspace-data";
+import { useTranslation } from "react-i18next";
 import { SidebarNewConversationLayout } from "./layouts";
 
 export function SidebarNewConversation() {
+  const { t } = useTranslation();
   return (
     <SidebarNewConversationLayout
-      label={workspaceData.chrome.newConversation}
+      label={t("sidebar.newConversation")}
     />
   );
 }

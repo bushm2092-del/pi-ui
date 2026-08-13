@@ -1,7 +1,9 @@
 import NotificationIcon from "../../../../assets/svg/notification.svg?react";
 import SearchIcon from "../../../../assets/svg/search.svg?react";
+import { useTranslation } from "react-i18next";
 
 export function SidebarModeLayout({ label }: { label: React.ReactNode }) {
+  const { t } = useTranslation();
   return (
     <div {...({ className: "ms-2 flex items-center pe-1" } as any)}>
       <button
@@ -9,7 +11,7 @@ export function SidebarModeLayout({ label }: { label: React.ReactNode }) {
           type: "button",
           className:
             "no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full text-token-foreground enabled:hover:bg-token-list-hover-background enabled:active:bg-token-foreground/15 data-[state=open]:bg-token-list-hover-background border-transparent px-2 py-0.5 text-sm leading-[18px] min-w-0 outline-hidden cursor-interaction -ms-2 h-8 min-w-0 rounded-xl px-2 !text-[17px] !leading-6 font-medium",
-          "aria-label": "切换模式，当前模式：PI-Codex:UI",
+          "aria-label": t("sidebar.mode", { mode: "PI-Codex:UI" }),
           id: "radix-_r_eu_",
           "aria-haspopup": "menu",
           "aria-expanded": "false",
@@ -44,7 +46,7 @@ export function SidebarModeLayout({ label }: { label: React.ReactNode }) {
               type: "button",
               className:
                 "no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md text-token-text-tertiary enabled:hover:bg-token-list-hover-background enabled:active:bg-token-foreground/15 data-[state=open]:bg-token-list-hover-background border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 ms-auto translate-x-0.5 sidebar-top-action-button",
-              "aria-label": "搜索",
+              "aria-label": t("sidebar.search"),
             } as any)}
           >
             <SearchIcon className="icon-xs" aria-hidden="true" />
@@ -57,7 +59,7 @@ export function SidebarModeLayout({ label }: { label: React.ReactNode }) {
                 type: "button",
                 className:
                   "no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md text-token-text-tertiary enabled:hover:bg-token-list-hover-background enabled:active:bg-token-foreground/15 data-[state=open]:bg-token-list-hover-background border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 sidebar-top-action-button",
-                "aria-label": "优先级，需要关注",
+                "aria-label": t("sidebar.priority"),
                 "aria-pressed": "false",
               } as any)}
             >

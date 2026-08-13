@@ -1,7 +1,9 @@
 import MoreHorizontalIcon from "../../../../assets/svg/more-horizontal.svg?react";
 import NewConversationIcon from "../../../../assets/svg/new-conversation.svg?react";
+import { useTranslation } from "react-i18next";
 
 export function SidebarRecentsLayout({ label, children }: { label: string; children?: React.ReactNode }) {
+  const { t } = useTranslation();
   return (
     <section {...({"className":"relative px-row-x","data-app-action-sidebar-section":"","data-app-action-sidebar-section-collapsed":"true","data-app-action-sidebar-section-heading":"Recents"} as any)}>
       <div {...({"className":"flex flex-col"} as any)}>
@@ -21,12 +23,12 @@ export function SidebarRecentsLayout({ label, children }: { label: string; child
           <div {...({"className":"flex shrink-0 items-center gap-1"} as any)}>
             <div {...({"className":"shrink-0 pointer-events-none opacity-0 group-focus-within/nav-section-title:pointer-events-auto group-focus-within/nav-section-title:opacity-100 group-hover/nav-section-title:pointer-events-auto group-hover/nav-section-title:opacity-100 has-[[data-state=open]]:pointer-events-auto has-[[data-state=open]]:opacity-100"} as any)}>
               <div {...({"className":"flex items-center gap-1"} as any)}>
-                <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md enabled:hover:bg-transparent enabled:active:text-token-foreground/70 data-[state=open]:bg-transparent hover:text-token-foreground border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 outline-hidden cursor-interaction sidebar-icon-button sidebar-hover-icon-button-tint","aria-label":"聊天侧边栏选项","id":"radix-_r_h1_","aria-haspopup":"menu","aria-expanded":"false","data-state":"closed"} as any)}>
+                <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md enabled:hover:bg-transparent enabled:active:text-token-foreground/70 data-[state=open]:bg-transparent hover:text-token-foreground border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 outline-hidden cursor-interaction sidebar-icon-button sidebar-hover-icon-button-tint","aria-label":t("sidebar.actions.conversationOptions"),"id":"radix-_r_h1_","aria-haspopup":"menu","aria-expanded":"false","data-state":"closed"} as any)}>
                   <MoreHorizontalIcon className="icon-xs" aria-hidden="true" />
                 </button>
                 <div>
                   <span {...({"data-state":"closed","className":"contents"} as any)}>
-                    <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md enabled:hover:bg-transparent enabled:active:text-token-foreground/70 data-[state=open]:bg-transparent hover:text-token-foreground border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 sidebar-icon-button sidebar-hover-icon-button-tint","aria-label":"新对话"} as any)}>
+                    <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md enabled:hover:bg-transparent enabled:active:text-token-foreground/70 data-[state=open]:bg-transparent hover:text-token-foreground border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 sidebar-icon-button sidebar-hover-icon-button-tint","aria-label":t("sidebar.newConversation")} as any)}>
                       <NewConversationIcon className="icon-xs" aria-hidden="true" />
                     </button>
                   </span>

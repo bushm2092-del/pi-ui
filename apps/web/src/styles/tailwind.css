@@ -1,6 +1,5 @@
 /* App-owned Tailwind source. Generated utilities are derived from current JSX. */
 @source "../**/*.{ts,tsx}";
-@source "../../../../packages/ui/src/**/*.{ts,tsx}";
 
 @custom-variant browser (:where([data-codex-window-type="browser"] *));
 @custom-variant extension (:where([data-codex-window-type="extension"] *));

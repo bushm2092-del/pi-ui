@@ -1,7 +1,9 @@
 import MoreHorizontalIcon from "../../../../assets/svg/more-horizontal.svg?react";
 import PlusIcon from "../../../../assets/svg/plus.svg?react";
+import { useTranslation } from "react-i18next";
 
 export function SidebarProjectsHeaderLayout({ label }: { label: string }) {
+  const { t } = useTranslation();
   return (
     <div {...({"className":"group/nav-section-title flex items-center justify-between gap-2 pe-0.5 ps-2"} as any)}>
       <div {...({"className":"pi-sidebar-section-heading min-w-0 flex-1 text-base font-medium text-token-input-placeholder-foreground opacity-75"} as any)}>
@@ -19,10 +21,10 @@ export function SidebarProjectsHeaderLayout({ label }: { label: string }) {
       <div {...({"className":"flex shrink-0 items-center gap-1"} as any)}>
         <div {...({"className":"shrink-0 pointer-events-none opacity-0 group-focus-within/nav-section-title:pointer-events-auto group-focus-within/nav-section-title:opacity-100 group-hover/nav-section-title:pointer-events-auto group-hover/nav-section-title:opacity-100 has-[[data-state=open]]:pointer-events-auto has-[[data-state=open]]:opacity-100"} as any)}>
           <div {...({"className":"flex items-center gap-1"} as any)}>
-            <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md enabled:hover:bg-transparent enabled:active:text-token-foreground/70 data-[state=open]:bg-transparent hover:text-token-foreground border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 outline-hidden cursor-interaction sidebar-icon-button sidebar-hover-icon-button-tint","aria-label":"项目侧边栏选项","id":"radix-_r_f3_","aria-haspopup":"menu","aria-expanded":"false","data-state":"closed"} as any)}>
+            <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md enabled:hover:bg-transparent enabled:active:text-token-foreground/70 data-[state=open]:bg-transparent hover:text-token-foreground border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 outline-hidden cursor-interaction sidebar-icon-button sidebar-hover-icon-button-tint","aria-label":t("sidebar.actions.projectOptions"),"id":"radix-_r_f3_","aria-haspopup":"menu","aria-expanded":"false","data-state":"closed"} as any)}>
               <MoreHorizontalIcon className="icon-xs" aria-hidden="true" />
             </button>
-            <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md enabled:hover:bg-transparent enabled:active:text-token-foreground/70 data-[state=open]:bg-transparent hover:text-token-foreground border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 relative isolate sidebar-icon-button overflow-visible sidebar-hover-icon-button-tint","aria-label":"添加新项目","data-app-action-sidebar-project-create":""} as any)}>
+            <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md enabled:hover:bg-transparent enabled:active:text-token-foreground/70 data-[state=open]:bg-transparent hover:text-token-foreground border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 relative isolate sidebar-icon-button overflow-visible sidebar-hover-icon-button-tint","aria-label":t("sidebar.actions.addProject"),"data-app-action-sidebar-project-create":""} as any)}>
               <PlusIcon className="icon-xs" aria-hidden="true" />
             </button>
           </div>

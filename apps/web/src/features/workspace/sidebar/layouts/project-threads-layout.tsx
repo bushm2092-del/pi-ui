@@ -1,4 +1,5 @@
 import type { Project } from "../../data/workspace-data";
+import { useTranslation } from "react-i18next";
 
 export function ProjectThreadsLayout({
   project,
@@ -7,6 +8,7 @@ export function ProjectThreadsLayout({
   project: Project;
   children: React.ReactNode;
 }) {
+  const { t } = useTranslation();
   return (
     <div
       className="overflow-hidden"
@@ -19,7 +21,7 @@ export function ProjectThreadsLayout({
         >
           {project.threads.length === 0 ? (
             <div className="text-token-description-foreground opacity-50 px-8 py-1 text-base">
-              没有聊天
+              {t("sidebar.emptyProject")}
             </div>
           ) : (
             <div className="isolate flex flex-col [contain:layout]">
@@ -27,7 +29,7 @@ export function ProjectThreadsLayout({
                 className="flex flex-col"
                 role="list"
                 tabIndex={-1}
-                aria-label={`${project.label}中的已安排任务`}
+                aria-label={t("sidebar.scheduledTasksInProject", { project: project.label })}
               >
                 {children}
               </div>
