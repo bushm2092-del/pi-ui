@@ -1,0 +1,57 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "6a4fc93b2e304ae0ec7756e226353f9bd8dc7ab4",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 177,
+    "git_diff_deleted_lines": 12,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 176,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/web/package.json": {
+        "BYMC": [
+          "12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/scripts/dev.mjs": {
+        "BYMC": [
+          "1",
+          "3",
+          "13-123",
+          "166-173",
+          "179",
+          "201"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-mode-layout.tsx": {
+        "BYMC": [
+          "6-18",
+          "20-37",
+          "40-49",
+          "54-63"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "package.json": {
+        "BYMC": [
+          "8"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786602812,
+  "requirement_id": ""
+}
