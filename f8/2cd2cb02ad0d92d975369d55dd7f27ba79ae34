@@ -1,0 +1,111 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "f82cd2cb02ad0d92d975369d55dd7f27ba79ae34",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 156,
+    "git_diff_deleted_lines": 3496,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 154,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/web/components.json": {
+        "BYMC": [
+          "1-19"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/package.json": {
+        "BYMC": [
+          "25-26",
+          "28-29",
+          "36"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/button.tsx": {
+        "BYMC": [
+          "1-32"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/dropdown-menu.tsx": {
+        "BYMC": [
+          "1-50"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/data/workspace-data.ts": {
+        "BYMC": [
+          "75"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-footer-layout.tsx": {
+        "BYMC": [
+          "1-10",
+          "13-15",
+          "33-45"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-pinned-layout.tsx": {
+        "BYMC": [
+          "6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-projects-header-layout.tsx": {
+        "BYMC": [
+          "7"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-recents-layout.tsx": {
+        "BYMC": [
+          "9"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/sidebar.css": {
+        "BYMC": [
+          "34-37",
+          "92-97"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/index.tsx": {
+        "BYMC": [
+          "11",
+          "30"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/lib/utils.ts": {
+        "BYMC": [
+          "1-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786612476,
+  "requirement_id": ""
+}
