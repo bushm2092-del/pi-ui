@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "pnpm --filter @pi/desktop dev",
     "dev:web": "pnpm --filter @pi/app dev",
+    "dev:web:force": "pnpm --filter @pi/app dev:force",
     "dev:server": "pnpm --filter @pi/server dev",
     "build": "pnpm -r --if-present build",
     "build:web": "pnpm --filter @pi/app build",
