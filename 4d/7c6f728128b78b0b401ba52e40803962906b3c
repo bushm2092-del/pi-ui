@@ -1,0 +1,135 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "4d7c6f728128b78b0b401ba52e40803962906b3c",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 1116,
+    "git_diff_deleted_lines": 1640,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 1116,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/web/src/components/debug-layout.tsx": {
+        "BYMC": [
+          "1-11"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/debug-route-switcher.tsx": {
+        "BYMC": [
+          "1-146"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/alert.tsx": {
+        "BYMC": [
+          "1-76"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/badge.tsx": {
+        "BYMC": [
+          "1-49"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/card.tsx": {
+        "BYMC": [
+          "1-103"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/checkbox.tsx": {
+        "BYMC": [
+          "1-31"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/dialog.tsx": {
+        "BYMC": [
+          "1-166"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/input.tsx": {
+        "BYMC": [
+          "1-19"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/select.tsx": {
+        "BYMC": [
+          "1-190"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/separator.tsx": {
+        "BYMC": [
+          "1-26"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/switch.tsx": {
+        "BYMC": [
+          "1-33"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/tabs.tsx": {
+        "BYMC": [
+          "1-90"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/textarea.tsx": {
+        "BYMC": [
+          "1-18"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/tooltip.tsx": {
+        "BYMC": [
+          "1-57"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/component-test/component-test-page.tsx": {
+        "BYMC": [
+          "1-85"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/index.tsx": {
+        "BYMC": [
+          "12-14",
+          "25-32",
+          "40-44"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786625959,
+  "requirement_id": ""
+}
