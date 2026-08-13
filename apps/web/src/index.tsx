@@ -8,6 +8,7 @@ import { installWorkspaceDocument, WorkspacePage } from "./features/workspace";
 import { A2uiStreamTestPage } from "./features/a2ui-test/a2ui-stream-test-page";
 import { PlatformProvider } from "./platform/context";
 import { QueryProvider } from "./query/query-provider";
+import { ThemeSync } from "./components/theme/theme-sync";
 
 export interface MountAppOptions {
   platform: PlatformAdapter;
@@ -26,6 +27,7 @@ export function mountApp(element: HTMLElement, options: MountAppOptions) {
     <StrictMode>
       <PlatformProvider adapter={options.platform}>
         <QueryProvider>
+          <ThemeSync />
           <AgentClientProvider connection={options.backend}>
             <RouterProvider router={router} />
           </AgentClientProvider>

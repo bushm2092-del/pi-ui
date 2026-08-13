@@ -4,7 +4,7 @@ import PlusIcon from "../../../../assets/svg/plus.svg?react";
 export function SidebarProjectsHeaderLayout({ label }: { label: string }) {
   return (
     <div {...({"className":"group/nav-section-title flex items-center justify-between gap-2 pe-0.5 ps-2"} as any)}>
-      <div {...({"className":"min-w-0 flex-1 text-base font-medium text-token-input-placeholder-foreground opacity-75"} as any)}>
+      <div {...({"className":"pi-sidebar-section-heading min-w-0 flex-1 text-base font-medium text-token-input-placeholder-foreground opacity-75"} as any)}>
         <div {...({"className":"flex min-w-0 flex-1"} as any)}>
           <button {...({"data-app-action-sidebar-section-toggle":"","role":"button","tabIndex":"0","aria-disabled":"false","aria-roledescription":"sortable","aria-describedby":"DndDescribedBy-3","type":"button","className":"group/section-toggle flex min-w-0 flex-1 items-center gap-1 rounded-md py-0.5 pe-1 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-default","aria-expanded":"true"} as any)}>
             <span {...({"className":"flex min-w-0 items-center gap-1"} as any)}>

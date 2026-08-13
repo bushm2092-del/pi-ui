@@ -72,7 +72,7 @@ export const workspaceData: WorkspaceData = {
     shortcuts: ["拉取请求", "已安排", "插件"],
     pinned: "置顶",
     projects: "项目",
-    recents: "最近",
+    recents: "对话",
     account: "OpenAI",
   },
   conversation: {

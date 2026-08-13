@@ -1,6 +1,18 @@
-import HelpCircleIcon from "../../../../assets/svg/help-circle.svg?react";
+import { Button } from "../../../../components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "../../../../components/ui/dropdown-menu";
+import { Moon, MoreHorizontal, Sun } from "lucide-react";
+import { useAppStore, type ThemePreference } from "../../../../stores/app-store";
 
 export function SidebarFooterLayout({ accountLabel }: { accountLabel: string }) {
+  const theme = useAppStore((state) => state.theme);
+  const setTheme = useAppStore((state) => state.setTheme);
+
   return (
     <div {...({"className":"absolute inset-x-0 bottom-0 z-20"} as any)}>
       <div {...({"className":"relative px-row-x"} as any)} />
@@ -18,9 +30,19 @@ export function SidebarFooterLayout({ accountLabel }: { accountLabel: string }) 
               </button>
             </div>
           </div>
-          <button {...({"type":"button","className":"no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md text-token-text-tertiary enabled:hover:bg-token-list-hover-background enabled:active:bg-token-foreground/15 data-[state=open]:bg-token-list-hover-background border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 aspect-square shrink-0 items-center justify-center !px-0 outline-hidden cursor-interaction size-8 shrink-0","aria-label":"打开帮助菜单","id":"radix-_r_h7_","aria-haspopup":"menu","aria-expanded":"false","data-state":"closed"} as any)}>
-            <HelpCircleIcon className="icon-sm" aria-hidden="true" />
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="size-8 shrink-0 text-token-text-tertiary" aria-label="更多">
+                <MoreHorizontal className="size-4" aria-hidden="true" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" side="top" aria-label="主题">
+              <DropdownMenuRadioGroup value={theme} onValueChange={(value) => setTheme(value as ThemePreference)}>
+                <DropdownMenuRadioItem value="light"><Sun className="size-4" />亮色</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="dark"><Moon className="size-4" />暗色</DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </div>
