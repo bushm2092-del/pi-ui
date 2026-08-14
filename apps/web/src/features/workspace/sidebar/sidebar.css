@@ -97,6 +97,11 @@
   color: inherit;
 }
 
+.pi-sidebar-navigation .pi-sidebar-section-heading svg.icon-2xs {
+  width: 14px;
+  height: 14px;
+}
+
 /* Match the native sidebar action geometry while keeping SVG padding isolated. */
 .pi-sidebar-navigation .sidebar-icon-button {
   width: 24px;

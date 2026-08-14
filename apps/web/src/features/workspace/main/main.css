@@ -25,6 +25,13 @@
 .pi-workspace-header button {
   app-region: no-drag;
 }
+.pi-workspace-header button.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+.pi-workspace-header svg.icon-xs {
+  width: 16px;
+  height: 16px;
+}
 .pi-workspace-main-surface {
   isolation: isolate;
   flex-direction: column;
