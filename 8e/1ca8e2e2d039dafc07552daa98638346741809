@@ -1,0 +1,103 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "8e1ca8e2e2d039dafc07552daa98638346741809",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 697,
+    "git_diff_deleted_lines": 4,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 694,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/web/package.json": {
+        "BYMC": [
+          "28",
+          "32",
+          "38",
+          "43"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/app-toaster.tsx": {
+        "BYMC": [
+          "1-18"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/command.tsx": {
+        "BYMC": [
+          "1-195"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/context-menu.tsx": {
+        "BYMC": [
+          "1-261"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/dialog.tsx": {
+        "BYMC": [
+          "1-2"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/kbd.tsx": {
+        "BYMC": [
+          "1-26"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/resizable.tsx": {
+        "BYMC": [
+          "1-50"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/sonner.tsx": {
+        "BYMC": [
+          "1-47"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/component-test/component-test-page.tsx": {
+        "BYMC": [
+          "1-3",
+          "10-11",
+          "17",
+          "19",
+          "29-40",
+          "55-56",
+          "93-118",
+          "168-206",
+          "222-224"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/index.tsx": {
+        "BYMC": [
+          "16",
+          "44"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786728368,
+  "requirement_id": ""
+}
