@@ -1,17 +1,22 @@
-import { useState } from "react";
-import { AlertCircle, Bell, Bold, Check, ChevronsUpDown, Code2, Info, Italic, Link, Mail, MoreHorizontal, Settings2, Underline, UserRound } from "lucide-react";
+import { useEffect, useState } from "react";
+import { AlertCircle, Bell, Bold, Check, ChevronsUpDown, Code2, Copy, FilePlus2, GripVertical, Info, Italic, Link, LoaderCircle, Mail, MoreHorizontal, Search, Settings2, Trash2, Underline, UserRound } from "lucide-react";
+import { toast } from "sonner";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from "@/components/ui/button-group";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from "@/components/ui/command";
+import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuTrigger } from "@/components/ui/context-menu";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSet } from "@/components/ui/field";
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText, InputGroupTextarea } from "@/components/ui/input-group";
 import { Item, ItemActions, ItemContent, ItemDescription, ItemGroup, ItemMedia, ItemSeparator, ItemTitle } from "@/components/ui/item";
+import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -21,6 +26,18 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export function ComponentTestPage() {
   const [notifications, setNotifications] = useState(true);
+  const [commandOpen, setCommandOpen] = useState(false);
+
+  useEffect(() => {
+    const handleShortcut = (event: KeyboardEvent) => {
+      if (event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        setCommandOpen((open) => !open);
+      }
+    };
+    document.addEventListener("keydown", handleShortcut);
+    return () => document.removeEventListener("keydown", handleShortcut);
+  }, []);
 
   return (
     <main className="min-h-full overflow-y-auto bg-background px-6 py-8 text-foreground">
@@ -35,6 +52,8 @@ export function ComponentTestPage() {
           <TabsList>
             <TabsTrigger value="controls">表单控件</TabsTrigger>
             <TabsTrigger value="groups">组合组件</TabsTrigger>
+            <TabsTrigger value="shortcuts">快捷键</TabsTrigger>
+            <TabsTrigger value="messages">消息与拖拽</TabsTrigger>
             <TabsTrigger value="feedback">反馈与弹层</TabsTrigger>
           </TabsList>
           <TabsContent value="controls" className="mt-5 grid gap-5 md:grid-cols-2">
@@ -68,6 +87,35 @@ export function ComponentTestPage() {
               <CardHeader><CardTitle>组合示例</CardTitle><CardDescription>可直接复用的设置面板。</CardDescription></CardHeader>
               <CardContent className="space-y-4"><div className="flex items-center gap-3"><Settings2 className="size-5 text-muted-foreground" /><div className="flex-1"><p className="text-sm font-medium">执行模式</p><p className="text-xs text-muted-foreground">控制任务运行策略</p></div><Button variant="outline" size="sm">配置<ChevronsUpDown /></Button></div></CardContent>
               <CardFooter className="justify-end"><Button size="sm"><Check />保存</Button></CardFooter>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="shortcuts" className="mt-5 grid gap-5 md:grid-cols-2">
+            <Card>
+              <CardHeader><CardTitle>Kbd</CardTitle><CardDescription>在按钮、菜单和帮助文本中显示快捷键。</CardDescription></CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center justify-between gap-4 text-sm"><span>打开命令面板</span><KbdGroup><Kbd>⌘</Kbd><Kbd>K</Kbd></KbdGroup></div>
+                <div className="flex items-center justify-between gap-4 text-sm"><span>保存当前文件</span><KbdGroup><Kbd>⌘</Kbd><Kbd>S</Kbd></KbdGroup></div>
+                <div className="flex items-center justify-between gap-4 text-sm"><span>关闭面板</span><Kbd>Esc</Kbd></div>
+                <Button variant="outline" onClick={() => setCommandOpen(true)}><Search />打开命令面板<KbdGroup className="ml-2"><Kbd>⌘</Kbd><Kbd>K</Kbd></KbdGroup></Button>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader><CardTitle>Command</CardTitle><CardDescription>支持搜索、方向键选择和 Enter 执行。</CardDescription></CardHeader>
+              <CardContent>
+                <Command className="h-72 rounded-lg border">
+                  <CommandInput placeholder="搜索命令..." />
+                  <CommandList><CommandEmpty>没有匹配的命令。</CommandEmpty><CommandGroup heading="工作区"><CommandItem><FilePlus2 />新建对话<CommandShortcut>⌘N</CommandShortcut></CommandItem><CommandItem><Search />搜索项目<CommandShortcut>⌘P</CommandShortcut></CommandItem></CommandGroup><CommandSeparator /><CommandGroup heading="设置"><CommandItem><Settings2 />打开设置<CommandShortcut>⌘,</CommandShortcut></CommandItem></CommandGroup></CommandList>
+                </Command>
+              </CardContent>
+            </Card>
+
+            <Card className="md:col-span-2">
+              <CardHeader><CardTitle>Context Menu</CardTitle><CardDescription>在区域内点击右键打开操作菜单。</CardDescription></CardHeader>
+              <CardContent>
+                <ContextMenu><ContextMenuTrigger className="flex min-h-32 items-center justify-center rounded-lg border border-dashed bg-muted/30 text-sm text-muted-foreground">右键点击此区域</ContextMenuTrigger><ContextMenuContent className="w-48"><ContextMenuItem><Copy />复制<ContextMenuShortcut>⌘C</ContextMenuShortcut></ContextMenuItem><ContextMenuItem><FilePlus2 />新建副本<ContextMenuShortcut>⌘D</ContextMenuShortcut></ContextMenuItem><ContextMenuSeparator /><ContextMenuItem variant="destructive"><Trash2 />删除<ContextMenuShortcut>⌫</ContextMenuShortcut></ContextMenuItem></ContextMenuContent></ContextMenu>
+              </CardContent>
             </Card>
           </TabsContent>
 
@@ -117,6 +165,45 @@ export function ComponentTestPage() {
             </Card>
           </TabsContent>
 
+          <TabsContent value="messages" className="mt-5 grid gap-5 md:grid-cols-2">
+            <Card>
+              <CardHeader><CardTitle>Sonner 消息</CardTitle><CardDescription>成功、错误、加载和带操作的消息通知。</CardDescription></CardHeader>
+              <CardContent className="flex flex-wrap gap-2">
+                <Button variant="outline" onClick={() => toast.success("任务已完成", { description: "所有文件已成功生成。" })}>成功消息</Button>
+                <Button variant="outline" onClick={() => toast.error("连接失败", { description: "无法连接到本地服务。" })}>错误消息</Button>
+                <Button variant="outline" onClick={() => toast.promise(new Promise((resolve) => window.setTimeout(resolve, 1200)), { loading: "正在同步...", success: "同步完成", error: "同步失败" })}><LoaderCircle />加载消息</Button>
+                <Button variant="outline" onClick={() => toast("草稿已保存", { action: { label: "撤销", onClick: () => toast.info("已撤销") } })}>带操作消息</Button>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader><CardTitle>消息状态</CardTitle><CardDescription>通知组件全局挂载并跟随亮暗主题。</CardDescription></CardHeader>
+              <CardContent className="space-y-3 text-sm"><div className="flex items-center justify-between rounded-lg border p-3"><span>任务完成通知</span><Badge>Success</Badge></div><div className="flex items-center justify-between rounded-lg border p-3"><span>后台同步进度</span><Badge variant="secondary">Loading</Badge></div><div className="flex items-center justify-between rounded-lg border p-3"><span>服务连接异常</span><Badge variant="destructive">Error</Badge></div></CardContent>
+            </Card>
+
+            <Card className="md:col-span-2">
+              <CardHeader><CardTitle>水平实时拖拽</CardTitle><CardDescription>拖动中间手柄调整编辑区与预览区宽度。</CardDescription></CardHeader>
+              <CardContent>
+                <ResizablePanelGroup orientation="horizontal" className="h-64 overflow-hidden rounded-lg border">
+                  <ResizablePanel defaultSize={55} minSize={25}><div className="flex h-full flex-col bg-muted/20 p-4"><span className="text-sm font-medium">编辑器</span><pre className="mt-3 flex-1 overflow-auto rounded-md bg-muted p-3 text-xs">{`const message = "Hello"\nconsole.log(message)`}</pre></div></ResizablePanel>
+                  <ResizableHandle withHandle />
+                  <ResizablePanel defaultSize={45} minSize={25}><div className="flex h-full items-center justify-center p-4 text-sm text-muted-foreground">实时预览</div></ResizablePanel>
+                </ResizablePanelGroup>
+              </CardContent>
+            </Card>
+
+            <Card className="md:col-span-2">
+              <CardHeader><CardTitle>垂直实时拖拽</CardTitle><CardDescription>拖动手柄调整内容区与控制台高度。</CardDescription></CardHeader>
+              <CardContent>
+                <ResizablePanelGroup orientation="vertical" className="h-64 overflow-hidden rounded-lg border">
+                  <ResizablePanel defaultSize={65} minSize={30}><div className="flex h-full items-center justify-center text-sm">主内容区域</div></ResizablePanel>
+                  <ResizableHandle withHandle><GripVertical /></ResizableHandle>
+                  <ResizablePanel defaultSize={35} minSize={20}><div className="h-full bg-muted/30 p-3 font-mono text-xs text-muted-foreground">$ pnpm test<br />35 tests passed</div></ResizablePanel>
+                </ResizablePanelGroup>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
           <TabsContent value="feedback" className="mt-5 grid gap-5 md:grid-cols-2">
             <Card>
               <CardHeader><CardTitle>Alert</CardTitle><CardDescription>重要状态与说明信息。</CardDescription></CardHeader>
@@ -132,6 +219,9 @@ export function ComponentTestPage() {
           </TabsContent>
         </Tabs>
       </div>
+      <CommandDialog open={commandOpen} onOpenChange={setCommandOpen} title="命令面板" description="搜索并执行调试命令">
+        <Command><CommandInput placeholder="输入命令或搜索..." /><CommandList><CommandEmpty>没有匹配的命令。</CommandEmpty><CommandGroup heading="建议"><CommandItem onSelect={() => setCommandOpen(false)}><FilePlus2 />新建对话<CommandShortcut>⌘N</CommandShortcut></CommandItem><CommandItem onSelect={() => setCommandOpen(false)}><Search />搜索项目<CommandShortcut>⌘P</CommandShortcut></CommandItem><CommandItem onSelect={() => setCommandOpen(false)}><Settings2 />打开设置<CommandShortcut>⌘,</CommandShortcut></CommandItem></CommandGroup></CommandList></Command>
+      </CommandDialog>
     </main>
   );
 }

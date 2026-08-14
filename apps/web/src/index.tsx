@@ -13,6 +13,7 @@ import { DebugLayout } from "./components/debug-layout";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { ComponentTestPage } from "./features/component-test/component-test-page";
 import { LanguageSync } from "./i18n/language-sync";
+import { AppToaster } from "./components/app-toaster";
 import "./i18n";
 
 export interface MountAppOptions {
@@ -40,6 +41,7 @@ export function mountApp(element: HTMLElement, options: MountAppOptions) {
         <QueryProvider>
           <ThemeSync />
           <LanguageSync />
+          <AppToaster />
           <TooltipProvider>
             <AgentClientProvider connection={options.backend}>
               <RouterProvider router={router} />
