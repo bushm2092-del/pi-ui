@@ -1,0 +1,173 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "7c98ad27f226f5ef8dfae8b2b4e6adb7ab9092eb",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 747,
+    "git_diff_deleted_lines": 3138,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 746,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/web/src/features/workspace/document-attributes.ts": {
+        "BYMC": [
+          "12",
+          "17"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/index.ts": {
+        "BYMC": [
+          "2"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-data-layouts.test.tsx": {
+        "BYMC": [
+          "7-11",
+          "88-165"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-empty-state.tsx": {
+        "BYMC": [
+          "1-7"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-pinned-layout.tsx": {
+        "BYMC": [
+          "1-13",
+          "15-20",
+          "25-32",
+          "36",
+          "44-50"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-projects-header-layout.tsx": {
+        "BYMC": [
+          "5-15",
+          "21-28",
+          "32-40"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-projects-layout.tsx": {
+        "BYMC": [
+          "2",
+          "6",
+          "11-16",
+          "19-24"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/layouts/sidebar-recents-layout.tsx": {
+        "BYMC": [
+          "5-17",
+          "20-25",
+          "30-37",
+          "41",
+          "65-71"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/sidebar-pinned.tsx": {
+        "BYMC": [
+          "1",
+          "3",
+          "9",
+          "14-38"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/sidebar-project-list.tsx": {
+        "BYMC": [
+          "10",
+          "28-30"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/sidebar-projects-header.tsx": {
+        "BYMC": [
+          "4-10",
+          "12-18"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/sidebar-projects.tsx": {
+        "BYMC": [
+          "1",
+          "7-8",
+          "11-17"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/sidebar/sidebar-recents.tsx": {
+        "BYMC": [
+          "1",
+          "3",
+          "9",
+          "14-38"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/i18n/locales/en-US.ts": {
+        "BYMC": [
+          "37-39"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/i18n/locales/zh-CN.ts": {
+        "BYMC": [
+          "31-33"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/styles.css": {
+        "BYMC": [
+          "2",
+          "11"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/styles/codex-theme.css": {
+        "BYMC": [
+          "1-349"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/styles/shadcn-theme.css": {
+        "BYMC": [
+          "1-100"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786761475,
+  "requirement_id": ""
+}
