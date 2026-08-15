@@ -1,0 +1,349 @@
+/* Minimal Codex theme contract used by the current web workspace. */
+:root {
+  --spacing: 0.25rem;
+  --font-sans-default: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono-default: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-sans: "Geist Variable", var(--font-sans-default);
+  --font-mono: var(--font-mono-default);
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-lg: 16px;
+
+  --corner-radius-scale: 1;
+  --radius-2xs-base: 0.125rem;
+  --radius-xs-base: 0.25rem;
+  --radius-sm-base: 0.375rem;
+  --radius-md-base: 0.5rem;
+  --radius-lg-base: 0.625rem;
+  --radius-xl-base: 0.75rem;
+  --radius-2xl-base: 1rem;
+  --radius-3xl-base: 1.25rem;
+  --radius-4xl-base: 1.5rem;
+  --radius-xs: calc(var(--radius-xs-base) * var(--corner-radius-scale));
+  --radius-sm: calc(var(--radius-sm-base) * var(--corner-radius-scale));
+  --radius-md: calc(var(--radius-md-base) * var(--corner-radius-scale));
+  --radius-lg: calc(var(--radius-lg-base) * var(--corner-radius-scale));
+  --radius-xl: calc(var(--radius-xl-base) * var(--corner-radius-scale));
+  --radius-2xl: calc(var(--radius-2xl-base) * var(--corner-radius-scale));
+  --radius-3xl: calc(var(--radius-3xl-base) * var(--corner-radius-scale));
+  --radius-4xl: calc(var(--radius-4xl-base) * var(--corner-radius-scale));
+  --radius: var(--radius-lg-base);
+
+  --height-toolbar: 46px;
+  --height-toolbar-sm: 36px;
+  --padding-row-x: calc(var(--spacing) * 2);
+  --padding-row-y: calc(var(--spacing) * 1.25);
+  --padding-panel-base: calc(var(--spacing) * 5);
+  --padding-panel: var(--padding-panel-base);
+  --padding-toolbar: calc(var(--spacing) * 4);
+  --height-token-nav-row: calc(var(--text-base) * 1.5 + var(--padding-row-y) * 2);
+  --height-token-row: var(--height-token-nav-row);
+  --composer-inline-overhang: calc(var(--spacing) * 6);
+  --home-composer-inline-inset: calc(var(--spacing) * 3.25);
+  --spacing-token-button-composer: calc(var(--spacing) * 7);
+  --spacing-token-button-composer-sm: calc(var(--spacing) * 7);
+  --spacing-token-button-composer-gap: var(--spacing);
+  --spacing-token-safe-header-left: 0px;
+  --thread-content-max-width: 48rem;
+  --codex-window-zoom: 1;
+  --codex-chat-font-size: var(--text-base);
+  --codex-chat-code-font-size: var(--text-sm);
+  --diffs-font-size: 12px;
+  --cursor-interaction: default;
+
+  --cubic-enter: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-basic: ease;
+  --ease-enter-snappy: cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-duration-basic: 0.15s;
+  --transition-duration-relaxed: 0.3s;
+
+  --color-accent-blue: #339cff;
+  --color-accent-green: #00a240;
+  --color-accent-orange: #e25507;
+  --color-accent-purple: #924ff7;
+  --color-accent-red: #ba2623;
+  --color-accent-yellow: #c58b00;
+  --color-background-accent: #e5f2ff;
+  --color-background-accent-active: #e0f0ff;
+  --color-background-accent-hover: #e2f1ff;
+  --color-background-button-primary: #1a1c1f;
+  --color-background-button-primary-hover: rgb(26 28 31 / 7.7%);
+  --color-background-button-secondary: rgb(26 28 31 / 4.9%);
+  --color-background-button-secondary-active: rgb(26 28 31 / 3.9%);
+  --color-background-button-secondary-hover: rgb(26 28 31 / 5.3%);
+  --color-background-control: rgb(255 255 255 / 96%);
+  --color-background-control-opaque: #fff;
+  --color-background-editor-opaque: #fff;
+  --color-background-elevated-primary: rgb(255 255 255 / 96%);
+  --color-background-elevated-primary-opaque: #fff;
+  --color-background-elevated-secondary: rgb(255 255 255 / 96%);
+  --color-background-primary-ghost-hover: rgb(26 28 31 / 5.3%);
+  --color-background-surface: #fff;
+  --color-background-surface-under: #f6f6f6;
+  --color-background-status-error: #ffd9d9;
+  --color-background-status-success: #d9f4e4;
+  --color-background-danger-active: #ffd9d9;
+  --color-border: rgb(26 28 31 / 7.8%);
+  --color-border-light: rgb(26 28 31 / 4.9%);
+  --color-border-heavy: rgb(26 28 31 / 11.7%);
+  --color-border-focus: #339cff;
+  --color-border-error: #ba2623;
+  --color-border-warning: #e25507;
+  --color-decoration-added: #00a240;
+  --color-decoration-deleted: #ba2623;
+  --color-editor-added: rgb(0 162 64 / 15%);
+  --color-editor-deleted: rgb(186 38 35 / 15%);
+  --color-icon-primary: #1a1c1f;
+  --color-icon-secondary: rgb(26 28 31 / 69.5%);
+  --color-icon-tertiary: rgb(26 28 31 / 49.5%);
+  --color-icon-accent: #339cff;
+  --color-icon-error: #ba2623;
+  --color-icon-success: #00a240;
+  --color-icon-warning: #e25507;
+  --color-simple-scrim: rgb(0 0 0 / 9.8%);
+  --color-text-foreground: #1a1c1f;
+  --color-text-foreground-secondary: rgb(26 28 31 / 69.5%);
+  --color-text-foreground-tertiary: rgb(26 28 31 / 49.5%);
+  --color-text-accent: #339cff;
+  --color-text-button-primary: #fff;
+  --color-text-button-secondary: #1a1c1f;
+  --color-text-error: #ba2623;
+  --color-text-success: #008635;
+  --color-text-warning: #923b0f;
+  --color-text-on-accent: #fff;
+  --white: #fff;
+  --green-600: #008635;
+
+  --vscode-font-family: var(--font-sans);
+  --vscode-font-weight: 445;
+  --vscode-font-size: var(--text-base);
+  --vscode-editor-font-family: var(--font-mono);
+  --vscode-editor-font-size: 12px;
+  --vscode-editor-font-weight: 400;
+  --vscode-foreground: var(--color-text-foreground);
+  --vscode-descriptionForeground: var(--color-text-foreground-tertiary);
+  --vscode-disabledForeground: var(--color-text-foreground-tertiary);
+  --vscode-errorForeground: var(--color-text-error);
+  --vscode-icon-foreground: var(--color-icon-primary);
+  --vscode-focusBorder: var(--color-border-focus);
+  --vscode-textLink-foreground: var(--color-text-accent);
+  --vscode-editor-background: var(--color-background-editor-opaque);
+  --vscode-editor-foreground: var(--color-text-foreground);
+  --vscode-editor-selectionBackground: var(--color-background-accent-active);
+  --vscode-editor-findMatchBackground: var(--color-background-accent-hover);
+  --vscode-editorCursor-foreground: var(--color-text-foreground);
+  --vscode-editorError-foreground: var(--color-text-error);
+  --vscode-editorWarning-foreground: var(--color-text-warning);
+  --vscode-input-background: var(--color-background-control);
+  --vscode-input-foreground: var(--color-text-foreground);
+  --vscode-input-border: var(--color-border);
+  --vscode-inputValidation-errorBorder: var(--color-border-error);
+  --vscode-inputValidation-warningBorder: var(--color-border-warning);
+  --vscode-dropdown-background: var(--color-background-control-opaque);
+  --vscode-dropdown-foreground: var(--color-text-foreground);
+  --vscode-button-background: var(--color-background-button-primary);
+  --vscode-button-foreground: var(--color-text-button-primary);
+  --vscode-button-border: var(--color-border);
+  --vscode-list-hoverBackground: var(--color-background-button-secondary-hover);
+  --vscode-list-focusOutline: var(--color-border-focus);
+  --vscode-checkbox-background: var(--color-background-control);
+  --vscode-checkbox-foreground: var(--color-text-foreground);
+  --vscode-checkbox-border: var(--color-border);
+  --vscode-radio-activeForeground: var(--color-text-accent);
+  --vscode-radio-inactiveBorder: var(--color-border-heavy);
+  --vscode-sideBar-background: var(--color-background-surface-under);
+  --vscode-menu-background: var(--color-background-control-opaque);
+  --vscode-menu-foreground: var(--color-text-foreground);
+  --vscode-menu-border: var(--color-border);
+  --vscode-menu-separatorBackground: var(--color-border-heavy);
+  --vscode-badge-background: var(--color-background-button-secondary);
+  --vscode-badge-foreground: var(--color-text-foreground);
+  --vscode-progressBar-background: var(--color-text-accent);
+  --vscode-charts-red: #ba2623;
+  --vscode-charts-blue: #339cff;
+  --vscode-charts-yellow: #c58b00;
+  --vscode-charts-orange: #e25507;
+  --vscode-charts-green: #00a240;
+  --vscode-charts-purple: #924ff7;
+  --vscode-diffEditor-insertedLineBackground: var(--color-editor-added);
+  --vscode-diffEditor-removedLineBackground: var(--color-editor-deleted);
+  --vscode-editorGroup-dropBackground: var(--color-background-accent);
+  --vscode-terminal-foreground: var(--color-text-foreground);
+  --vscode-terminal-border: var(--color-border);
+  --vscode-terminal-ansiBlack: #000;
+  --vscode-terminal-ansiRed: #cd3131;
+  --vscode-terminal-ansiGreen: #00bc00;
+  --vscode-terminal-ansiYellow: #949800;
+  --vscode-terminal-ansiBlue: #0451a5;
+  --vscode-terminal-ansiMagenta: #bc05bc;
+  --vscode-terminal-ansiCyan: #0598bc;
+  --vscode-terminal-ansiWhite: #555;
+
+  --color-text: var(--vscode-foreground);
+  --color-text-emphasis: var(--vscode-foreground);
+  --color-text-secondary: color-mix(in srgb, var(--vscode-foreground) 65%, transparent);
+  --color-text-tertiary: var(--vscode-descriptionForeground);
+  --color-surface: var(--color-background-surface);
+  --color-surface-secondary: var(--color-background-elevated-secondary);
+  --color-ring: var(--color-border-focus);
+
+  --color-token-foreground: var(--vscode-foreground);
+  --color-token-description-foreground: var(--vscode-descriptionForeground);
+  --color-token-text-primary: var(--color-token-foreground);
+  --color-token-text-secondary: var(--color-text-secondary);
+  --color-token-text-tertiary: var(--color-text-foreground-tertiary);
+  --color-token-text-link-foreground: var(--vscode-textLink-foreground);
+  --color-token-border: var(--color-border);
+  --color-token-border-default: var(--color-border);
+  --color-token-border-light: var(--color-border-light);
+  --color-token-border-heavy: var(--color-border-heavy);
+  --color-token-focus-border: var(--color-border-focus);
+  --color-token-input-background: var(--vscode-input-background);
+  --color-token-input-placeholder-foreground: var(--color-text-foreground-tertiary);
+  --color-token-dropdown-background: var(--vscode-dropdown-background);
+  --color-token-button-background: var(--vscode-button-background);
+  --color-token-on-accent: var(--color-text-on-accent);
+  --color-token-list-hover-background: var(--vscode-list-hoverBackground);
+  --color-token-list-active-selection-background: var(--color-background-accent);
+  --color-token-editor-background: var(--vscode-editor-background);
+  --color-token-editor-foreground: var(--vscode-editor-foreground);
+  --color-token-editor-selection-background: var(--vscode-editor-selectionBackground);
+  --color-token-editor-warning-foreground: var(--vscode-editorWarning-foreground);
+  --color-token-text-code-block-background: var(--color-background-button-secondary);
+  --color-token-side-bar-background: var(--vscode-sideBar-background);
+  --color-token-bg-primary: var(--color-token-side-bar-background);
+  --color-token-main-surface-primary: var(--color-background-surface);
+  --color-token-bg-fog: var(--color-background-elevated-secondary);
+  --color-token-charts-red: var(--vscode-charts-red);
+  --color-token-charts-blue: var(--vscode-charts-blue);
+  --color-token-charts-yellow: var(--vscode-charts-yellow);
+  --color-token-charts-orange: var(--vscode-charts-orange);
+  --color-token-charts-green: var(--vscode-charts-green);
+  --color-token-charts-purple: var(--vscode-charts-purple);
+  --color-token-terminal-ansi-black: var(--vscode-terminal-ansiBlack);
+  --color-token-terminal-ansi-red: var(--vscode-terminal-ansiRed);
+  --color-token-terminal-ansi-green: var(--vscode-terminal-ansiGreen);
+  --color-token-terminal-ansi-yellow: var(--vscode-terminal-ansiYellow);
+  --color-token-terminal-ansi-blue: var(--vscode-terminal-ansiBlue);
+  --color-token-terminal-ansi-magenta: var(--vscode-terminal-ansiMagenta);
+  --color-token-terminal-ansi-cyan: var(--vscode-terminal-ansiCyan);
+  --color-token-terminal-ansi-white: var(--vscode-terminal-ansiWhite);
+  --color-token-terminal-ansi-bright-black: #666;
+  --color-token-terminal-ansi-bright-red: #f14c4c;
+  --color-token-terminal-ansi-bright-green: #23d18b;
+  --color-token-terminal-ansi-bright-yellow: #f5f543;
+  --color-token-terminal-ansi-bright-blue: #3b8eea;
+  --color-token-terminal-ansi-bright-magenta: #d670d6;
+  --color-token-terminal-ansi-bright-cyan: #29b8db;
+  --color-token-terminal-ansi-bright-white: #e5e5e5;
+
+  --surface-app: var(--color-token-bg-primary);
+  --surface-main: var(--color-token-main-surface-primary);
+  --surface-sidebar: var(--color-token-side-bar-background);
+  --surface-elevated: var(--color-background-elevated-primary-opaque);
+  --surface-primary: var(--surface-main);
+  --surface-code: var(--color-token-text-code-block-background);
+  --foreground-primary: var(--color-token-foreground);
+  --foreground-secondary: var(--color-token-text-secondary);
+  --foreground-tertiary: var(--color-token-text-tertiary);
+  --foreground-inverse: var(--color-token-on-accent);
+  --foreground-link: var(--color-token-text-link-foreground);
+  --control-primary: var(--color-token-button-background);
+  --interaction-hover: var(--color-token-list-hover-background);
+  --interaction-muted: var(--color-background-button-secondary);
+  --interactive-secondary-hover: var(--interaction-hover);
+  --border-subtle: var(--color-token-border-light);
+  --border-default: var(--color-token-border-default);
+  --border-strong: var(--color-token-border-heavy);
+  --border-focus: var(--color-token-focus-border);
+  --elevation-stroke: 0 0 0 0.5px var(--color-token-border-heavy);
+  --elevation-prominent: var(--elevation-stroke), 0 3px 7.5px #0000000a, 0 0 20px #0000000d;
+  --shadow-md: 0 2px 4px -1px #00000014;
+}
+
+:root[data-theme="dark"] {
+  --color-background-accent: #26394a;
+  --color-background-accent-active: #2c4357;
+  --color-background-accent-hover: #293e51;
+  --color-background-button-primary: #f2f2f2;
+  --color-background-button-primary-hover: rgb(255 255 255 / 10%);
+  --color-background-button-secondary: rgb(255 255 255 / 8%);
+  --color-background-button-secondary-active: rgb(255 255 255 / 12%);
+  --color-background-button-secondary-hover: rgb(255 255 255 / 10%);
+  --color-background-control: rgb(42 42 42 / 96%);
+  --color-background-control-opaque: #2a2a2a;
+  --color-background-editor-opaque: #212121;
+  --color-background-elevated-primary: rgb(42 42 42 / 96%);
+  --color-background-elevated-primary-opaque: #2a2a2a;
+  --color-background-elevated-secondary: rgb(42 42 42 / 96%);
+  --color-background-primary-ghost-hover: rgb(255 255 255 / 10%);
+  --color-background-surface: #212121;
+  --color-background-surface-under: #181818;
+  --color-background-status-error: #4d100e;
+  --color-background-status-success: #004f1f;
+  --color-background-danger-active: #4d100e;
+  --color-border: rgb(255 255 255 / 10%);
+  --color-border-light: rgb(255 255 255 / 6%);
+  --color-border-heavy: rgb(255 255 255 / 17%);
+  --color-border-focus: #66b5ff;
+  --color-icon-primary: #f2f2f2;
+  --color-icon-secondary: rgb(242 242 242 / 68%);
+  --color-icon-tertiary: rgb(242 242 242 / 48%);
+  --color-text-foreground: #f2f2f2;
+  --color-text-foreground-secondary: rgb(242 242 242 / 68%);
+  --color-text-foreground-tertiary: rgb(242 242 242 / 48%);
+  --color-text-button-primary: #181818;
+  --color-text-button-secondary: #f2f2f2;
+  --color-text-on-accent: #181818;
+  color-scheme: dark;
+}
+
+@property --bottom-fade {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@supports (corner-shape: superellipse(1.5)) {
+  :root {
+    --codex-corner-radius-scale: 1.25;
+    --codex-corner-shape: superellipse(1.5);
+    --corner-radius-scale: var(--codex-corner-radius-scale);
+  }
+
+  .rounded-md,
+  .rounded-lg,
+  .rounded-xl,
+  .rounded-2xl,
+  .rounded-3xl,
+  .rounded-4xl {
+    corner-shape: var(--codex-corner-shape);
+  }
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--color-token-main-surface-primary);
+}
+
+body {
+  color: var(--color-token-editor-foreground);
+  font-family: var(--font-sans);
+  font-weight: var(--vscode-font-weight);
+  background: transparent;
+  outline: none;
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+}

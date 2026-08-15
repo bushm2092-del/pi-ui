@@ -7,7 +7,7 @@ import {
   useWorkspaceUi,
 } from "../model";
 import { SidebarProjectItem } from "./sidebar-project-item";
-import { SidebarProjectListLayout } from "./layouts";
+import { SidebarEmptyState, SidebarProjectListLayout } from "./layouts";
 import { useTranslation } from "react-i18next";
 
 export function SidebarProjectList() {
@@ -25,6 +25,9 @@ export function SidebarProjectList() {
 
   return (
     <SidebarProjectListLayout>
+      {data?.projects.length === 0 ? (
+        <SidebarEmptyState label={t("sidebar.emptyProjects")} />
+      ) : null}
       {items.map((item, index) => {
         const expanded =
           item.kind === "project" && expandedProjectIds.includes(item.id);

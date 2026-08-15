@@ -1,0 +1,100 @@
+/* Adapts shadcn/Tailwind tokens to the app's semantic Codex theme contract. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: "Geist Variable", sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius-sm-base) * var(--corner-radius-scale));
+  --radius-md: calc(var(--radius-md-base) * var(--corner-radius-scale));
+  --radius-lg: calc(var(--radius-lg-base) * var(--corner-radius-scale));
+  --radius-xl: calc(var(--radius-xl-base) * var(--corner-radius-scale));
+  --radius-2xl: calc(var(--radius-2xl-base) * var(--corner-radius-scale));
+  --radius-3xl: calc(var(--radius-3xl-base) * var(--corner-radius-scale));
+  --radius-4xl: calc(var(--radius-4xl-base) * var(--corner-radius-scale));
+}
+
+:root,
+:host {
+  --background: var(--surface-main);
+  --foreground: var(--foreground-primary);
+  --card: var(--surface-elevated);
+  --card-foreground: var(--foreground-primary);
+  --popover: var(--surface-elevated);
+  --popover-foreground: var(--foreground-primary);
+  --primary: var(--control-primary);
+  --primary-foreground: var(--foreground-inverse);
+  --secondary: var(--interaction-muted);
+  --secondary-foreground: var(--foreground-primary);
+  --muted: var(--interaction-muted);
+  --muted-foreground: var(--foreground-secondary);
+  --accent: var(--interaction-hover);
+  --accent-foreground: var(--foreground-primary);
+  --destructive: var(--color-decoration-deleted, #ba2623);
+  --border: var(--border-default);
+  --input: var(--border-strong);
+  --ring: var(--border-focus);
+
+  --chart-1: var(--color-token-charts-blue, #339cff);
+  --chart-2: var(--color-token-charts-green, #00a240);
+  --chart-3: var(--color-token-charts-orange, #e25507);
+  --chart-4: var(--color-token-charts-purple, #924ff7);
+  --chart-5: var(--color-token-charts-yellow, #c58b00);
+
+  --sidebar: var(--surface-sidebar);
+  --sidebar-foreground: var(--foreground-primary);
+  --sidebar-primary: var(--control-primary);
+  --sidebar-primary-foreground: var(--foreground-inverse);
+  --sidebar-accent: var(--interaction-hover);
+  --sidebar-accent-foreground: var(--foreground-primary);
+  --sidebar-border: var(--border-default);
+  --sidebar-ring: var(--border-focus);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+  }
+}

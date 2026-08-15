@@ -4,6 +4,11 @@ import type { Project, ThreadItem } from "../../data/workspace-data";
 import { ProjectItemLayout } from "./project-item-layout";
 import { ProjectRowLayout } from "./project-row-layout";
 import { ProjectThreadsLayout } from "./project-threads-layout";
+import { SidebarProjectsHeaderLayout } from "./sidebar-projects-header-layout";
+import { SidebarProjectsLayout } from "./sidebar-projects-layout";
+import { SidebarEmptyState } from "./sidebar-empty-state";
+import { SidebarPinnedLayout } from "./sidebar-pinned-layout";
+import { SidebarRecentsLayout } from "./sidebar-recents-layout";
 import { ThreadItemLayout } from "./thread-item-layout";
 import { i18n } from "../../../../i18n";
 
@@ -79,5 +84,84 @@ describe("data-driven sidebar layouts", () => {
 
     expect(markup).toContain("No chats");
     await i18n.changeLanguage("zh-CN");
+  });
+
+  it("reflects the projects section expanded and collapsed states", () => {
+    const expandedMarkup = renderToStaticMarkup(
+      <SidebarProjectsLayout
+        expanded
+        header={
+          <SidebarProjectsHeaderLayout
+            label="Projects"
+            expanded
+            onToggle={() => undefined}
+          />
+        }
+        projectList={<div>Project list</div>}
+      />,
+    );
+    const collapsedMarkup = renderToStaticMarkup(
+      <SidebarProjectsLayout
+        expanded={false}
+        header={
+          <SidebarProjectsHeaderLayout
+            label="Projects"
+            expanded={false}
+            onToggle={() => undefined}
+          />
+        }
+        projectList={<div>Project list</div>}
+      />,
+    );
+
+    expect(expandedMarkup).toContain('aria-expanded="true"');
+    expect(expandedMarkup).toContain("Project list");
+    expect(collapsedMarkup).toContain('aria-expanded="false"');
+    expect(collapsedMarkup).toContain(
+      'data-app-action-sidebar-section-collapsed="true"',
+    );
+    expect(collapsedMarkup).toContain(
+      'id="sidebar-projects-list" class="overflow-visible" hidden=""',
+    );
+  });
+
+  it.each([
+    ["Pinned", SidebarPinnedLayout, "sidebar-pinned-list"],
+    ["Recents", SidebarRecentsLayout, "sidebar-recents-list"],
+  ] as const)(
+    "reflects the %s section expanded state",
+    (label, Layout, listId) => {
+      const expandedMarkup = renderToStaticMarkup(
+        <Layout label={label} expanded onToggle={() => undefined}>
+          <div>Thread list</div>
+        </Layout>,
+      );
+      const collapsedMarkup = renderToStaticMarkup(
+        <Layout label={label} expanded={false} onToggle={() => undefined}>
+          <div>Thread list</div>
+        </Layout>,
+      );
+
+      expect(expandedMarkup).toContain('aria-expanded="true"');
+      expect(expandedMarkup).toContain(`id="${listId}"`);
+      expect(expandedMarkup).not.toContain('hidden=""');
+      expect(collapsedMarkup).toContain('aria-expanded="false"');
+      expect(collapsedMarkup).toContain('hidden=""');
+    },
+  );
+
+  it("renders the translated sidebar empty states", async () => {
+    await i18n.changeLanguage("zh-CN");
+    const markup = renderToStaticMarkup(
+      <>
+        <SidebarEmptyState label={i18n.t("sidebar.emptyPinned")} />
+        <SidebarEmptyState label={i18n.t("sidebar.emptyProjects")} />
+        <SidebarEmptyState label={i18n.t("sidebar.emptyRecents")} />
+      </>,
+    );
+
+    expect(markup).toContain("没有置顶的对话");
+    expect(markup).toContain("没有项目");
+    expect(markup).toContain("没有对话");
   });
 });

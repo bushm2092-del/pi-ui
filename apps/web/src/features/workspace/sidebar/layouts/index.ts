@@ -1,4 +1,5 @@
 export { SidebarFooterLayout } from "./sidebar-footer-layout";
+export { SidebarEmptyState } from "./sidebar-empty-state";
 export { SidebarHeaderLayout } from "./sidebar-header-layout";
 export { SidebarLayout } from "./sidebar-layout";
 export { SidebarModeLayout } from "./sidebar-mode-layout";

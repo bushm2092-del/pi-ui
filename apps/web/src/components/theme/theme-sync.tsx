@@ -10,9 +10,7 @@ export function ThemeSync() {
       const resolved = theme === "system" ? (media.matches ? "dark" : "light") : theme;
       document.documentElement.dataset.theme = resolved;
       document.documentElement.dataset.themePreference = theme;
-      document.documentElement.classList.toggle("dark", resolved === "dark");
       document.body.dataset.theme = resolved;
-      document.body.classList.toggle("dark", resolved === "dark");
     };
 
     applyTheme();

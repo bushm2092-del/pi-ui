@@ -1,14 +1,39 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { SidebarRecentsLayout } from "./layouts";
+import { SidebarEmptyState, SidebarRecentsLayout } from "./layouts";
 import { useSidebar } from "../api/sidebar-hooks";
 import { SidebarThreadItem } from "./sidebar-thread-item";
 import { selectActiveThreadId, selectSelectThread, useWorkspaceUi } from "../model";
 
 export function SidebarRecents() {
+  const [expanded, setExpanded] = useState(false);
   const { t } = useTranslation();
   const { data } = useSidebar();
   const activeId = useWorkspaceUi(selectActiveThreadId);
   const select = useWorkspaceUi(selectSelectThread);
-  return <SidebarRecentsLayout label={t("sidebar.sections.recents")}>{data?.recent.map((item) =>
-    <SidebarThreadItem key={item.id} thread={{ kind: "thread", id: item.id, label: item.title, indicator: item.indicator }} active={item.id === activeId} onSelect={select} pinned={item.isPinned} />)}</SidebarRecentsLayout>;
+  return (
+    <SidebarRecentsLayout
+      label={t("sidebar.sections.recents")}
+      expanded={expanded}
+      onToggle={() => setExpanded((current) => !current)}
+    >
+      {data?.recent.map((item) => (
+        <SidebarThreadItem
+          key={item.id}
+          thread={{
+            kind: "thread",
+            id: item.id,
+            label: item.title,
+            indicator: item.indicator,
+          }}
+          active={item.id === activeId}
+          onSelect={select}
+          pinned={item.isPinned}
+        />
+      ))}
+      {data?.recent.length === 0 ? (
+        <SidebarEmptyState label={t("sidebar.emptyRecents")} />
+      ) : null}
+    </SidebarRecentsLayout>
+  );
 }
