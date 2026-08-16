@@ -2,9 +2,10 @@ import { ComposerSendLayout } from "./layouts";
 
 interface ComposerSendProps {
   disabled?: boolean;
-  onSend: () => void | Promise<void>;
+  mode: "send" | "stop";
+  onAction: () => void | Promise<void>;
 }
 
-export function ComposerSend({ disabled, onSend }: ComposerSendProps) {
-  return <ComposerSendLayout disabled={disabled} onClick={onSend} />;
+export function ComposerSend({ disabled, mode, onAction }: ComposerSendProps) {
+  return <ComposerSendLayout disabled={disabled} mode={mode} onClick={onAction} />;
 }

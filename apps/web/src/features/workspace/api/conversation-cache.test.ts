@@ -5,6 +5,7 @@ import {
   appendPendingTurn,
   failPendingTurn,
   resolvePendingTurn,
+  stopPendingTurn,
 } from "./conversation-cache";
 
 const conversation: Conversation = {
@@ -63,6 +64,19 @@ describe("conversation cache updates", () => {
     expect(failed.messages.at(-1)).toMatchObject({
       content: "消息发送失败，请重试。",
       status: "failed",
+    });
+  });
+
+  it("marks a stopped turn and protects it from later request callbacks", () => {
+    const pending = appendPendingTurn(conversation, "Hello");
+    const stopped = stopPendingTurn(pending.conversation);
+    const resolved = resolvePendingTurn(stopped, pending.assistantMessageId, "Late reply");
+    const failed = failPendingTurn(resolved, pending.assistantMessageId);
+
+    expect(failed.messages.at(-1)).toMatchObject({
+      status: "stopped",
+      content: "",
+      blocks: [{ id: "status-generation", label: "回答已停止" }],
     });
   });
 });

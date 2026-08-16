@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { startPiBackend } from "@pi/server";
 import type { RuntimeSnapshotDto } from "@pi/shared";
 import { afterEach, describe, expect, it } from "vitest";
-import { AgentClient } from "../../app/src/agent/agent-client.js";
+import { AgentClient } from "../../web/src/agent/agent-client.js";
 
 const cleanup: Array<() => Promise<void>> = [];
 
@@ -50,10 +50,11 @@ describe("AgentClient integration", () => {
       agentDir,
       sessionFile,
     });
-    expect(created).toMatchObject({ runtimeSlotId: "client-slot", state: "ready" });
+    expect(created).toMatchObject({ runtimeSlotId: "client-slot", isIdle: true, isStreaming: false });
 
+    let subscription: ReturnType<typeof client.realtime.subscribe> | undefined;
     const synchronized = new Promise<RuntimeSnapshotDto>((resolve) => {
-      client.realtime.subscribe("client-slot", { onSnapshot: resolve });
+      subscription = client.realtime.subscribe("client-slot", { onSnapshot: resolve });
     });
     await client.realtime.connect();
     expect(await synchronized).toMatchObject({ sessionId: created.sessionId });
@@ -61,6 +62,9 @@ describe("AgentClient integration", () => {
     expect(await client.runtimes.rename("client-slot", "Agent client session")).toMatchObject({
       sessionName: "Agent client session",
     });
+    subscription?.unsubscribe();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(await client.runtimes.get("client-slot")).toMatchObject({ isIdle: true, isStreaming: false });
     await client.runtimes.remove("client-slot");
   }, 30_000);
 });

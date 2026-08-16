@@ -1,4 +1,4 @@
-import { createMessage, type Conversation } from "../domain";
+import { createMessage, type Conversation, type Message } from "../domain";
 
 export interface PendingTurn {
   conversation: Conversation;
@@ -26,7 +26,7 @@ export function resolvePendingTurn(
   assistantMessageId: string,
   content: string,
 ): Conversation {
-  return updateAssistantMessage(conversation, assistantMessageId, content, "complete");
+  return updateAssistantMessage(conversation, assistantMessageId, content, "complete", true);
 }
 
 export function appendPendingAssistantText(
@@ -61,7 +61,41 @@ export function failPendingTurn(
     assistantMessageId,
     "消息发送失败，请重试。",
     "failed",
+    true,
   );
+}
+
+export function stopPendingTurn(conversation: Conversation): Conversation {
+  let targetId: string | undefined;
+  for (let index = conversation.messages.length - 1; index >= 0; index -= 1) {
+    const message = conversation.messages[index];
+    if (message?.role === "assistant" && message.status === "pending") {
+      targetId = message.id;
+      break;
+    }
+  }
+  if (!targetId) return conversation;
+  return {
+    ...conversation,
+    messages: conversation.messages.map((message) => message.id === targetId
+      ? { ...message, status: "stopped", completedAt: new Date().toISOString(), blocks: upsertStoppedStatus(message.blocks) }
+      : message),
+  };
+}
+
+function upsertStoppedStatus(blocks: Message["blocks"]): NonNullable<Message["blocks"]> {
+  const status = {
+    id: "status-generation",
+    type: "status" as const,
+    kind: "retry" as const,
+    label: "回答已停止",
+    status: "complete" as const,
+  };
+  const current = blocks ?? [];
+  const index = current.findIndex((block) => block.id === status.id);
+  return index < 0
+    ? [...current, status]
+    : current.map((block, blockIndex) => blockIndex === index ? status : block);
 }
 
 function updateAssistantMessage(
@@ -69,13 +103,16 @@ function updateAssistantMessage(
   assistantMessageId: string,
   content: string,
   status: "complete" | "failed",
+  preserveTerminalStatus = false,
 ): Conversation {
   return {
     ...conversation,
     messages: conversation.messages.map((message) =>
-      message.id === assistantMessageId
-        ? { ...message, content, status }
-        : message,
+      message.id !== assistantMessageId
+        ? message
+        : preserveTerminalStatus && (message.status === "failed" || message.status === "stopped")
+          ? message
+          : { ...message, content, status, completedAt: new Date().toISOString() },
     ),
   };
 }

@@ -1,6 +1,7 @@
 import { io, type Socket } from "socket.io-client";
 import type {
   CreateRuntimeRequestDto,
+  CreateProjectDto,
   JsonValue,
   PromptRuntimeRequestDto,
   ResultVO,
@@ -9,7 +10,9 @@ import type {
   SidebarConversationDto,
   SidebarProjectDto,
   ProjectConversationsDto,
+  ProjectActionDto,
   SyncConversationDto,
+  UpdateProjectDto,
   UpsertProjectDto,
 } from "@pi/shared";
 
@@ -70,7 +73,11 @@ export class AgentClient {
 
 export class ProjectCommands {
   constructor(private readonly socket: Socket) {}
+  create(input: CreateProjectDto): Promise<SidebarProjectDto> { return request(this.socket, "project:create", input); }
+  get(projectId: string): Promise<SidebarProjectDto> { return request(this.socket, "project:get", { projectId }); }
   list(): Promise<SidebarProjectDto[]> { return request(this.socket, "project:list", null); }
+  update(input: UpdateProjectDto): Promise<SidebarProjectDto> { return request(this.socket, "project:update", input); }
+  remove(projectId: string): Promise<void> { return request(this.socket, "project:delete", { projectId } satisfies ProjectActionDto); }
   upsert(input: UpsertProjectDto): Promise<SidebarProjectDto> { return request(this.socket, "project:upsert", input); }
 }
 
@@ -172,7 +179,9 @@ export class RuntimeRealtime {
         listeners.delete(listener);
         if (listeners.size) return;
         this.#subscriptions.delete(runtimeSlotId);
-        if (this.socket.connected) this.socket.emit("runtime:unwatch", { runtimeSlotId });
+        if (this.socket.connected) {
+          void request<null>(this.socket, "runtime:unwatch", { runtimeSlotId }).catch(() => undefined);
+        }
       },
     };
   }

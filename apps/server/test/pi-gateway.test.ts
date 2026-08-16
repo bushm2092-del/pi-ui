@@ -39,13 +39,13 @@ describe("RuntimeController Socket.IO", () => {
     });
     await onceConnected(socket);
 
-    const created = await emit<{ sessionId: string; state: string }>(socket, "runtime:create", {
+    const created = await emit<{ sessionId: string; isIdle: boolean; isStreaming: boolean }>(socket, "runtime:create", {
       runtimeSlotId: "gateway-slot",
       cwd: workspace,
       agentDir,
       sessionFile,
     });
-    expect(created).toMatchObject({ state: "ready" });
+    expect(created).toMatchObject({ isIdle: true, isStreaming: false });
 
     const snapshot = await emit(socket, "runtime:watch", { runtimeSlotId: "gateway-slot" });
     expect(snapshot).toMatchObject({ runtimeSlotId: "gateway-slot" });
@@ -105,6 +105,42 @@ describe("RuntimeController Socket.IO", () => {
 
     await emit(socket, "conversation:archive", { conversationId: "conversation-1" });
     expect(await emit(socket, "conversation:list", null)).toMatchObject({ pinned: [], recent: [] });
+  });
+
+  it("creates, reads, updates, and deletes sidebar projects", async () => {
+    const { backend, directory, workspace } = await startFixture();
+    const socket = connect(backend.address.socketUrl, backend.token);
+    cleanups.push(async () => {
+      socket.disconnect();
+      await backend.stop();
+      await rm(directory, { recursive: true, force: true });
+    });
+    await onceConnected(socket);
+
+    const project = await emit<{ id: string; name: string }>(socket, "project:create", { name: "Original", cwd: workspace });
+    expect(await emit(socket, "project:get", { projectId: project.id })).toMatchObject({ id: project.id, name: "Original" });
+
+    expect(await emit(socket, "project:update", { projectId: project.id, name: "Renamed" })).toMatchObject({
+      id: project.id,
+      name: "Renamed",
+      cwd: workspace,
+    });
+
+    await emit(socket, "conversation:sync", {
+      id: "project-delete-conversation",
+      projectId: project.id,
+      piSessionId: "project-delete-session",
+      title: "Deleted with project",
+      status: "idle",
+    });
+    await emit(socket, "project:delete", { projectId: project.id });
+
+    expect(await emit(socket, "project:list", null)).toEqual([]);
+    expect(await emit(socket, "conversation:list", null)).toEqual({ pinned: [], recent: [] });
+    expect(await emitResult(socket, "project:get", { projectId: project.id })).toMatchObject({
+      success: false,
+      error: { code: "project_not_found" },
+    });
   });
 });
 

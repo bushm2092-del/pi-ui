@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { readAgentTextDelta, snapshotToMessages } from "./agent-workspace-repository";
+import { snapshotToMessages } from "./agent-workspace-repository";
 
 describe("snapshotToMessages", () => {
   it("maps Pi user and assistant text into workspace messages", () => {
@@ -17,6 +17,18 @@ describe("snapshotToMessages", () => {
     ])).toMatchObject([
       { role: "user", content: "Hello", status: "complete" },
       { role: "assistant", content: "Hi there", status: "complete" },
+    ]);
+    expect(snapshotToMessages([{
+      role: "assistant",
+      content: [
+        { type: "thinking", thinking: "hidden" },
+        { type: "toolCall", id: "call-1", name: "read", arguments: { path: "README.md" } },
+      ],
+      timestamp: 1_700_000_001_000,
+      stopReason: "toolUse",
+    }])[0]?.blocks).toMatchObject([
+      { type: "thinking", content: "hidden" },
+      { type: "tool", toolCallId: "call-1", name: "read" },
     ]);
   });
 
@@ -49,19 +61,5 @@ describe("snapshotToMessages", () => {
       role: "a2ui",
       a2ui: { surfaceId: "sales", protocolVersion: "v0.9" },
     }]);
-  });
-});
-
-describe("readAgentTextDelta", () => {
-  it("reads only assistant text delta events", () => {
-    expect(readAgentTextDelta("agent.event", {
-      type: "message_update",
-      assistantMessageEvent: { type: "text_delta", delta: "chunk" },
-    })).toBe("chunk");
-    expect(readAgentTextDelta("agent.event", {
-      type: "message_update",
-      assistantMessageEvent: { type: "thinking_delta", delta: "hidden" },
-    })).toBeUndefined();
-    expect(readAgentTextDelta("runtime.phase", { state: "running" })).toBeUndefined();
   });
 });

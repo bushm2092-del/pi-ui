@@ -71,6 +71,9 @@ export class ConversationMapper {
         .run(Date.now(), Date.now(), id).changes > 0
     );
   }
+  deleteByProject(projectId: string): number {
+    return Number(this.database.prepare("DELETE FROM conversation WHERE project_id = ?").run(projectId).changes);
+  }
 }
 
 function mapConversation(row: Record<string, unknown>): ConversationEntity {

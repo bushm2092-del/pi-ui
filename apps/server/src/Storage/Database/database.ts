@@ -4,6 +4,7 @@ import { initialSchemaMigration } from "./Migrations/001-initial-schema.js";
 import { renameRuntimeSessionIndexMigration } from "./Migrations/002-rename-runtime-session-index.js";
 import { createSidebarTablesMigration } from "./Migrations/003-create-sidebar-tables.js";
 import { removeProjectFlagsMigration } from "./Migrations/004-remove-project-flags.js";
+import { removeRuntimeStateMigration } from "./Migrations/005-remove-runtime-state.js";
 
 export class PiUiDatabase {
   readonly connection: DatabaseSync;
@@ -16,6 +17,7 @@ export class PiUiDatabase {
       renameRuntimeSessionIndexMigration,
       createSidebarTablesMigration,
       removeProjectFlagsMigration,
+      removeRuntimeStateMigration,
     ]);
   }
 

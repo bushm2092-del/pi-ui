@@ -12,8 +12,8 @@ export class RuntimeMapper {
         `
         INSERT INTO runtime_session (
           runtime_slot_id, session_id, cwd, session_file, session_name,
-          provider, model_id, state, created_at, updated_at
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          provider, model_id, created_at, updated_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(runtime_slot_id) DO UPDATE SET
           session_id = excluded.session_id,
           cwd = excluded.cwd,
@@ -21,7 +21,6 @@ export class RuntimeMapper {
           session_name = excluded.session_name,
           provider = excluded.provider,
           model_id = excluded.model_id,
-          state = excluded.state,
           updated_at = excluded.updated_at
       `,
       )
@@ -33,7 +32,6 @@ export class RuntimeMapper {
         runtime.sessionName ?? null,
         runtime.model?.provider ?? null,
         runtime.model?.id ?? null,
-        runtime.state,
         now,
         now,
       );
@@ -64,7 +62,6 @@ const RUNTIME_COLUMNS = `
     session_name,
     provider,
     model_id,
-    state,
     created_at,
     updated_at
   FROM runtime_session
@@ -79,7 +76,6 @@ function mapRow(row: Record<string, unknown>): RuntimeEntity {
     sessionName: row.session_name === null ? null : String(row.session_name),
     provider: row.provider === null ? null : String(row.provider),
     modelId: row.model_id === null ? null : String(row.model_id),
-    state: String(row.state),
     createdAt: Number(row.created_at),
     updatedAt: Number(row.updated_at),
   };

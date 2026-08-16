@@ -14,11 +14,17 @@ import { initializePiUiHome, type PiUiHome } from "../Storage/pi-ui-home.js";
 import { PiUiDatabase } from "../Storage/Database/database.js";
 
 export interface StartPiBackendOptions {
+  /** Directory used to store the database and other Pi UI state. */
   dataDir?: string;
+  /** Authentication token accepted by the socket server. A secure token is generated when omitted. */
   token?: string;
+  /** Network interface on which the socket server listens. */
   host?: string;
+  /** TCP port on which the socket server listens. */
   port?: number;
 }
+
+/** Resources exposed by a running Pi backend instance. */
 export interface PiBackendHandle {
   token: string;
   address: SocketServerAddress;
@@ -28,6 +34,7 @@ export interface PiBackendHandle {
   stop(): Promise<void>;
 }
 
+/** Initializes the backend dependencies and starts the authenticated socket server. */
 export async function startPiBackend(options: StartPiBackendOptions = {}): Promise<PiBackendHandle> {
   const token = options.token ?? randomBytes(32).toString("base64url");
   const home = await initializePiUiHome(options.dataDir);
@@ -35,12 +42,14 @@ export async function startPiBackend(options: StartPiBackendOptions = {}): Promi
   const runtimeMapper = new RuntimeMapper(database.connection);
   const projectMapper = new ProjectMapper(database.connection);
   const conversationMapper = new ConversationMapper(database.connection);
+
+  // Runtime events are forwarded after the socket server has been created and assigned.
   let socketServer: SocketServer | undefined;
   const runtimeService = new RuntimeService(runtimeMapper, (event) => {
     socketServer?.emitToRoom(`runtime:${event.runtimeSlotId}`, "runtime:event", event);
   });
   const exceptionInterceptor = new ExceptionInterceptor();
-  const projectService = new ProjectService(projectMapper, conversationMapper);
+  const projectService = new ProjectService(projectMapper, conversationMapper, database.connection);
   const conversationService = new ConversationService(conversationMapper);
   const controllers = [
     new RuntimeController(runtimeService, exceptionInterceptor),
@@ -63,16 +72,42 @@ export async function startPiBackend(options: StartPiBackendOptions = {}): Promi
       runtimeService,
       home,
       async stop() {
+        // Make shutdown idempotent so callers can safely invoke it more than once.
         if (stopped) return;
         stopped = true;
-        await socketServer.stop();
-        await runtimeService.stopAll();
-        database.close();
+        const failures: unknown[] = [];
+        try {
+          await socketServer.stop();
+        } catch (error) {
+          failures.push(error);
+        }
+        try {
+          await runtimeService.stopAll();
+        } catch (error) {
+          failures.push(error);
+        }
+        try {
+          database.close();
+        } catch (error) {
+          failures.push(error);
+        }
+        if (failures.length > 0) throw new AggregateError(failures, "Failed to fully stop the Pi backend");
       },
     };
   } catch (error) {
-    await runtimeService.stopAll();
-    database.close();
-    throw error;
+    // Release resources initialized before a server startup failure.
+    const failures: unknown[] = [error];
+    try {
+      await runtimeService.stopAll();
+    } catch (cleanupError) {
+      failures.push(cleanupError);
+    }
+    try {
+      database.close();
+    } catch (cleanupError) {
+      failures.push(cleanupError);
+    }
+    if (failures.length === 1) throw error;
+    throw new AggregateError(failures, "Failed to start and clean up the Pi backend");
   }
 }

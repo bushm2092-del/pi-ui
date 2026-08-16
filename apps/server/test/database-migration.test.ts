@@ -22,12 +22,27 @@ describe("database migrations", () => {
       { version: 2, name: "rename_runtime_session_index" },
       { version: 3, name: "create_sidebar_tables" },
       { version: 4, name: "remove_project_flags" },
+      { version: 5, name: "remove_runtime_state" },
     ]);
     first.close();
 
     const reopened = new PiUiDatabase(path);
-    expect(reopened.connection.prepare("SELECT COUNT(*) AS count FROM schema_migration").get()).toEqual({ count: 4 });
+    expect(reopened.connection.prepare("SELECT COUNT(*) AS count FROM schema_migration").get()).toEqual({ count: 5 });
     reopened.close();
+  });
+
+  it("removes derived state from persisted runtime metadata", async () => {
+    const directory = await mkdtemp(join(tmpdir(), "pi-ui-runtime-schema-"));
+    directories.push(directory);
+    const database = new PiUiDatabase(join(directory, "test.sqlite"));
+
+    const columns = database.connection
+      .prepare("PRAGMA table_info(runtime_session)")
+      .all()
+      .map((column) => column.name);
+    expect(columns).not.toContain("state");
+
+    database.close();
   });
 
   it("creates the sidebar tables without database foreign keys", async () => {

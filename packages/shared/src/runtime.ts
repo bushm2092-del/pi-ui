@@ -23,9 +23,6 @@ export interface RuntimeEventDto {
   payload: JsonValue;
 }
 
-export type RuntimeSlotState = "stopped" | "starting" | "ready" | "running" | "replacing" |
-  "stopping" | "interrupted" | "recovering" | "unavailable";
-
 export interface RuntimeDiagnosticDto {
   type: "info" | "warning" | "error";
   message: string;
@@ -33,12 +30,14 @@ export interface RuntimeDiagnosticDto {
 
 export interface RuntimeSnapshotDto {
   runtimeSlotId: string;
-  state: RuntimeSlotState;
   cwd: string;
   sessionId: string;
   sessionFile?: string;
   sessionName?: string;
   isStreaming: boolean;
+  isIdle: boolean;
+  isCompacting: boolean;
+  retryAttempt: number;
   model?: { provider: string; id: string };
   thinkingLevel: string;
   messages: JsonValue[];

@@ -5,6 +5,6 @@ export interface WorkspaceRepository {
   sendMessage(
     conversationId: string,
     content: string,
-    onTextDelta?: (delta: string) => void,
   ): Promise<string>;
+  abortMessage?(conversationId: string): Promise<void>;
 }

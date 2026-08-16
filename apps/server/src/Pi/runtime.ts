@@ -10,7 +10,7 @@ import {
   createAgentSessionServices,
   getAgentDir,
 } from "@earendil-works/pi-coding-agent";
-import type { JsonValue, RuntimeSlotState, RuntimeSnapshotDto } from "@pi/shared";
+import type { JsonValue, RuntimeSnapshotDto } from "@pi/shared";
 import { renderA2uiTool } from "./a2ui-tool.js";
 import { toJsonValue } from "./json-value.js";
 export { toJsonValue } from "./json-value.js";
@@ -64,17 +64,19 @@ export function mapPiEvent(event: AgentSessionEvent): JsonValue {
   return toJsonValue(event);
 }
 
-export function createRuntimeSnapshot(runtimeSlotId: string, runtime: AgentSessionRuntime, state: RuntimeSlotState): RuntimeSnapshotDto {
+export function createRuntimeSnapshot(runtimeSlotId: string, runtime: AgentSessionRuntime): RuntimeSnapshotDto {
   const session = runtime.session;
   const model = session.model;
   return {
     runtimeSlotId,
-    state,
     cwd: runtime.cwd,
     sessionId: session.sessionId,
     sessionFile: session.sessionFile,
     sessionName: session.sessionName,
     isStreaming: session.isStreaming,
+    isIdle: session.isIdle,
+    isCompacting: session.isCompacting,
+    retryAttempt: session.retryAttempt,
     model: model ? { provider: model.provider, id: model.id } : undefined,
     thinkingLevel: session.thinkingLevel,
     messages: session.messages.map(toJsonValue),

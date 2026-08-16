@@ -6,7 +6,6 @@ export interface RuntimeEntity {
   sessionName: string | null;
   provider: string | null;
   modelId: string | null;
-  state: string;
   createdAt: number;
   updatedAt: number;
 }

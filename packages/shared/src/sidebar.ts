@@ -24,7 +24,10 @@ export interface SidebarDto {
   recent: SidebarConversationDto[];
 }
 
-export interface UpsertProjectDto { id?: string; name: string; cwd: string; }
+export interface CreateProjectDto { name: string; cwd: string; }
+export interface ProjectActionDto { projectId: string; }
+export interface UpdateProjectDto extends ProjectActionDto { name?: string; cwd?: string; }
+export interface UpsertProjectDto extends CreateProjectDto { id?: string; }
 export interface ConversationActionDto { conversationId: string; }
 export interface PinConversationDto extends ConversationActionDto { pinned: boolean; }
 export interface ProjectConversationsDto { projectId: string; offset?: number; limit?: number; }

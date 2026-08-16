@@ -18,16 +18,18 @@ describe("RuntimeMapper", () => {
     const mapper = new RuntimeMapper(database.connection);
     const runtime = {
       runtimeSlotId: "slot-1",
-      state: "ready" as const,
       cwd: directory,
       sessionId: "session-1",
       isStreaming: false,
+      isIdle: true,
+      isCompacting: false,
+      retryAttempt: 0,
       thinkingLevel: "off",
       messages: [],
       diagnostics: [],
     };
     mapper.save(runtime);
-    expect(mapper.findById("slot-1")).toMatchObject({ sessionId: "session-1", state: "ready" });
+    expect(mapper.findById("slot-1")).toMatchObject({ sessionId: "session-1" });
     mapper.save({ ...runtime, sessionName: "Renamed" });
     expect(mapper.findAll()).toHaveLength(1);
     expect(mapper.findById("slot-1")?.sessionName).toBe("Renamed");
