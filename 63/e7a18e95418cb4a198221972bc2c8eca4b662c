@@ -1,0 +1,224 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "63e7a18e95418cb4a198221972bc2c8eca4b662c",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 552,
+    "git_diff_deleted_lines": 440,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 552,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/adapter/package.json": {
+        "BYMC": [
+          "1-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/adapter/src/index.ts": {
+        "BYMC": [
+          "1-51"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/adapter/tsconfig.json": {
+        "BYMC": [
+          "1-4"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/package.json": {
+        "BYMC": [
+          "15"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/src/preload/index.ts": {
+        "BYMC": [
+          "4",
+          "9"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/desktop/src/shared/desktop-bridge.ts": {
+        "BYMC": [
+          "2",
+          "13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/agent-client.integration.test.ts": {
+        "BYMC": [
+          "7",
+          "15",
+          "17",
+          "41",
+          "47",
+          "55",
+          "57",
+          "59",
+          "62-63",
+          "67-68"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/package.json": {
+        "BYMC": [
+          "23"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/adapter/context.tsx": {
+        "BYMC": [
+          "1-12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/agent/agent-api-context.tsx": {
+        "BYMC": [
+          "1-76"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/desktop.d.ts": {
+        "BYMC": [
+          "2",
+          "6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/home/home-page.tsx": {
+        "BYMC": [
+          "6",
+          "10",
+          "16",
+          "20",
+          "27",
+          "53"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/api/sidebar-hooks.ts": {
+        "BYMC": [
+          "2",
+          "7-15",
+          "19",
+          "21-24",
+          "28",
+          "30-33",
+          "37",
+          "40-54"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/data/agent/agent-workspace-repository.ts": {
+        "BYMC": [
+          "2",
+          "17-19",
+          "33",
+          "43",
+          "51",
+          "53-54",
+          "56-57",
+          "67"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/workspace-page.tsx": {
+        "BYMC": [
+          "3",
+          "18",
+          "21-25",
+          "36"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/http/conversation-http.ts": {
+        "BYMC": [
+          "1-35"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/http/index.ts": {
+        "BYMC": [
+          "1-12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/http/project-http.ts": {
+        "BYMC": [
+          "1-30"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/http/runtime-http.ts": {
+        "BYMC": [
+          "1-34"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/http/socket-client.ts": {
+        "BYMC": [
+          "1-194"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/index.tsx": {
+        "BYMC": [
+          "4",
+          "6",
+          "9",
+          "21",
+          "42",
+          "48",
+          "50",
+          "53"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/main.tsx": {
+        "BYMC": [
+          "1",
+          "11-12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/shared/src/index.ts": {
+        "BYMC": [
+          "3"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786875757,
+  "requirement_id": ""
+}
