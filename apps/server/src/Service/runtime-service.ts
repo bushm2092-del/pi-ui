@@ -9,10 +9,11 @@ import {
 } from "../Pi/runtime.js";
 import type { CreateRuntimeRequestDto, JsonValue, PromptRuntimeRequestDto, RuntimeSnapshotDto, RuntimeEventDto } from "@pi/shared";
 import type { RuntimeMapper } from "../Mapper/runtime-mapper.js";
+import { BusinessException } from "../Exception/business-exception.js";
 
-export class RuntimeNotFoundError extends Error {
+export class RuntimeNotFoundError extends BusinessException {
   constructor(readonly runtimeSlotId: string) {
-    super(`Unknown runtime slot: ${runtimeSlotId}`);
+    super("runtime_not_found", `Unknown runtime slot: ${runtimeSlotId}`);
     this.name = "RuntimeNotFoundError";
   }
 }

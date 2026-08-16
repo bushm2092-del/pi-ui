@@ -2,7 +2,6 @@ import { randomBytes } from "node:crypto";
 import { RuntimeController } from "../Controller/runtime-controller.js";
 import { ProjectController } from "../Controller/project-controller.js";
 import { ConversationController } from "../Controller/conversation-controller.js";
-import { ExceptionInterceptor } from "../Interceptor/exception-interceptor.js";
 import { RuntimeMapper } from "../Mapper/runtime-mapper.js";
 import { ConversationMapper } from "../Mapper/conversation-mapper.js";
 import { ProjectMapper } from "../Mapper/project-mapper.js";
@@ -48,13 +47,12 @@ export async function startPiBackend(options: StartPiBackendOptions = {}): Promi
   const runtimeService = new RuntimeService(runtimeMapper, (event) => {
     socketServer?.emitToRoom(`runtime:${event.runtimeSlotId}`, "runtime:event", event);
   });
-  const exceptionInterceptor = new ExceptionInterceptor();
   const projectService = new ProjectService(projectMapper, conversationMapper, database.connection);
   const conversationService = new ConversationService(conversationMapper);
   const controllers = [
-    new RuntimeController(runtimeService, exceptionInterceptor),
-    new ProjectController(projectService, exceptionInterceptor),
-    new ConversationController(conversationService, exceptionInterceptor),
+    new RuntimeController(runtimeService),
+    new ProjectController(projectService),
+    new ConversationController(conversationService),
   ];
   socketServer = new SocketServer({
     token,

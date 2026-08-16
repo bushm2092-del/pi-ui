@@ -1,6 +1,8 @@
 import { createServer, type Server as HttpServer } from "node:http";
 import { Server } from "socket.io";
 import type { SocketController } from "../Controller/socket-controller.js";
+import { SocketRouter } from "../Controller/socket-router.js";
+import { ExceptionInterceptor } from "../Interceptor/exception-interceptor.js";
 import { TokenInterceptor } from "../Interceptor/token-interceptor.js";
 
 export interface SocketServerOptions {
@@ -32,8 +34,9 @@ export class SocketServer {
     });
 
     new TokenInterceptor(this.options.token).install(io.of("/"));
+    const router = new SocketRouter(new ExceptionInterceptor());
     io.on("connection", (socket) => {
-      for (const controller of this.options.controllers) controller.register(socket);
+      for (const controller of this.options.controllers) controller.register(socket, router);
     });
 
     this.#io = io;
