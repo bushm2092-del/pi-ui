@@ -5,6 +5,24 @@ type TranslationShape<T> = {
 };
 
 export const enUS = {
+  markdown: {
+    controls: {
+      close: "Close",
+      copied: "Copied",
+      copyCode: "Copy code",
+      copyLink: "Copy link",
+      copyTable: "Copy table",
+      downloadDiagram: "Download diagram",
+      downloadDiagramAsMmd: "Download Mermaid source",
+      downloadDiagramAsPng: "Download PNG",
+      downloadDiagramAsSvg: "Download SVG",
+      exitFullscreen: "Exit fullscreen",
+      externalLinkWarning: "You are about to open an external link",
+      openExternalLink: "Open external link",
+      openLink: "Open link",
+      viewFullscreen: "View fullscreen",
+    },
+  },
   sidebar: {
     navigation: "Scheduled task folders",
     resize: "Resize sidebar",

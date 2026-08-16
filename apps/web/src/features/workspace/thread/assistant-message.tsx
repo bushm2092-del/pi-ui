@@ -15,7 +15,7 @@ export function AssistantMessage({ message }: { message: Message }) {
       status={message.status}
       markdown={message.blocks?.length
         ? <AssistantContentBlocks message={message} />
-        : <AssistantMarkdown content={message.content} />}
+        : <AssistantMarkdown content={message.content} isAnimating={message.status === "pending"} />}
       actions={message.status === "pending" ? null : <AssistantActions />}
     />
   );

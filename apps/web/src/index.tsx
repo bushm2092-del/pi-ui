@@ -12,6 +12,7 @@ import { ThemeSync } from "./components/theme/theme-sync";
 import { DebugLayout } from "./components/debug-layout";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { ComponentTestPage } from "./features/component-test/component-test-page";
+import { MessageTestPage } from "./features/message-test/message-test-page";
 import { LanguageSync } from "./i18n/language-sync";
 import { AppToaster } from "./components/app-toaster";
 import "./i18n";
@@ -30,6 +31,7 @@ export function mountApp(element: HTMLElement, options: MountAppOptions) {
       children: [
         { path: "/", element: <WorkspacePage cwd={options.cwd} /> },
         { path: "/test/a2ui-stream", element: <A2uiStreamTestPage /> },
+        { path: "/test/messages", element: <MessageTestPage /> },
         { path: "/test/components", element: <ComponentTestPage /> },
       ],
     },

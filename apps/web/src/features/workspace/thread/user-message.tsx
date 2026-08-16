@@ -6,9 +6,9 @@ function UserMessageContent({ content }: { content: string }) {
     <div
       data-selected-text-overlay-target="_r_kc_"
       dir="auto"
-      className="pi-markdown-content [&amp;>*:first-child]:mt-0 [&amp;_li+li]:!mt-0 [&amp;_li>ol]:!mt-0 [&amp;_li>p+p]:!mt-0 [&amp;_li>ul]:!mt-0 [&amp;_ol]:!ps-6 [&amp;_p]:!m-0 [&amp;_p+p]:!mt-5 [&amp;_ul]:!ps-6"
+      className="text-size-chat text-token-text-primary leading-[calc(var(--codex-chat-font-size)+8px)] [overflow-wrap:anywhere] [&>*:first-child]:mt-0 [&_li+li]:!mt-0 [&_li>ol]:!mt-0 [&_li>p+p]:!mt-0 [&_li>ul]:!mt-0 [&_ol]:!ps-6 [&_p]:!m-0 [&_p+p]:!mt-5 [&_ul]:!ps-6"
     >
-      <p className="pi-markdown-text pi-markdown-paragraph">
+      <p dir="auto" className="text-size-chat leading-[calc(var(--codex-chat-font-size)+8px)]">
         {content}
       </p>
     </div>

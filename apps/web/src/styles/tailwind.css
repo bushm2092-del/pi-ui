@@ -1,5 +1,8 @@
 /* App-owned Tailwind source. Generated utilities are derived from current JSX. */
 @source "../**/*.{ts,tsx}";
+@source "../../node_modules/streamdown/dist/*.js";
+@source "../../node_modules/@streamdown/code/dist/*.js";
+@source "../../node_modules/@streamdown/mermaid/dist/*.js";
 
 @custom-variant browser (:where([data-codex-window-type="browser"] *));
 @custom-variant extension (:where([data-codex-window-type="extension"] *));
@@ -53,6 +56,14 @@
 
 @utility cursor-interaction {
   cursor: var(--cursor-interaction);
+}
+
+@utility text-size-chat {
+  font-size: var(--codex-chat-font-size);
+}
+
+@utility text-size-chat-sm {
+  font-size: calc(var(--codex-chat-font-size) - 1px);
 }
 
 @utility app-drag-region {

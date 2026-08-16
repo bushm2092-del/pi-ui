@@ -13,3 +13,4 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+@import "./components/ui/markdown/streamdown.css";

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
-import { Bug, LayoutDashboard, PanelsTopLeft, Workflow } from "lucide-react";
+import { Bug, LayoutDashboard, MessageSquareText, PanelsTopLeft, Workflow } from "lucide-react";
 import { useLocation, useNavigate } from "react-router";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +15,7 @@ import {
 const debugRoutes = [
   { path: "/", label: "工作区", icon: LayoutDashboard },
   { path: "/test/a2ui-stream", label: "A2UI 流式测试", icon: Workflow },
+  { path: "/test/messages", label: "消息渲染测试", icon: MessageSquareText },
   { path: "/test/components", label: "Shadcn 组件测试", icon: PanelsTopLeft },
 ] as const;
 

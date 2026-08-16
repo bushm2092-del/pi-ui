@@ -10,7 +10,9 @@ export function AssistantContentBlocks({ message }: { message: Message }) {
     <div className="flex min-w-0 flex-col gap-5">
       {message.blocks?.map((block) => {
         if (block.type === "text") {
-          return block.content ? <AssistantMarkdown key={block.id} content={block.content} /> : null;
+          return block.content
+            ? <AssistantMarkdown key={block.id} content={block.content} isAnimating={message.status === "pending"} />
+            : null;
         }
         if (block.type === "thinking") return <ThinkingBlock key={block.id} content={block.content} label={elapsedLabel} />;
         if (block.type === "tool") return <ToolBlock key={block.id} block={block} />;

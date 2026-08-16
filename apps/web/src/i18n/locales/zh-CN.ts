@@ -1,4 +1,22 @@
 export const zhCN = {
+  markdown: {
+    controls: {
+      close: "关闭",
+      copied: "已复制",
+      copyCode: "复制代码",
+      copyLink: "复制链接",
+      copyTable: "复制表格",
+      downloadDiagram: "下载图表",
+      downloadDiagramAsMmd: "下载 Mermaid 源码",
+      downloadDiagramAsPng: "下载 PNG",
+      downloadDiagramAsSvg: "下载 SVG",
+      exitFullscreen: "退出全屏",
+      externalLinkWarning: "即将打开外部链接",
+      openExternalLink: "打开外部链接",
+      openLink: "打开链接",
+      viewFullscreen: "全屏查看",
+    },
+  },
   sidebar: {
     navigation: "已安排任务文件夹",
     resize: "调整边栏宽度",

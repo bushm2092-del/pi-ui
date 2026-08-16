@@ -1,0 +1,453 @@
+.pi-markdown {
+  --markdown-font-size: var(--codex-chat-font-size);
+  --markdown-line-height: calc(var(--markdown-font-size) + 8px);
+  color: var(--color-token-text-primary);
+  font-size: var(--markdown-font-size);
+  line-height: var(--markdown-line-height);
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.pi-markdown > :not(:last-child) {
+  margin-block: 0;
+}
+
+.pi-markdown > :first-child,
+.pi-markdown > [dir] > :first-child {
+  margin-top: 0;
+}
+
+.pi-markdown > :last-child,
+.pi-markdown > [dir]:last-child > :last-child {
+  margin-bottom: 0;
+}
+
+.pi-markdown p {
+  margin: 0 0 0.6875rem;
+}
+
+.pi-markdown :is(h1, h2, h3, h4, h5, h6) {
+  margin: 20px 0 10px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.pi-markdown h1 {
+  font-size: 24px;
+}
+
+.pi-markdown h2 {
+  font-size: 20px;
+}
+
+.pi-markdown :is(h3, h4) {
+  font-size: 17px;
+  line-height: 22px;
+}
+
+.pi-markdown :is(h5, h6) {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.pi-markdown :is(ul, ol) {
+  margin: 0;
+  padding-inline-start: 1.3125rem;
+  list-style-position: outside;
+}
+
+.pi-markdown ul {
+  list-style-type: disc;
+}
+
+.pi-markdown ul ul {
+  list-style-type: circle;
+}
+
+.pi-markdown ul ul ul {
+  list-style-type: square;
+}
+
+.pi-markdown ol {
+  list-style-type: decimal;
+}
+
+.pi-markdown p:has(+ :is(ul, ol)),
+.pi-markdown :is(ul, ol):not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+
+.pi-markdown li {
+  padding: 0;
+  padding-inline-start: 0.125rem;
+}
+
+.pi-markdown li + li {
+  margin-top: 0.5rem;
+}
+
+.pi-markdown li > p {
+  display: inline;
+  margin: 0;
+}
+
+.pi-markdown li > p + p {
+  display: block;
+  margin-top: 0.6875rem;
+}
+
+.pi-markdown li > :is(ul, ol) {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.pi-markdown li::marker {
+  color: currentcolor;
+}
+
+.pi-markdown input[type="checkbox"] {
+  margin: 0 0.4rem 0 0;
+  vertical-align: -0.1em;
+}
+
+.pi-markdown strong {
+  font-weight: 600;
+}
+
+.pi-markdown [data-streamdown="link"] {
+  color: var(--color-token-text-link-foreground);
+  font-weight: 400;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.pi-markdown [data-streamdown="blockquote"] {
+  position: relative;
+  margin: 0 0 8px;
+  padding-block: 8px;
+  padding-inline-start: 24px;
+  border: 0;
+  color: var(--color-token-text-primary);
+  background: transparent;
+  font-style: normal;
+  line-height: 24px;
+}
+
+.pi-markdown [data-streamdown="blockquote"]::after {
+  position: absolute;
+  inset-block: 8px;
+  inset-inline-start: 0;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--color-token-border-heavy);
+  content: "";
+}
+
+.pi-markdown [data-streamdown="blockquote"] > :first-child {
+  margin-top: 0;
+}
+
+.pi-markdown [data-streamdown="blockquote"] > :last-child {
+  margin-bottom: 0;
+}
+
+.pi-markdown [data-streamdown="horizontal-rule"] {
+  clear: both;
+  height: 0;
+  margin: 28px 0;
+  border: 0;
+  border-top: 1px solid var(--color-token-border-heavy);
+}
+
+.pi-markdown [data-streamdown="horizontal-rule"] + * {
+  margin-top: 0;
+}
+
+.pi-markdown [data-streamdown="inline-code"] {
+  box-decoration-break: clone;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--color-token-list-hover-background) 60%, var(--color-token-foreground) 6%);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.pi-markdown img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.pi-markdown [data-streamdown="code-block"] {
+  position: relative;
+  width: 100%;
+  margin-block: 14px;
+  padding: 0;
+  gap: 0;
+  overflow: clip;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-token-text-code-block-background);
+}
+
+.pi-markdown [data-streamdown="code-block-header"] {
+  height: 32px;
+  padding-inline: 8px;
+  color: var(--color-token-description-foreground);
+  font-family: var(--font-sans);
+  font-size: var(--codex-chat-code-font-size);
+}
+
+.pi-markdown [data-streamdown="code-block-header"] > span {
+  margin: 0;
+  font-family: inherit;
+  text-transform: none;
+}
+
+.pi-markdown [data-streamdown="code-block"] > :has(> [data-streamdown="code-block-actions"]) {
+  position: absolute;
+  inset-block-start: 4px;
+  inset-inline-end: 6px;
+  z-index: 2;
+  height: 24px;
+  margin: 0;
+}
+
+.pi-markdown [data-streamdown="code-block-actions"] {
+  gap: 1px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.pi-markdown [data-streamdown="code-block-actions"] button,
+.pi-markdown [data-streamdown="table-wrapper"] button,
+.pi-markdown [data-streamdown="mermaid-block-actions"] button,
+.pi-markdown [data-streamdown="mermaid"] > div > div:has(> button) button {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--color-token-text-tertiary);
+}
+
+.pi-streamdown-control-icon {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.5;
+}
+
+.pi-markdown [data-streamdown="code-block-actions"] button:hover,
+.pi-markdown [data-streamdown="table-wrapper"] button:hover,
+.pi-markdown [data-streamdown="mermaid-block-actions"] button:hover,
+.pi-markdown [data-streamdown="mermaid"] > div > div:has(> button) button:hover {
+  color: var(--color-token-text-primary);
+  background: var(--color-token-list-hover-background);
+}
+
+.pi-markdown [data-streamdown="code-block-body"] {
+  padding: 8px;
+  overflow-x: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: var(--codex-chat-code-font-size);
+  line-height: 20px;
+}
+
+.pi-markdown [data-streamdown="code-block-body"] :is(pre, code) {
+  margin: 0;
+  background: transparent !important;
+  font: inherit;
+  line-height: inherit;
+  tab-size: 4;
+}
+
+.pi-markdown [data-streamdown="table-wrapper"] {
+  width: 100%;
+  margin-block: 14px;
+  padding: 0;
+  gap: 4px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pi-markdown [data-streamdown="table-wrapper"] > :first-child:not(:last-child) {
+  min-height: 24px;
+}
+
+.pi-markdown [data-streamdown="table-wrapper"] > div:has(> [data-streamdown="table"]) {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  scrollbar-width: thin;
+}
+
+.pi-markdown [data-streamdown="table"] {
+  width: max-content;
+  min-width: 100%;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: auto;
+  text-align: start;
+  font-size: var(--markdown-font-size);
+}
+
+.pi-markdown [data-streamdown="table-header"] {
+  background: transparent;
+}
+
+.pi-markdown [data-streamdown="table-header-cell"],
+.pi-markdown [data-streamdown="table-cell"] {
+  max-width: calc(var(--thread-content-max-width) * 18 / 24);
+  padding: 0 24px 0 0;
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.pi-markdown [data-streamdown="table-header-cell"] {
+  padding-block: 8px;
+  border-bottom: 1px solid var(--color-token-border-heavy);
+  color: var(--color-token-text-primary);
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.pi-markdown [data-streamdown="table-cell"] {
+  padding-block: 10px;
+}
+
+.pi-markdown [data-streamdown="table-row"]:not(:last-child) [data-streamdown="table-cell"] {
+  border-bottom: 1px solid var(--color-token-border-light);
+}
+
+.pi-markdown [data-streamdown="table-header-cell"]:last-child,
+.pi-markdown [data-streamdown="table-cell"]:last-child {
+  padding-inline-end: 0;
+}
+
+.pi-markdown [data-streamdown="table-body"] [data-streamdown="table-row"]:last-child [data-streamdown="table-cell"] {
+  padding-bottom: 24px;
+}
+
+.pi-markdown [data-streamdown="mermaid-block"] {
+  position: relative;
+  width: 100%;
+  margin-block: 14px;
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-token-border-heavy);
+  border-radius: var(--radius-md);
+  background: var(--color-token-main-surface-primary);
+}
+
+.pi-markdown [data-streamdown="mermaid-block"] > :first-child {
+  display: none;
+}
+
+.pi-markdown [data-streamdown="mermaid-block"] > :has(> [data-streamdown="mermaid-block-actions"]) {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline-end: 8px;
+  z-index: 3;
+  height: 34px;
+  margin: 0;
+}
+
+.pi-markdown [data-streamdown="mermaid-block-actions"],
+.pi-markdown [data-streamdown="mermaid"] > div > div:has(> button) {
+  gap: 0;
+  padding: 4px;
+  border: 1px solid color-mix(in srgb, var(--color-token-border-heavy) 85%, transparent);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-token-main-surface-primary) 72%, transparent);
+  box-shadow:
+    0 4px 14px rgb(0 0 0 / 7%),
+    inset 0 1px 0 rgb(255 255 255 / 45%);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(14px) saturate(145%);
+  backdrop-filter: blur(14px) saturate(145%);
+  transition:
+    opacity var(--transition-duration-basic) var(--ease-basic),
+    transform var(--transition-duration-basic) var(--ease-basic);
+}
+
+.pi-markdown [data-streamdown="mermaid-block-actions"] {
+  transform: translateY(-2px);
+}
+
+.pi-markdown [data-streamdown="mermaid"] > div > div:has(> button) {
+  transform: translateX(-2px);
+}
+
+.pi-markdown
+  [data-streamdown="mermaid-block"]:is(:hover, :focus-within)
+  :is([data-streamdown="mermaid-block-actions"], [data-streamdown="mermaid"] > div > div:has(> button)) {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(0);
+}
+
+.pi-markdown [data-streamdown="mermaid-block"] > :last-child {
+  width: 100%;
+  overflow: hidden;
+  border: 0;
+  border-radius: inherit;
+  background: var(--color-token-main-surface-primary);
+}
+
+.pi-markdown [data-streamdown="mermaid"] {
+  width: 100%;
+}
+
+.pi-markdown [data-streamdown="mermaid"] > div {
+  width: 100%;
+}
+
+.pi-markdown [data-streamdown="mermaid"] > div > div:has(> button) {
+  inset-block-end: 8px;
+  inset-inline-start: 8px;
+}
+
+.pi-markdown [data-streamdown="mermaid"] [role="application"] {
+  width: 100%;
+}
+
+.pi-markdown [data-streamdown="mermaid"] [role="img"] {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.pi-markdown [data-streamdown="mermaid"] svg {
+  display: block;
+  height: auto !important;
+}
+
+@media (max-width: 640px) {
+  .pi-markdown [data-streamdown="table-header-cell"],
+  .pi-markdown [data-streamdown="table-cell"] {
+    padding-inline-end: 16px;
+  }
+}
