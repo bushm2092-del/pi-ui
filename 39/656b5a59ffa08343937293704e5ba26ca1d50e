@@ -1,0 +1,393 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "39656b5a59ffa08343937293704e5ba26ca1d50e",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 1573,
+    "git_diff_deleted_lines": 214,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 1548,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/server/src/Controller/project-controller.ts": {
+        "BYMC": [
+          "1",
+          "13-18",
+          "22-29"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Mapper/conversation-mapper.ts": {
+        "BYMC": [
+          "74-76"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Mapper/project-mapper.ts": {
+        "BYMC": [
+          "3",
+          "11-18",
+          "37-41",
+          "45-54"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Mapper/runtime-mapper.ts": {
+        "BYMC": [
+          "15-16"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Pi/runtime.ts": {
+        "BYMC": [
+          "13",
+          "67",
+          "77-79"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Service/project-service.ts": {
+        "BYMC": [
+          "2-5",
+          "16",
+          "19-25",
+          "32",
+          "35-54",
+          "57",
+          "68-80"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Service/runtime-service.ts": {
+        "BYMC": [
+          "10",
+          "36",
+          "39",
+          "57",
+          "59-62",
+          "83-98",
+          "100-105",
+          "109-111",
+          "123"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Storage/Database/Migrations/005-remove-runtime-state.ts": {
+        "BYMC": [
+          "1-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/Storage/Database/database.ts": {
+        "BYMC": [
+          "7",
+          "20"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/src/bootstrap/pi-backend.ts": {
+        "BYMC": [
+          "17",
+          "19",
+          "21",
+          "23",
+          "26-27",
+          "37",
+          "45-46",
+          "52",
+          "75",
+          "78-94",
+          "98-111"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/agent-client.integration.test.ts": {
+        "BYMC": [
+          "7",
+          "53",
+          "55",
+          "57",
+          "65-67"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/database-migration.test.ts": {
+        "BYMC": [
+          "25",
+          "30",
+          "34-45"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/pi-gateway.test.ts": {
+        "BYMC": [
+          "42",
+          "48",
+          "109-143"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/server/test/runtime-mapper.test.ts": {
+        "BYMC": [
+          "24-26",
+          "32"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/agent/agent-client.ts": {
+        "BYMC": [
+          "4",
+          "13",
+          "15",
+          "76-77",
+          "79-80",
+          "182-184"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/api/conversation-cache.test.ts": {
+        "BYMC": [
+          "8",
+          "69-79"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/api/conversation-cache.ts": {
+        "BYMC": [
+          "1",
+          "29",
+          "64",
+          "68-98",
+          "106",
+          "111-115"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/api/conversation-hooks.ts": {
+        "BYMC": [
+          "9",
+          "37",
+          "66-78"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/api/index.ts": {
+        "BYMC": [
+          "1"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/composer/composer-editor.tsx": {
+        "BYMC": [
+          "7",
+          "15",
+          "27",
+          "32",
+          "49-50",
+          "57"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/composer/composer-send.tsx": {
+        "BYMC": [
+          "5-6",
+          "9-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/composer/composer.tsx": {
+        "BYMC": [
+          "2",
+          "15-16",
+          "19",
+          "22",
+          "33",
+          "43-47"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/composer/layouts/composer-send-layout.tsx": {
+        "BYMC": [
+          "1-2",
+          "5",
+          "9",
+          "12",
+          "14-22"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/data/agent/agent-workspace-repository.test.ts": {
+        "BYMC": [
+          "2",
+          "21-31"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/data/agent/agent-workspace-repository.ts": {
+        "BYMC": [
+          "3",
+          "8-9",
+          "24",
+          "28",
+          "31",
+          "33",
+          "38-41",
+          "51-52",
+          "55-62",
+          "66-68",
+          "70-78",
+          "99",
+          "106-115",
+          "135",
+          "137",
+          "143-148",
+          "150",
+          "156-182",
+          "186",
+          "193-196",
+          "198-203"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/data/agent/index.ts": {
+        "BYMC": [
+          "6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/data/agent/runtime-event-reducer.test.ts": {
+        "BYMC": [
+          "1-176"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/data/agent/runtime-event-reducer.ts": {
+        "BYMC": [
+          "1-482"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/data/workspace-repository.ts": {
+        "BYMC": [
+          "9"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/domain/conversation.ts": {
+        "BYMC": [
+          "3-15",
+          "21"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/domain/index.ts": {
+        "BYMC": [
+          "1",
+          "3-12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/domain/message.ts": {
+        "BYMC": [
+          "4-48",
+          "56-57"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/thread/assistant-content-blocks.tsx": {
+        "BYMC": [
+          "1-137"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/thread/assistant-message.tsx": {
+        "BYMC": [
+          "6",
+          "9",
+          "16-19"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "docs/backend/features/runtime-session.md": {
+        "BYMC": [
+          "3",
+          "5-6",
+          "8",
+          "10-14",
+          "16",
+          "19-23",
+          "26-31",
+          "33",
+          "36-37",
+          "40-41",
+          "43",
+          "45-53",
+          "55-57",
+          "60-71",
+          "74-148",
+          "150-151",
+          "153",
+          "155-227",
+          "230"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/shared/src/runtime.ts": {
+        "BYMC": [
+          "38-40"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "packages/shared/src/sidebar.ts": {
+        "BYMC": [
+          "27-30"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786844564,
+  "requirement_id": ""
+}
