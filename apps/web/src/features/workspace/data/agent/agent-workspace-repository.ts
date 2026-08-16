@@ -1,5 +1,5 @@
 import { isA2uiToolDetails, type RuntimeSnapshotDto } from "@pi/shared";
-import type { AgentClient } from "../../../../agent/agent-client";
+import type { ConversationApi, ProjectApi, RuntimeApi } from "@/http";
 import type { AssistantContentBlock, Conversation, Message } from "../../domain";
 import { workspaceData } from "../workspace-data";
 import type { WorkspaceRepository } from "../workspace-repository";
@@ -14,7 +14,9 @@ export class AgentWorkspaceRepository implements WorkspaceRepository {
   private unsubscribe?: () => void;
 
   constructor(
-    private readonly client: AgentClient,
+    private readonly runtimeApi: RuntimeApi,
+    private readonly projectApi: ProjectApi,
+    private readonly conversationApi: ConversationApi,
     private readonly cwd: string,
     private readonly queryClient: QueryClient,
   ) {}
@@ -28,7 +30,7 @@ export class AgentWorkspaceRepository implements WorkspaceRepository {
   async sendMessage(conversationId: string, content: string): Promise<string> {
     this.assertConversation(conversationId);
     const runtime = await this.ensureRuntime();
-    const snapshot = await this.client.runtimes.prompt(runtime.runtimeSlotId, { message: content });
+    const snapshot = await this.runtimeApi.prompt(runtime.runtimeSlotId, { message: content });
     this.latestSnapshot = snapshot;
     const reply = [...snapshotToMessages(snapshot.messages)].reverse().find((message) => message.role === "assistant")?.content;
     if (!reply) throw new Error("AI did not return a text response");
@@ -38,7 +40,7 @@ export class AgentWorkspaceRepository implements WorkspaceRepository {
   async abortMessage(conversationId: string): Promise<void> {
     this.assertConversation(conversationId);
     const runtime = await this.ensureRuntime();
-    this.latestSnapshot = await this.client.runtimes.abort(runtime.runtimeSlotId);
+    this.latestSnapshot = await this.runtimeApi.abort(runtime.runtimeSlotId);
   }
 
   dispose(): void {
@@ -46,13 +48,13 @@ export class AgentWorkspaceRepository implements WorkspaceRepository {
     this.unsubscribe = undefined;
   }
 
-  private async ensureRuntime(signal?: AbortSignal): Promise<RuntimeSnapshotDto> {
+  private async ensureRuntime(_signal?: AbortSignal): Promise<RuntimeSnapshotDto> {
     if (!this.runtime) {
-      this.runtime = this.client.runtimes
-        .create({ cwd: this.cwd }, signal)
+      this.runtime = this.runtimeApi
+        .create({ cwd: this.cwd })
         .then(async (snapshot) => {
-          const project = await this.client.projects.upsert({ name: projectName(this.cwd), cwd: this.cwd });
-          await this.client.conversations.sync({
+          const project = await this.projectApi.upsert({ name: projectName(this.cwd), cwd: this.cwd });
+          await this.conversationApi.sync({
             id: workspaceData.conversation.id,
             projectId: project.id,
             piSessionId: snapshot.sessionId,
@@ -62,7 +64,7 @@ export class AgentWorkspaceRepository implements WorkspaceRepository {
           });
           await this.queryClient.invalidateQueries({ queryKey: sidebarQueryKey });
           this.latestSnapshot = snapshot;
-          const subscription = this.client.realtime.subscribe(snapshot.runtimeSlotId, {
+          const subscription = this.runtimeApi.subscribe(snapshot.runtimeSlotId, {
             onSnapshot: (nextSnapshot) => {
               this.latestSnapshot = nextSnapshot;
             },

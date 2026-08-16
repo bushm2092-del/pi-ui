@@ -20,7 +20,7 @@
     "@a2ui/react": "^0.10.2",
     "@a2ui/web_core": "^0.10.6",
     "@fontsource-variable/geist": "^5.3.0",
-    "@pi/platform": "workspace:*",
+    "@pi/adapter": "workspace:*",
     "@pi/shared": "workspace:*",
     "@streamdown/code": "^1.1.1",
     "@streamdown/mermaid": "^1.0.2",

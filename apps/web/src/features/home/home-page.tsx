@@ -3,28 +3,28 @@ import { FileInput, Save, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AppInfo } from "@pi/shared";
-import { usePlatform } from "../../platform/context";
+import { useAdapter } from "../../adapter/context";
 import { useAppStore } from "../../stores/app-store";
 
 export function HomePage() {
-  const platform = usePlatform();
+  const adapter = useAdapter();
   const { recentFiles, addRecentFile } = useAppStore();
   const [appInfo, setAppInfo] = useState<AppInfo>();
   const [content, setContent] = useState("欢迎使用 Pi。这里的业务界面可以同时运行在 Web 和 Electron 中。");
   const [message, setMessage] = useState("");
 
-  useEffect(() => { void platform.getAppInfo().then(setAppInfo); }, [platform]);
+  useEffect(() => { void adapter.getAppInfo().then(setAppInfo); }, [adapter]);
 
   async function openFile() {
     try {
-      const file = await platform.openFile();
+      const file = await adapter.openFile();
       if (file) { setContent(file.content); addRecentFile(file.path); setMessage(`已打开 ${file.path}`); }
     } catch (error) { setMessage(error instanceof Error ? error.message : "打开失败"); }
   }
 
   async function saveFile() {
     try {
-      const path = await platform.saveFile(content, "pi-note.txt");
+      const path = await adapter.saveFile(content, "pi-note.txt");
       if (path) { addRecentFile(path); setMessage(`已保存至 ${path}`); }
     } catch (error) { setMessage(error instanceof Error ? error.message : "保存失败"); }
   }
@@ -50,7 +50,7 @@ export function HomePage() {
           <CardHeader><CardTitle>最近文件</CardTitle><CardDescription>由 Zustand 持久化保存。</CardDescription></CardHeader>
           <CardContent>
             {recentFiles.length ? <ul className="space-y-2">{recentFiles.map((file) => <li className="truncate text-sm" title={file} key={file}>{file}</li>)}</ul> : <p className="text-sm text-muted-foreground">暂无记录</p>}
-            <Button className="mt-5 w-full" variant="secondary" onClick={() => platform.openExternal("https://react.dev")}><ExternalLink className="size-4" />React 文档</Button>
+            <Button className="mt-5 w-full" variant="secondary" onClick={() => adapter.openExternal("https://react.dev")}><ExternalLink className="size-4" />React 文档</Button>
           </CardContent>
         </Card>
       </div>

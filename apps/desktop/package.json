@@ -12,8 +12,8 @@
     "preview": "pnpm run build && electron ."
   },
   "dependencies": {
+    "@pi/adapter": "workspace:*",
     "@pi/app": "workspace:*",
-    "@pi/platform": "workspace:*",
     "@pi/server": "workspace:*",
     "@pi/shared": "workspace:*",
     "react": "latest",

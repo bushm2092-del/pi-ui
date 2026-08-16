@@ -1,6 +1,6 @@
 export const APP_NAME = "Pi Desktop";
 
-export type RuntimePlatform = "desktop" | "web";
+export type RuntimePlatform = "desktop" | "web" | "mobile";
 
 export interface AppInfo {
   name: string;

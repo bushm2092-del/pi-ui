@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { startPiBackend } from "@pi/server";
 import type { RuntimeSnapshotDto } from "@pi/shared";
 import { afterEach, describe, expect, it } from "vitest";
-import { AgentClient } from "../../web/src/agent/agent-client.js";
+import { SocketClient } from "../../web/src/http/socket-client.js";
 
 const cleanup: Array<() => Promise<void>> = [];
 
@@ -12,9 +12,9 @@ afterEach(async () => {
   await Promise.all(cleanup.splice(0).map((dispose) => dispose()));
 });
 
-describe("AgentClient integration", () => {
+describe("SocketClient integration", () => {
   it("controls and subscribes to a real Pi runtime", async () => {
-    const directory = await mkdtemp(join(tmpdir(), "pi-agent-client-"));
+    const directory = await mkdtemp(join(tmpdir(), "pi-socket-client-"));
     const workspace = join(directory, "workspace");
     const agentDir = join(directory, "agent");
     const sessionFile = join(directory, "session.jsonl");
@@ -38,13 +38,13 @@ describe("AgentClient integration", () => {
       await backend.stop();
       await rm(directory, { recursive: true, force: true });
     });
-    const client = new AgentClient({
+    const client = new SocketClient({
       url: backend.address.socketUrl,
       token: backend.token,
     });
     cleanup.push(async () => client.close());
 
-    const created = await client.runtimes.create({
+    const created = await client.request<RuntimeSnapshotDto>("runtime:create", {
       runtimeSlotId: "client-slot",
       cwd: workspace,
       agentDir,
@@ -52,19 +52,19 @@ describe("AgentClient integration", () => {
     });
     expect(created).toMatchObject({ runtimeSlotId: "client-slot", isIdle: true, isStreaming: false });
 
-    let subscription: ReturnType<typeof client.realtime.subscribe> | undefined;
+    let subscription: ReturnType<typeof client.subscribe> | undefined;
     const synchronized = new Promise<RuntimeSnapshotDto>((resolve) => {
-      subscription = client.realtime.subscribe("client-slot", { onSnapshot: resolve });
+      subscription = client.subscribe("client-slot", { onSnapshot: resolve });
     });
-    await client.realtime.connect();
+    await client.connect();
     expect(await synchronized).toMatchObject({ sessionId: created.sessionId });
 
-    expect(await client.runtimes.rename("client-slot", "Agent client session")).toMatchObject({
-      sessionName: "Agent client session",
+    expect(await client.request("runtime:rename", { runtimeSlotId: "client-slot", sessionName: "Socket client session" })).toMatchObject({
+      sessionName: "Socket client session",
     });
     subscription?.unsubscribe();
     await new Promise((resolve) => setTimeout(resolve, 0));
-    expect(await client.runtimes.get("client-slot")).toMatchObject({ isIdle: true, isStreaming: false });
-    await client.runtimes.remove("client-slot");
+    expect(await client.request("runtime:get", { runtimeSlotId: "client-slot" })).toMatchObject({ isIdle: true, isStreaming: false });
+    await client.request<null>("runtime:remove", { runtimeSlotId: "client-slot" });
   }, 30_000);
 });

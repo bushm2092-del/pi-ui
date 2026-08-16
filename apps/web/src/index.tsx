@@ -1,12 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createHashRouter } from "react-router";
-import type { PlatformAdapter } from "@pi/platform";
+import type { Adapter } from "@pi/adapter";
 import type { AgentBackendConnection } from "@pi/shared";
-import { AgentClientProvider } from "./agent/agent-client-context";
+import { AgentApiProvider } from "./agent/agent-api-context";
 import { installWorkspaceDocument, WorkspacePage } from "./features/workspace";
 import { A2uiStreamTestPage } from "./features/a2ui-test/a2ui-stream-test-page";
-import { PlatformProvider } from "./platform/context";
+import { AdapterProvider } from "./adapter/context";
 import { QueryProvider } from "./query/query-provider";
 import { ThemeSync } from "./components/theme/theme-sync";
 import { DebugLayout } from "./components/debug-layout";
@@ -18,7 +18,7 @@ import { AppToaster } from "./components/app-toaster";
 import "./i18n";
 
 export interface MountAppOptions {
-  platform: PlatformAdapter;
+  adapter: Adapter;
   backend?: AgentBackendConnection;
   cwd?: string;
 }
@@ -39,18 +39,18 @@ export function mountApp(element: HTMLElement, options: MountAppOptions) {
   const root = createRoot(element);
   root.render(
     <StrictMode>
-      <PlatformProvider adapter={options.platform}>
+      <AdapterProvider adapter={options.adapter}>
         <QueryProvider>
           <ThemeSync />
           <LanguageSync />
           <AppToaster />
           <TooltipProvider>
-            <AgentClientProvider connection={options.backend}>
+            <AgentApiProvider connection={options.backend}>
               <RouterProvider router={router} />
-            </AgentClientProvider>
+            </AgentApiProvider>
           </TooltipProvider>
         </QueryProvider>
-      </PlatformProvider>
+      </AdapterProvider>
     </StrictMode>
   );
   return () => root.unmount();

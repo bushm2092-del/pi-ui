@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { useAgentClient } from "../../agent/agent-client-context";
+import { useAgentApi } from "../../agent/agent-api-context";
 import { MainSurface } from "./main";
 import { Sidebar } from "./sidebar";
 import { RootLayout } from "./workspace-layout";
@@ -15,11 +15,14 @@ function WorkspaceShell() {
 }
 
 export function WorkspacePage({ cwd }: { cwd?: string }) {
-  const { client, connectionState, error } = useAgentClient();
+  const { runtime, project, conversation, connectionState, error } = useAgentApi();
   const queryClient = useQueryClient();
   const repository = useMemo(
-    () => (client && cwd ? new AgentWorkspaceRepository(client, cwd, queryClient) : undefined),
-    [client, cwd, queryClient],
+    () =>
+      runtime && project && conversation && cwd
+        ? new AgentWorkspaceRepository(runtime, project, conversation, cwd, queryClient)
+        : undefined,
+    [runtime, project, conversation, cwd, queryClient],
   );
 
   useEffect(
@@ -30,7 +33,7 @@ export function WorkspacePage({ cwd }: { cwd?: string }) {
   );
 
   if (!repository) {
-    const message = !client
+    const message = !runtime
       ? "未配置 Pi 后端连接。Web 端需要设置 VITE_PI_SOCKET_URL 和 VITE_PI_TOKEN。"
       : "未配置工作区目录。Web 端需要设置 VITE_PI_CWD。";
     return <WorkspaceUnavailable message={error?.message ?? message} />;
