@@ -1,0 +1,148 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "822598a62a23f06f1a02452c0824910f56d8c327",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 1011,
+    "git_diff_deleted_lines": 30,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 1009,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/web/package.json": {
+        "BYMC": [
+          "25-26",
+          "44"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/debug-route-switcher.tsx": {
+        "BYMC": [
+          "2",
+          "18"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/markdown/index.ts": {
+        "BYMC": [
+          "1"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/markdown/streamdown.css": {
+        "BYMC": [
+          "1-453"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/markdown/streamdown.test.tsx": {
+        "BYMC": [
+          "1-34"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/markdown/streamdown.tsx": {
+        "BYMC": [
+          "1-97"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/message-test/message-test-page.tsx": {
+        "BYMC": [
+          "1-339"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/thread/assistant-content-blocks.tsx": {
+        "BYMC": [
+          "13-15"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/thread/assistant-markdown.tsx": {
+        "BYMC": [
+          "1",
+          "3-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/thread/assistant-message.tsx": {
+        "BYMC": [
+          "18"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/thread/layouts/user-message-layout.tsx": {
+        "BYMC": [
+          "10-24",
+          "26",
+          "31"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/features/workspace/thread/user-message.tsx": {
+        "BYMC": [
+          "9",
+          "11"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/i18n/locales/en-US.ts": {
+        "BYMC": [
+          "8-25"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/i18n/locales/zh-CN.ts": {
+        "BYMC": [
+          "2-19"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/index.tsx": {
+        "BYMC": [
+          "15",
+          "34"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/styles.css": {
+        "BYMC": [
+          "16"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/styles/tailwind.css": {
+        "BYMC": [
+          "3-5",
+          "61-66"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786872350,
+  "requirement_id": ""
+}
