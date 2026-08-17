@@ -7,7 +7,7 @@ import { AssistantMarkdown } from "./assistant-markdown";
 export function AssistantContentBlocks({ message }: { message: Message }) {
   const elapsedLabel = useElapsedLabel(message);
   return (
-    <div className="flex min-w-0 flex-col gap-5">
+    <div className="flex min-w-0 flex-col gap-5 [&>[data-activity-block]+[data-activity-block]]:-mt-3">
       {message.blocks?.map((block) => {
         if (block.type === "text") {
           return block.content
@@ -26,9 +26,9 @@ function ThinkingBlock({ content, label }: { content: string; label: string }) {
   if (!content) return null;
   return (
     <details className="group border-b border-token-border pb-3 text-sm text-token-text-secondary">
-      <summary className="flex cursor-pointer list-none items-center gap-1.5 select-none focus-visible:outline-2 focus-visible:outline-token-focus-border">
-        <span>{label}</span>
-        <ChevronDown className="size-3.5 shrink-0 transition-transform group-open:rotate-180" />
+      <summary className="flex min-h-8 cursor-pointer list-none items-center gap-1.5 rounded-md select-none focus-visible:outline-2 focus-visible:outline-token-focus-border">
+        <span className="font-medium">{label}</span>
+        <ChevronDown className="size-3.5 shrink-0 text-token-text-tertiary transition-transform group-open:rotate-180" />
       </summary>
       <div className="mt-3 whitespace-pre-wrap text-token-description-foreground">
         {content}
@@ -43,16 +43,16 @@ function ToolBlock({ block }: { block: AssistantToolBlock }) {
   const details = formatToolDetails(block);
 
   return (
-    <details className="group text-sm text-token-text-secondary" data-tool-activity={block.status}>
-      <summary className="flex cursor-pointer list-none items-center gap-2.5 select-none focus-visible:outline-2 focus-visible:outline-token-focus-border">
-        <Icon className={`size-5 shrink-0 ${block.status === "running" || block.status === "preparing" ? "animate-pulse" : ""}`} />
-        <span className={`min-w-0 flex-1 truncate ${block.status === "failed" ? "text-red-600 dark:text-red-400" : ""}`}>
+    <details className="group text-sm text-token-text-secondary" data-activity-block="true" data-tool-activity={block.status}>
+      <summary className="-mx-2 flex min-h-8 cursor-pointer list-none items-center gap-2 rounded-md px-2 select-none transition-colors hover:bg-token-list-hover-background focus-visible:outline-2 focus-visible:outline-token-focus-border">
+        <Icon className={`size-4 shrink-0 ${block.status === "failed" ? "text-red-600 dark:text-red-400" : "text-token-text-tertiary"} ${block.status === "running" || block.status === "preparing" ? "animate-pulse" : ""}`} />
+        <span className={`min-w-0 flex-1 truncate font-medium ${block.status === "failed" ? "text-red-600 dark:text-red-400" : ""}`}>
           {activity.label}
         </span>
-        <ChevronRight className="size-3.5 shrink-0 opacity-0 transition-all group-hover:opacity-100 group-open:rotate-90 group-open:opacity-100" />
+        <ChevronRight className="size-3.5 shrink-0 text-token-text-tertiary opacity-40 transition-all group-hover:opacity-100 group-open:rotate-90 group-open:opacity-100" />
       </summary>
-      <div className="mt-3 min-w-0 pl-[30px]">
-        {details && <pre className="max-h-72 overflow-auto whitespace-pre-wrap break-words text-xs leading-5 text-token-description-foreground">{details}</pre>}
+      <div className="ml-6 mt-1.5 min-w-0 border-l border-token-border pl-3">
+        {details && <pre className="max-h-72 overflow-auto rounded-md bg-token-list-hover-background p-3 whitespace-pre-wrap break-words text-xs leading-5 text-token-description-foreground">{details}</pre>}
         {block.a2ui && <div className="mt-3"><A2uiRenderer messages={block.a2ui.messages} /></div>}
       </div>
     </details>
@@ -85,16 +85,16 @@ function StatusBlock({ block }: { block: AssistantStatusBlock }) {
   const tone = block.status === "failed" ? "text-red-600 dark:text-red-400" : "text-token-text-secondary";
 
   if (!block.details) {
-    return <div className={`flex items-center gap-2 text-sm ${tone}`}>{icon}<span>{block.label}</span></div>;
+    return <div className={`flex min-h-8 items-center gap-2 text-sm font-medium ${tone}`} data-activity-block="true">{icon}<span>{block.label}</span></div>;
   }
   return (
-    <details className={`group text-sm ${tone}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 select-none focus-visible:outline-2 focus-visible:outline-token-focus-border">
+    <details className={`group text-sm ${tone}`} data-activity-block="true">
+      <summary className="-mx-2 flex min-h-8 cursor-pointer list-none items-center gap-2 rounded-md px-2 font-medium select-none transition-colors hover:bg-token-list-hover-background focus-visible:outline-2 focus-visible:outline-token-focus-border">
         <ChevronRight className="size-3.5 shrink-0 transition-transform group-open:rotate-90" />
         {icon}
         <span>{block.label}</span>
       </summary>
-      <pre className="mt-2 max-h-64 overflow-auto border-l border-token-border pl-4 whitespace-pre-wrap break-words text-xs text-token-description-foreground">{block.details}</pre>
+      <pre className="ml-6 mt-1.5 max-h-64 overflow-auto rounded-md border-l border-token-border bg-token-list-hover-background p-3 whitespace-pre-wrap break-words text-xs leading-5 text-token-description-foreground">{block.details}</pre>
     </details>
   );
 }
