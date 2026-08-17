@@ -1,0 +1,223 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "0353ed14f10ddcd1da80911b8faf0ad35ae714b5",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 887,
+    "git_diff_deleted_lines": 853,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 885,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/web/src/pages/workspace/api/conversation-cache.test.ts": {
+        "BYMC": [
+          "43",
+          "55",
+          "69"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/api/conversation-cache.ts": {
+        "BYMC": [
+          "49",
+          "115-119",
+          "123-137"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/composer/composer.tsx": {
+        "BYMC": [
+          "2"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/data/agent/agent-workspace-repository.test.ts": {
+        "BYMC": [
+          "5-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/data/agent/agent-workspace-repository.ts": {
+        "BYMC": [
+          "7",
+          "139"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/hooks/conversation-hooks.ts": {
+        "BYMC": [
+          "1-82"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/hooks/index.ts": {
+        "BYMC": [
+          "1-8"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/hooks/sidebar-hooks.ts": {
+        "BYMC": [
+          "1-56"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/__test__/main-header-layout.test.tsx": {
+        "BYMC": [
+          "1-30"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/main/index.ts": {
+        "BYMC": [
+          "1"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/main/layouts/index.ts": {
+        "BYMC": [
+          "1-4"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/main/layouts/main-header-context-layout.tsx": {
+        "BYMC": [
+          "1-54"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/main/layouts/main-header-layout.tsx": {
+        "BYMC": [
+          "1-389"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/main/layouts/main-surface-layout.tsx": {
+        "BYMC": [
+          "1-20"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/main/layouts/main-viewport-layout.tsx": {
+        "BYMC": [
+          "1-7"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/main/main-header-context.tsx": {
+        "BYMC": [
+          "1-13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/main/main-header.tsx": {
+        "BYMC": [
+          "1-15"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/main/main-surface.tsx": {
+        "BYMC": [
+          "1-12"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/main/main-viewport.tsx": {
+        "BYMC": [
+          "1-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/sidebar/sidebar-pinned.tsx": {
+        "BYMC": [
+          "4"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/sidebar/sidebar-project-list.tsx": {
+        "BYMC": [
+          "1"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/sidebar/sidebar-recents.tsx": {
+        "BYMC": [
+          "4"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/components/sidebar/sidebar-thread-item.tsx": {
+        "BYMC": [
+          "3"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/index.tsx": {
+        "BYMC": [
+          "1"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/layout/styles/main.css": {
+        "BYMC": [
+          "1-142"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/thread/assistant-message.tsx": {
+        "BYMC": [
+          "8",
+          "15"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/thread/conversation.tsx": {
+        "BYMC": [
+          "3"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/styles.css": {
+        "BYMC": [
+          "6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786974519,
+  "requirement_id": ""
+}
