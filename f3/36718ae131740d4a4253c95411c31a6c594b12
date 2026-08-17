@@ -1,0 +1,87 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "f336718ae131740d4a4253c95411c31a6c594b12",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 307,
+    "git_diff_deleted_lines": 114,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 302,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "AGENTS.md": {
+        "BYMC": [
+          "1-11"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/layout/app-shell.tsx": {
+        "BYMC": [
+          "5"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/markdown/index.tsx": {
+        "BYMC": [
+          "1-97"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/components/ui/markdown/streamdown.test.tsx": {
+        "BYMC": [
+          "6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/index.tsx": {
+        "BYMC": [
+          "7-8",
+          "14-15"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/message-test/message-test-page.tsx": {
+        "BYMC": [
+          "6-8",
+          "135-276",
+          "460-466"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/routes/router.tsx": {
+        "BYMC": [
+          "3"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/styles.css": {
+        "BYMC": [
+          "5-10"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/styles/tailwind.css": {
+        "BYMC": [
+          "57-85"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786955194,
+  "requirement_id": ""
+}
