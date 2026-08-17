@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 import { PanelLeft, PanelRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Sidebar } from "../../features/workspace/sidebar";
+import { Sidebar } from "../../pages/workspace/sidebar";
 import { useAppStore } from "../../stores/app-store";
 
 export function AppShell() {

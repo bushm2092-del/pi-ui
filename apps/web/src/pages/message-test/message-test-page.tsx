@@ -3,9 +3,9 @@ import { useEffect, useMemo, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { AssistantMessage } from "@/features/workspace/thread/assistant-message";
-import { UserMessage } from "@/features/workspace/thread/user-message";
-import type { Message } from "@/features/workspace/domain";
+import { AssistantMessage } from "@/pages/workspace/thread/assistant-message";
+import { UserMessage } from "@/pages/workspace/thread/user-message";
+import type { Message } from "@/pages/workspace/domain";
 
 const typographyAssistantMessage: Message = {
   id: "message-test-assistant-typography",
@@ -130,6 +130,150 @@ sequenceDiagram
 > 这条回复直接使用工作区中的真实 AssistantMessage 组件渲染。
 >
 > 引用中的第二段用于验证连续内容的垂直节奏。`,
+};
+
+const fullContentBlocksAssistantMessage: Message = {
+  id: "message-test-assistant-content-blocks",
+  role: "assistant",
+  status: "complete",
+  createdAt: "2026-08-16T09:20:00.000Z",
+  completedAt: "2026-08-16T09:20:25.000Z",
+  content: "项目结构分析已完成。",
+  blocks: [
+    {
+      id: "cb-thinking-1",
+      type: "thinking",
+      contentIndex: 0,
+      content:
+        "用户想要一份项目结构分析。我先读取 package.json 了解依赖与脚本，再查看 apps 目录，运行命令确认，最后生成一张销售趋势图。",
+    },
+    {
+      id: "cb-status-compaction",
+      type: "status",
+      kind: "compaction",
+      label: "上下文压缩完成",
+      status: "complete",
+      details: "已将早前 12 条消息压缩为摘要，释放 3.2k tokens。",
+    },
+    {
+      id: "cb-tool-read",
+      type: "tool",
+      toolCallId: "tc-read-package",
+      name: "read",
+      status: "complete",
+      arguments: { path: "package.json" },
+      output:
+        '{\n  "name": "pi-ui",\n  "packageManager": "pnpm@11.1.2",\n  "scripts": { "dev": "pnpm --filter @pi/desktop dev" }\n}',
+    },
+    {
+      id: "cb-tool-bash",
+      type: "tool",
+      toolCallId: "tc-bash-ls",
+      name: "bash",
+      status: "complete",
+      arguments: { command: "ls -1 apps" },
+      output: "adapter\ndesktop\nmobile\nserver\nweb",
+    },
+    {
+      id: "cb-tool-edit",
+      type: "tool",
+      toolCallId: "tc-edit-readme",
+      name: "edit",
+      status: "complete",
+      arguments: { path: "README.md", description: "补充 apps/adapter 说明" },
+    },
+    {
+      id: "cb-tool-grep-failed",
+      type: "tool",
+      toolCallId: "tc-grep-missing",
+      name: "grep",
+      status: "failed",
+      isError: true,
+      arguments: { pattern: "deprecatedApi", path: "apps/web/src" },
+      output: "grep: 没有匹配到任何内容",
+    },
+    {
+      id: "cb-tool-chart",
+      type: "tool",
+      toolCallId: "tc-chart-sales",
+      name: "chart",
+      status: "complete",
+      argumentText: "生成近 7 日销售趋势柱状图",
+      a2ui: {
+        kind: "a2ui.surface",
+        protocolVersion: "v0.9",
+        surfaceId: "mock-sales",
+        messages: [
+          { version: "v0.9", createSurface: { surfaceId: "mock-sales" } },
+          {
+            version: "v0.9",
+            updateComponents: {
+              surfaceId: "mock-sales",
+              components: [
+                {
+                  id: "root",
+                  component: "EChart",
+                  height: 320,
+                  option: {
+                    title: { text: "近 7 日销售趋势", left: 20 },
+                    tooltip: { trigger: "axis" },
+                    grid: { left: 54, right: 28, top: 60, bottom: 40 },
+                    xAxis: { type: "category", data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"] },
+                    yAxis: { type: "value", name: "万元" },
+                    series: [
+                      {
+                        name: "销售额",
+                        type: "bar",
+                        data: [12, 18, 15, 23, 29, 34, 31],
+                        itemStyle: { color: "#2563eb" },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      id: "cb-status-retry",
+      type: "status",
+      kind: "retry",
+      label: "重试成功",
+      status: "complete",
+    },
+    {
+      id: "cb-text-final",
+      type: "text",
+      contentIndex: 1,
+      content: `# 项目结构分析
+
+分析已完成，主要结论如下：
+
+## 目录划分
+
+| 目录 | 职责 |
+| --- | --- |
+| \`apps/web\` | React 前端应用 |
+| \`apps/server\` | Socket 后端 |
+| \`apps/desktop\` | Electron 桌面端 |
+| \`apps/adapter\` | 跨端适配层 |
+| \`packages/shared\` | 共享类型与纯业务代码 |
+
+## 关键结论
+
+1. 前端通过 \`SocketClient\` 统一通信，业务 API 各自建立在它之上。
+2. 后端按 Controller → Service → Mapper 分层。
+3. 流式事件经 reducer 归约后写入 React Query 缓存。
+
+\`\`\`bash
+pnpm dev:web
+\`\`\`
+
+> 上方图表展示了近 7 日的销售趋势示例。`,
+    },
+  ],
 };
 
 const incompleteAssistantMessage: Message = {
@@ -310,6 +454,16 @@ export function MessageTestPage() {
           <div className="flex flex-col gap-6" data-message-list="true">
             <UserMessage content={"请给出消息渲染层的实现建议，并用代码、表格和流程图说明。\n需要同时兼容流式输出。"} />
             <AssistantMessage message={structuredAssistantMessage} />
+          </div>
+        </section>
+
+        <section aria-labelledby="content-blocks-message-title" className="mt-12 border-t border-token-border pt-8">
+          <h2 id="content-blocks-message-title" className="mb-5 text-xs font-medium text-token-text-tertiary">
+            完整内容块
+          </h2>
+          <div className="flex flex-col gap-6" data-message-list="true">
+            <UserMessage content="帮我分析一下 pi-ui 项目的结构，读取关键文件、运行命令，并生成一张销售趋势图。" />
+            <AssistantMessage message={fullContentBlocksAssistantMessage} />
           </div>
         </section>
 

@@ -2,12 +2,12 @@
 @import "./styles/codex-theme.css";
 
 /* Final cascade composition: app foundation, shared UI, then feature-owned blocks. */
-@import "./features/workspace/composer/utility-bar.css";
-@import "./features/workspace/main/main.css";
-@import "./features/workspace/composer/composer.css";
-@import "./features/a2ui/a2ui.css";
-@import "./features/a2ui-test/a2ui-stream-test.css";
-@import "./features/workspace/sidebar/sidebar.css";
+@import "./pages/workspace/composer/utility-bar.css";
+@import "./pages/workspace/main/main.css";
+@import "./pages/workspace/composer/composer.css";
+@import "./pages/a2ui/a2ui.css";
+@import "./pages/a2ui-test/a2ui-stream-test.css";
+@import "./pages/workspace/sidebar/sidebar.css";
 @import "./styles/shadcn-theme.css";
 @import "./styles/tailwind.css";
 @import "tw-animate-css";

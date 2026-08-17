@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 
 import "@/i18n";
 
-import { Streamdown } from "./streamdown";
+import { Streamdown } from "./index";
 
 describe("Streamdown", () => {
   it("renders semantic Markdown inside the app-owned style scope", () => {
