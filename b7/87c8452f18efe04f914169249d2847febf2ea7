@@ -1,0 +1,57 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "b787c8452f18efe04f914169249d2847febf2ea7",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 84,
+    "git_diff_deleted_lines": 98,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 84,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/web/src/pages/workspace/thread/assistant-content-blocks.tsx": {
+        "BYMC": [
+          "2",
+          "4-6"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/thread/components/assistant-content-blocks/assistant-status-block.tsx": {
+        "BYMC": [
+          "1-13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/thread/components/assistant-content-blocks/assistant-thinking-block.tsx": {
+        "BYMC": [
+          "1-13"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/thread/components/assistant-content-blocks/assistant-tool-block.tsx": {
+        "BYMC": [
+          "1-15"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      },
+      "apps/web/src/pages/workspace/thread/utils/assistant-content-block-utils.ts": {
+        "BYMC": [
+          "1-39"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786970653,
+  "requirement_id": ""
+}
