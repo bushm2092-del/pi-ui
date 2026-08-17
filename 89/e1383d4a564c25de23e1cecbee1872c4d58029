@@ -1,0 +1,35 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.20",
+  "base_commit_sha": "89e1383d4a564c25de23e1cecbee1872c4d58029",
+  "prompts": {},
+  "commit_stats": {
+    "git_diff_added_lines": 15,
+    "git_diff_deleted_lines": 74,
+    "ai_additions": 0,
+    "ai_accepted": 0,
+    "BYMC": 15,
+    "mixed_additions": 0,
+    "BYAC": 0,
+    "BYRC": 0,
+    "per_file": {
+      "apps/web/src/pages/workspace/thread/assistant-content-blocks.tsx": {
+        "BYMC": [
+          "10",
+          "29-31",
+          "46-49",
+          "52",
+          "54-55",
+          "88",
+          "91-92",
+          "97"
+        ],
+        "BYAC": [],
+        "BYRC": []
+      }
+    }
+  },
+  "commit_timestamp": 1786967792,
+  "requirement_id": ""
+}
