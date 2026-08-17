@@ -1,4 +1,4 @@
-import type { Project } from "../../data/workspace-data";
+import type { Project } from "../../../../data/workspace-data";
 import { useTranslation } from "react-i18next";
 
 export function ProjectThreadsLayout({

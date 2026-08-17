@@ -1,7 +1,7 @@
 import type { KeyboardEventHandler, MouseEvent } from "react";
-import MoreHorizontalIcon from "../../../../assets/svg/more-horizontal.svg?react";
-import NewConversationIcon from "../../../../assets/svg/new-conversation.svg?react";
-import type { Project } from "../../data/workspace-data";
+import MoreHorizontalIcon from "../../../../../../assets/svg/more-horizontal.svg?react";
+import NewConversationIcon from "../../../../../../assets/svg/new-conversation.svg?react";
+import type { Project } from "../../../../data/workspace-data";
 import { useTranslation } from "react-i18next";
 
 interface ProjectRowLayoutProps {

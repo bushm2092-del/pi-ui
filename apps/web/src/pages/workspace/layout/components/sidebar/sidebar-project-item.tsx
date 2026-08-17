@@ -1,4 +1,4 @@
-import type { SidebarItem } from "../data/workspace-data";
+import type { SidebarItem } from "../../../data/workspace-data";
 import { ProjectItemLayout, ShowMoreItemLayout } from "./layouts";
 import { SidebarProjectRow } from "./sidebar-project-row";
 import { SidebarProjectThreads } from "./sidebar-project-threads";

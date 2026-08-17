@@ -1,5 +1,5 @@
-import MoreHorizontalIcon from "../../../../assets/svg/more-horizontal.svg?react";
-import NewConversationIcon from "../../../../assets/svg/new-conversation.svg?react";
+import MoreHorizontalIcon from "../../../../../../assets/svg/more-horizontal.svg?react";
+import NewConversationIcon from "../../../../../../assets/svg/new-conversation.svg?react";
 import { useTranslation } from "react-i18next";
 
 interface SidebarRecentsLayoutProps {

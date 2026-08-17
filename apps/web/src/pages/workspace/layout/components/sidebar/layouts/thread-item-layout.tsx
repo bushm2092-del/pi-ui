@@ -1,7 +1,7 @@
 import type { MouseEvent } from "react";
-import ArchiveIcon from "../../../../assets/svg/archive.svg?react";
-import PinIcon from "../../../../assets/svg/pin.svg?react";
-import type { ThreadItem } from "../../data/workspace-data";
+import ArchiveIcon from "../../../../../../assets/svg/archive.svg?react";
+import PinIcon from "../../../../../../assets/svg/pin.svg?react";
+import type { ThreadItem } from "../../../../data/workspace-data";
 import { useTranslation } from "react-i18next";
 
 const actionButtonClass = "no-drag cursor-interaction items-center gap-1 border whitespace-nowrap select-none focus:outline-none disabled:cursor-not-allowed disabled:opacity-40 flex rounded-full electron:rounded-md enabled:hover:bg-transparent enabled:active:text-token-foreground/70 data-[state=open]:bg-transparent hover:text-token-foreground border-transparent electron:p-1 electron:[&>svg]:icon-sm flex items-center justify-center p-0.5 !h-5 !w-5 !p-0 [&>svg]:!h-4 [&>svg]:!w-4 sidebar-hover-icon-button-tint sidebar-thread-action-button";

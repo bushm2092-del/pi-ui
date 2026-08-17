@@ -1,15 +1,17 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import type { Project, ThreadItem } from "../../data/workspace-data";
-import { ProjectItemLayout } from "./project-item-layout";
-import { ProjectRowLayout } from "./project-row-layout";
-import { ProjectThreadsLayout } from "./project-threads-layout";
-import { SidebarProjectsHeaderLayout } from "./sidebar-projects-header-layout";
-import { SidebarProjectsLayout } from "./sidebar-projects-layout";
-import { SidebarEmptyState } from "./sidebar-empty-state";
-import { SidebarPinnedLayout } from "./sidebar-pinned-layout";
-import { SidebarRecentsLayout } from "./sidebar-recents-layout";
-import { ThreadItemLayout } from "./thread-item-layout";
+import {
+  ProjectItemLayout,
+  ProjectRowLayout,
+  ProjectThreadsLayout,
+  SidebarEmptyState,
+  SidebarPinnedLayout,
+  SidebarProjectsHeaderLayout,
+  SidebarProjectsLayout,
+  SidebarRecentsLayout,
+  ThreadItemLayout,
+} from "../components/sidebar/layouts";
 import { i18n } from "../../../../i18n";
 
 function makeProject(threads: ThreadItem[] = []): Project {

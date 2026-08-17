@@ -1,23 +1,21 @@
-import { useExpandProjectConversations, useSidebar } from "../api/sidebar-hooks";
+import { useExpandProjectConversations, useSidebar } from "../../../api/sidebar-hooks";
 import {
   selectActiveThreadId,
   selectExpandedProjectIds,
   selectSelectThread,
   selectToggleProject,
   useWorkspaceUi,
-} from "../model";
+} from "../../../model";
 import { SidebarProjectItem } from "./sidebar-project-item";
 import { SidebarEmptyState, SidebarProjectListLayout } from "./layouts";
 import { useTranslation } from "react-i18next";
+import { toSidebarProjects } from "../../utils/sidebar-projects";
 
 export function SidebarProjectList() {
   const { t } = useTranslation();
   const { data } = useSidebar();
   const expand = useExpandProjectConversations();
-  const items = (data?.projects ?? []).map((project) => ({ kind: "project" as const, id: project.id, label: project.name,
-    initialExpanded: true, threads: [...project.conversations.map((conversation) => ({ kind: "thread" as const, id: conversation.id,
-      label: conversation.title, indicator: conversation.indicator })), ...(project.hasMore ? [{ kind: "show-more" as const,
-      id: `${project.id}-show-more`, label: t("sidebar.showMore") }] : [])] }));
+  const items = toSidebarProjects(data?.projects ?? [], t("sidebar.showMore"));
   const expandedProjectIds = useWorkspaceUi(selectExpandedProjectIds);
   const activeThreadId = useWorkspaceUi(selectActiveThreadId);
   const selectThread = useWorkspaceUi(selectSelectThread);

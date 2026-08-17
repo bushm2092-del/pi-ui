@@ -1,5 +1,5 @@
-import MoreHorizontalIcon from "../../../../assets/svg/more-horizontal.svg?react";
-import PlusIcon from "../../../../assets/svg/plus.svg?react";
+import MoreHorizontalIcon from "../../../../../../assets/svg/more-horizontal.svg?react";
+import PlusIcon from "../../../../../../assets/svg/plus.svg?react";
 import { useTranslation } from "react-i18next";
 
 interface SidebarProjectsHeaderLayoutProps {

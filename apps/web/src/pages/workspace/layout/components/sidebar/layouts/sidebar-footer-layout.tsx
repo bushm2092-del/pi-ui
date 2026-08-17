@@ -14,7 +14,7 @@ import {
   useAppStore,
   type LanguagePreference,
   type ThemePreference,
-} from "../../../../stores/app-store";
+} from "../../../../../../stores/app-store";
 
 export function SidebarFooterLayout({ accountLabel }: { accountLabel: string }) {
   const theme = useAppStore((state) => state.theme);

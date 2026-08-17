@@ -1,4 +1,4 @@
-import { workspaceData } from "../data/workspace-data";
+import { workspaceData } from "../../../data/workspace-data";
 import { SidebarFooterLayout } from "./layouts";
 
 export function SidebarFooter() {

@@ -1,5 +1,5 @@
-import NotificationIcon from "../../../../assets/svg/notification.svg?react";
-import SearchIcon from "../../../../assets/svg/search.svg?react";
+import NotificationIcon from "../../../../../../assets/svg/notification.svg?react";
+import SearchIcon from "../../../../../../assets/svg/search.svg?react";
 import { useTranslation } from "react-i18next";
 
 export function SidebarModeLayout({ label }: { label: React.ReactNode }) {

@@ -1,36 +1,24 @@
 import { useEffect, useMemo } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAgentApi } from "../../agent/agent-api-context";
-import { MainSurface } from "./main";
-import { Sidebar } from "./sidebar";
-import { RootLayout } from "./workspace-layout";
 import { AgentWorkspaceRepository } from "./data/agent";
 import { WorkspaceRepositoryProvider } from "./data/workspace-repository-context";
-import { selectSidebarOpen, useWorkspaceUi, WorkspaceUiProvider } from "./model";
+import { WorkspaceLayout } from "./layout";
+import { WorkspaceUiProvider } from "./model";
 
-function WorkspaceShell() {
-  const sidebarOpen = useWorkspaceUi(selectSidebarOpen);
-
-  return <RootLayout sidebar={<Sidebar open={sidebarOpen} />} mainSurface={<MainSurface />} />;
-}
+export { installWorkspaceDocument } from "./document";
 
 export function WorkspacePage({ cwd }: { cwd?: string }) {
   const { runtime, project, conversation, connectionState, error } = useAgentApi();
   const queryClient = useQueryClient();
   const repository = useMemo(
-    () =>
-      runtime && project && conversation && cwd
-        ? new AgentWorkspaceRepository(runtime, project, conversation, cwd, queryClient)
-        : undefined,
+    () => runtime && project && conversation && cwd
+      ? new AgentWorkspaceRepository(runtime, project, conversation, cwd, queryClient)
+      : undefined,
     [runtime, project, conversation, cwd, queryClient],
   );
 
-  useEffect(
-    () => () => {
-      repository?.dispose();
-    },
-    [repository],
-  );
+  useEffect(() => () => repository?.dispose(), [repository]);
 
   if (!repository) {
     const message = !runtime
@@ -46,7 +34,7 @@ export function WorkspacePage({ cwd }: { cwd?: string }) {
   return (
     <WorkspaceRepositoryProvider value={repository}>
       <WorkspaceUiProvider>
-        <WorkspaceShell />
+        <WorkspaceLayout />
       </WorkspaceUiProvider>
     </WorkspaceRepositoryProvider>
   );

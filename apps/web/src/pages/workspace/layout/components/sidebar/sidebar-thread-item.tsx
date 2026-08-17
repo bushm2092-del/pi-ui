@@ -1,6 +1,6 @@
-import type { ThreadItem } from "../data/workspace-data";
+import type { ThreadItem } from "../../../data/workspace-data";
 import { ThreadItemLayout } from "./layouts";
-import { useArchiveConversation, usePinConversation } from "../api/sidebar-hooks";
+import { useArchiveConversation, usePinConversation } from "../../../api/sidebar-hooks";
 
 interface SidebarThreadItemProps {
   thread: ThreadItem;

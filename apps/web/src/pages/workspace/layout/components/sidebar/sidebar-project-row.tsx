@@ -1,5 +1,5 @@
 import type { KeyboardEvent } from "react";
-import type { Project } from "../data/workspace-data";
+import type { Project } from "../../../data/workspace-data";
 import { ProjectRowLayout } from "./layouts";
 
 interface SidebarProjectRowProps {

@@ -1,5 +1,5 @@
 import { Children } from "react";
-import type { Project } from "../../data/workspace-data";
+import type { Project } from "../../../../data/workspace-data";
 
 interface ProjectItemLayoutProps {
   project: Project;

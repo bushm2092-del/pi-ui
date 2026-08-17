@@ -7,7 +7,7 @@
 @import "./pages/workspace/composer/composer.css";
 @import "./pages/a2ui/a2ui.css";
 @import "./pages/a2ui-test/a2ui-stream-test.css";
-@import "./pages/workspace/sidebar/sidebar.css";
+@import "./pages/workspace/layout/styles/sidebar.css";
 @import "./styles/shadcn-theme.css";
 @import "./styles/tailwind.css";
 @import "tw-animate-css";

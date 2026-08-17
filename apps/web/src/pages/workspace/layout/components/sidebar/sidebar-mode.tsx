@@ -1,4 +1,4 @@
-import { workspaceData } from "../data/workspace-data";
+import { workspaceData } from "../../../data/workspace-data";
 import { SidebarModeLayout } from "./layouts";
 
 function ModeLabel() {

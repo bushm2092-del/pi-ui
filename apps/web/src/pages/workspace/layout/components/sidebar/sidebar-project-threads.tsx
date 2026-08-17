@@ -1,4 +1,4 @@
-import type { Project } from "../data/workspace-data";
+import type { Project } from "../../../data/workspace-data";
 import { ProjectThreadsLayout } from "./layouts";
 import { SidebarThreadItem } from "./sidebar-thread-item";
 

@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { RootLayout } from "../../workspace-layout";
+import { RootLayout } from "../../layout";
 import { AssistantMessageLayout } from "./assistant-message-layout";
 import { ConversationLayout } from "./conversation-layout";
 import { ProcessingStatusLayout } from "./processing-status-layout";
