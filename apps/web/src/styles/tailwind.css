@@ -55,6 +55,11 @@
 }
 
 @layer base {
+  html,
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
   * {
     scrollbar-color: color-mix(in srgb, var(--color-token-text-tertiary) 52%, transparent) transparent;
     scrollbar-width: thin;

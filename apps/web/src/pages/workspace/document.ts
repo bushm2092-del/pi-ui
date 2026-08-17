@@ -1,15 +1,13 @@
-import { workspaceDocumentAttributes } from "./document-attributes";
 import { workspaceData } from "./data/workspace-data";
 
-function copyAttributes(source: Record<string, string>, target: Element) {
-  for (const [name, value] of Object.entries(source)) {
-    target.setAttribute(name, value);
-  }
+export function installWorkspaceDocument() {
+  document.title = workspaceData.chrome.product.appName;
+  document.documentElement.dataset.codexOs = getPlatform();
 }
 
-export function installWorkspaceDocument() {
-  copyAttributes(workspaceDocumentAttributes.html, document.documentElement);
-  copyAttributes(workspaceDocumentAttributes.body, document.body);
-  document.title = workspaceData.chrome.product.appName;
-
+function getPlatform(): "darwin" | "win32" | "linux" {
+  const userAgent = navigator.userAgent.toLowerCase();
+  if (userAgent.includes("windows")) return "win32";
+  if (userAgent.includes("macintosh") || userAgent.includes("mac os")) return "darwin";
+  return "linux";
 }
