@@ -89,6 +89,18 @@
   display: flex;
 }
 
+.pi-sidebar-navigation .sidebar-item {
+  background-color: transparent;
+}
+
+.pi-sidebar-navigation button.sidebar-item > * {
+  background-color: transparent;
+}
+
+.pi-sidebar-navigation button.sidebar-item:hover {
+  background-color: var(--color-token-list-hover-background);
+}
+
 .pi-sidebar-navigation .pi-sidebar-section-heading {
   color: color-mix(in srgb, var(--vscode-foreground) 49.5%, transparent);
 }
@@ -108,6 +120,7 @@
   height: 24px;
   padding: 4px !important;
   border-radius: var(--radius-md);
+  background-color: transparent;
 }
 
 .pi-sidebar-navigation .sidebar-icon-button > svg {
@@ -138,9 +151,12 @@
   height: 26px;
   padding: 4px !important;
   border-radius: var(--radius-md);
-  color: color-mix(in srgb, var(--vscode-foreground) 49.5%, transparent);
+  color: color-mix(
+    in srgb,
+    var(--vscode-foreground) 49.5%,
+    transparent
+  );
 }
-
 .pi-sidebar-navigation .sidebar-top-action-button > svg {
   width: 16px;
   height: 16px;

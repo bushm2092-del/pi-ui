@@ -67,6 +67,16 @@ export function ComponentTestPage() {
             </Card>
 
             <Card>
+              <CardHeader><CardTitle>IconButton</CardTitle><CardDescription>只包含图标的操作按钮，使用 aria-label 和 Tooltip 说明动作。</CardDescription></CardHeader>
+              <CardContent className="flex flex-wrap items-center gap-2">
+                <Tooltip><TooltipTrigger asChild><Button variant="ghost" size="icon" aria-label="搜索"><Search /></Button></TooltipTrigger><TooltipContent>搜索</TooltipContent></Tooltip>
+                <Tooltip><TooltipTrigger asChild><Button variant="outline" size="icon-sm" aria-label="新建文件"><FilePlus2 /></Button></TooltipTrigger><TooltipContent>新建文件</TooltipContent></Tooltip>
+                <Tooltip><TooltipTrigger asChild><Button variant="secondary" size="icon-xs" aria-label="复制"><Copy /></Button></TooltipTrigger><TooltipContent>复制</TooltipContent></Tooltip>
+                <Tooltip><TooltipTrigger asChild><Button variant="ghost" size="icon" aria-label="删除" disabled><Trash2 /></Button></TooltipTrigger><TooltipContent>删除（不可用）</TooltipContent></Tooltip>
+              </CardContent>
+            </Card>
+
+            <Card>
               <CardHeader><CardTitle>输入组件</CardTitle><CardDescription>输入、选择和长文本。</CardDescription></CardHeader>
               <CardContent className="space-y-3">
                 <Input placeholder="项目名称" />
