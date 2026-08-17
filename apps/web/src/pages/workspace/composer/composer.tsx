@@ -1,5 +1,5 @@
 import { workspaceData } from "../data/workspace-data";
-import { useAbortMessage, useConversation, useSendMessage } from "../api";
+import { useAbortMessage, useConversation, useSendMessage } from "../hooks";
 import { selectDraft, selectSetDraft, useWorkspaceUi } from "../model";
 import { ComposerAddContext } from "./composer-add-context";
 import { ComposerEditor } from "./composer-editor";

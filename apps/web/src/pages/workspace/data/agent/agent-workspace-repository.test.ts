@@ -2,6 +2,12 @@ import { describe, expect, it } from "vitest";
 import { snapshotToMessages } from "./agent-workspace-repository";
 
 describe("snapshotToMessages", () => {
+  it("ignores legacy assistant messages without structured blocks", () => {
+    expect(snapshotToMessages([
+      { role: "assistant", content: "Legacy response", timestamp: 1_700_000_000_000 },
+    ])).toEqual([]);
+  });
+
   it("maps Pi user and assistant text into workspace messages", () => {
     expect(snapshotToMessages([
       { role: "user", content: "Hello", timestamp: 1_700_000_000_000 },

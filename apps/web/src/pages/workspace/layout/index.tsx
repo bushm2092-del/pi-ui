@@ -1,4 +1,4 @@
-import { MainSurface } from "../main";
+import { MainSurface } from "./components/main";
 import { selectSidebarOpen, useWorkspaceUi } from "../model";
 import { Sidebar } from "./components/sidebar";
 import { RootLayout } from "./components/workspace-layout";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SidebarEmptyState, SidebarPinnedLayout } from "./layouts";
-import { useSidebar } from "../../../api/sidebar-hooks";
+import { useSidebar } from "../../../hooks";
 import { SidebarThreadItem } from "./sidebar-thread-item";
 import { selectActiveThreadId, selectSelectThread, useWorkspaceUi } from "../../../model";
 

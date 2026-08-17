@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { MainHeaderLayout } from "./main-header-layout";
+import { MainHeaderLayout } from "../components/main/layouts";
 
 describe("MainHeaderLayout", () => {
   it("reserves the sidebar width and exposes the close action when open", () => {

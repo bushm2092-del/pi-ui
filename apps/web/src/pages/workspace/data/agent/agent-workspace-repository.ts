@@ -4,7 +4,7 @@ import type { AssistantContentBlock, Conversation, Message } from "../../domain"
 import { workspaceData } from "../workspace-data";
 import type { WorkspaceRepository } from "../workspace-repository";
 import type { QueryClient } from "@tanstack/react-query";
-import { sidebarQueryKey } from "../../api/sidebar-hooks";
+import { sidebarQueryKey } from "../../hooks";
 import { applyRuntimeEvent } from "./runtime-event-reducer";
 import { toast } from "sonner";
 
@@ -136,7 +136,7 @@ export function snapshotToMessages(values: RuntimeSnapshotDto["messages"]): Mess
     if (!isRecord(value) || (value.role !== "user" && value.role !== "assistant")) return;
     const blocks = value.role === "assistant" ? readAssistantBlocks(value.content) : undefined;
     const content = readTextContent(value.content);
-    if (!content && !blocks?.length) return;
+    if (value.role === "assistant" ? !blocks?.length : !content) return;
     const timestamp = typeof value.timestamp === "number" ? value.timestamp : Date.now();
     messages.push({
       id: `pi-message-${timestamp}-${index}`,

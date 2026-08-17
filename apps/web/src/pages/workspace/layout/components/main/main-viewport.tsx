@@ -1,4 +1,4 @@
-import { ThreadFrame } from "../thread";
+import { ThreadFrame } from "../../../thread";
 import { MainViewportLayout } from "./layouts";
 
 export function MainViewport() {

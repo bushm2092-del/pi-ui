@@ -40,6 +40,7 @@ describe("conversation cache updates", () => {
     expect(resolved.messages.at(-1)).toMatchObject({
       content: "World",
       status: "complete",
+      blocks: [{ type: "text", content: "World" }],
     });
   });
 
@@ -51,6 +52,7 @@ describe("conversation cache updates", () => {
     expect(second.messages.at(-1)).toMatchObject({
       content: "Hello",
       status: "pending",
+      blocks: [{ type: "text", content: "Hello" }],
     });
   });
 
@@ -64,6 +66,7 @@ describe("conversation cache updates", () => {
     expect(failed.messages.at(-1)).toMatchObject({
       content: "消息发送失败，请重试。",
       status: "failed",
+      blocks: [{ type: "text", content: "消息发送失败，请重试。" }],
     });
   });
 

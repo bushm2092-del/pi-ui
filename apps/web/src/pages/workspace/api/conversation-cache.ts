@@ -46,7 +46,7 @@ export function appendPendingAssistantText(
     ...conversation,
     messages: conversation.messages.map((message, messageIndex) =>
       messageIndex === index
-        ? { ...message, content: message.content + delta }
+        ? upsertAssistantText(message, `${message.content}${delta}`)
         : message,
     ),
   };
@@ -112,7 +112,28 @@ function updateAssistantMessage(
         ? message
         : preserveTerminalStatus && (message.status === "failed" || message.status === "stopped")
           ? message
-          : { ...message, content, status, completedAt: new Date().toISOString() },
+          : {
+              ...upsertAssistantText(message, content),
+              status,
+              completedAt: new Date().toISOString(),
+            },
     ),
+  };
+}
+
+function upsertAssistantText(message: Message, content: string): Message {
+  const id = "text-response";
+  const blocks = message.blocks ?? [];
+  const existingIndex = blocks.findIndex((block) => block.id === id);
+  const textBlock = { id, type: "text" as const, contentIndex: 0, content };
+
+  if (blocks.length > 0 && existingIndex < 0) return { ...message, content };
+
+  return {
+    ...message,
+    content,
+    blocks: existingIndex < 0
+      ? [...blocks, textBlock]
+      : blocks.map((block, index) => index === existingIndex ? textBlock : block),
   };
 }

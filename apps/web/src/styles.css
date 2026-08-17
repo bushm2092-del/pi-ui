@@ -3,7 +3,7 @@
 
 /* Final cascade composition: app foundation, shared UI, then feature-owned blocks. */
 @import "./pages/workspace/composer/utility-bar.css";
-@import "./pages/workspace/main/main.css";
+@import "./pages/workspace/layout/styles/main.css";
 @import "./pages/workspace/composer/composer.css";
 @import "./pages/a2ui/a2ui.css";
 @import "./pages/a2ui-test/a2ui-stream-test.css";

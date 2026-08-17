@@ -1,6 +1,6 @@
 import { ConversationLayout } from "./layouts";
 import { Turn } from "./turn";
-import { useConversation } from "../api";
+import { useConversation } from "../hooks";
 
 export function Conversation() {
   const { data: conversation, error, isPending } = useConversation();

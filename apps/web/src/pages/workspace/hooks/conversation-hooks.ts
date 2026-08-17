@@ -7,7 +7,7 @@ import {
   failPendingTurn,
   resolvePendingTurn,
   stopPendingTurn,
-} from "./conversation-cache";
+} from "../api/conversation-cache";
 
 export const workspaceQueryKeys = {
   all: ["workspace"] as const,

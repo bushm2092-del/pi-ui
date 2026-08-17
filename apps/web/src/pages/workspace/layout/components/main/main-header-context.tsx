@@ -1,5 +1,5 @@
-import { useConversation } from "../api";
-import { SummaryToggle } from "../summary";
+import { useConversation } from "../../../hooks";
+import { SummaryToggle } from "../../../summary";
 import { MainHeaderContextLayout } from "./layouts";
 
 export function MainHeaderContext() {

@@ -1,4 +1,4 @@
-import { useExpandProjectConversations, useSidebar } from "../../../api/sidebar-hooks";
+import { useExpandProjectConversations, useSidebar } from "../../../hooks";
 import {
   selectActiveThreadId,
   selectExpandedProjectIds,
